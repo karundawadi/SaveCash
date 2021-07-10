@@ -1,0 +1,4 @@
+For the main data entry form verify:
+- If the data entered is less than budget
+- All the fields are marked as necessary
+- Cross check the values entered 
