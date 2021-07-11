@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import Zutton from './custom_build/button';
 import { ScrollView, StyleSheet, Button, Text, View, TextInput, SafeAreaView, Alert } from 'react-native';
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
           </View>
           
           {/* Monthly Budget */}
-          <Text style={styles.descriptionText}>Let's create your monthly budget</Text>
+          <Text style={styles.descriptionText}>Let's create your monthly budget :</Text>
           
           {/* Household budget */}
           <View style={{flexDirection:"row", alignItems:'center', paddingTop:10, paddingLeft:10,paddingRight:10}}>
@@ -63,13 +63,21 @@ function App() {
             <Text>$</Text>
             <TextInput style={styles.lastName} value={transportation} onChangeText={ontransportationChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
           </View>
+          
+          <View style={{paddingTop:15}}></View>
 
-          {/* Need to create a custom component */}
-          <View style={styles.buttonPage}>
-            <Button onPress={()=>{
-              Alert.alert("Working"+firstName+lastName+monthlyIncome+household+transportation+education)
-            }} title="Hello" color='green'/>
-          </View>
+          {/* Custom button; Zutton is created here */}
+          <Zutton buttonTapHandler={()=>{
+            Alert.alert("Working")
+          }} buttonText="Test" styles={{
+            width:50,
+            height:40,
+            backgroundColor: '#280861',
+          }} textStyle={{
+            color:'white',
+          }}></Zutton>
+
+          <View style={{paddingBottom:10}}></View>
         </ScrollView>      
       </View>
     </View>
@@ -123,8 +131,7 @@ const styles = StyleSheet.create({
   buttonPage:{
     paddingTop:20,
     alignItems:'center',
-    borderRadius:2
-  }
+  },
 });
 
 export default App;
