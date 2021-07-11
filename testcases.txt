@@ -1,3 +1,6 @@
+Design thoughts: 
+- Since the data will be stored in user's device; the device being secure using Asyncstorage as it supports more platform
+
 For the main data entry form verify:
 - If the data entered is less than budget
 - All the fields are marked as necessary
