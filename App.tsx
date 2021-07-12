@@ -1,137 +1,31 @@
 import React from 'react';
-import Zutton from './custom_build/button';
-import { ScrollView, StyleSheet, Button, Text, View, TextInput, SafeAreaView, Alert } from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import InformationScreen from './component_views/information_screen'
+import HomePage from './component_views/homepage'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator()
 
 function App() {
-  const [firstName, onFirstNameChange] = React.useState("")
-  const [lastName, onLastNameChange] = React.useState("")
-  const [monthlyIncome, onmonthlyIncome] =  React.useState("")
-  const [household,onhouseholdchange] = React.useState("")
-  const [education,oneducationChange] = React.useState("")
-  const [transportation,ontransportationChange] = React.useState("")
-
+  var informationFilledIn:Boolean = false
   return (
-    <View style={styles.base}>
-      <View style={styles.body}>
-        {/* Header */}
-        <View style={styles.alignThisToTheCenter}>
-          <Text style={{fontSize:23, fontWeight:'bold'}}>Create profile</Text>
-          <Text style={{fontSize:15,width:'70%'}}>Looks like this is the first time you are using this application</Text>
-        </View>
-        <View style={{paddingTop:20}}></View>
-
-        {/* Form starts here */}
-        <ScrollView>          
-          <Text style={styles.descriptionText}>Enter your first name and last name</Text>
-          <View style={{paddingTop:10}}></View>
-          {/* First Name and last name */}
-          <View style={styles.inputArea}>
-            <SafeAreaView style={{flexDirection:"row",alignContent:"center"}}>
-              <TextInput style={styles.firstName} value={firstName} onChangeText={onFirstNameChange} placeholder="First Name"/>
-              <Text style={{padding:10,}}></Text>
-              <TextInput style={styles.lastName} value={lastName} onChangeText={onLastNameChange} placeholder="Last Name"/>
-            </SafeAreaView>
-          </View>
-
-          {/* Montly Income */}
-          <View style={{flexDirection:"row", alignItems:'center', paddingTop:10, paddingLeft:10,paddingRight:10}}>
-            <Text style={{paddingRight:10}}>Your monthlty income</Text>
-            <Text>$</Text>
-            <TextInput style={styles.lastName} value={monthlyIncome} onChangeText={onmonthlyIncome} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
-          </View>
-          
-          {/* Monthly Budget */}
-          <Text style={styles.descriptionText}>Let's create your monthly budget :</Text>
-          
-          {/* Household budget */}
-          <View style={{flexDirection:"row", alignItems:'center', paddingTop:10, paddingLeft:10,paddingRight:10}}>
-            <Text style={{paddingRight:10,flex:1}}>Household</Text>
-            <Text>$</Text>
-            <TextInput style={styles.lastName} value={household} onChangeText={onhouseholdchange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
-          </View>
-
-          {/* Education budget */}
-          <View style={{flexDirection:"row", alignItems:'center', paddingTop:10, paddingLeft:10,paddingRight:10}}>
-            <Text style={{paddingRight:10,flex:1}}>Education</Text>
-            <Text>$</Text>
-            <TextInput style={styles.lastName} value={education} onChangeText={oneducationChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
-          </View>
-
-          {/* Transportation budget */}
-          <View style={{flexDirection:"row", alignItems:'center', paddingTop:10, paddingLeft:10,paddingRight:10}}>
-            <Text style={{paddingRight:10,flex:1}}>Transportation</Text>
-            <Text>$</Text>
-            <TextInput style={styles.lastName} value={transportation} onChangeText={ontransportationChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
-          </View>
-          
-          <View style={{paddingTop:15}}></View>
-
-          {/* Custom button; Zutton is created here */}
-          <Zutton buttonTapHandler={()=>{
-            Alert.alert("Working")
-          }} buttonText="Test" styles={{
-            width:50,
-            height:40,
-            backgroundColor: '#280861',
-          }} textStyle={{
-            color:'white',
-          }}></Zutton>
-
-          <View style={{paddingBottom:10}}></View>
-        </ScrollView>      
-      </View>
-    </View>
-  );
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="InformationScreen">
+        <Stack.Screen name="InformationScreen" component={InformationScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="HomePage" component={HomePage} options={{headerShown:false}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
 // Styling is done after this point 
 const styles = StyleSheet.create({
-  base:{
-    backgroundColor:"#A366E8",
-    flex:1, // This takes all the available space 
-    paddingTop:80,
-  },
-  descriptionText:{
-    alignContent:'flex-start',
-    justifyContent:'flex-start',
-    paddingTop:15,
-    paddingLeft:10
-  },
-  alignThisToTheCenter:{
-    alignItems:'center',
-  },
-  body:{
-    width:'100%',
-    height:'auto',
-    backgroundColor:'white',
-  },
-  inputArea:{
-    alignItems:'flex-start',
-    flexDirection:'row',
-    paddingLeft:10,
-    paddingRight:10,
-    width:'100%',
-  },
-  firstName:{
+  home:{
     flex:1,
-    height:28,
-    fontSize:16,
-    paddingLeft:4,
-    justifyContent:"flex-end",
-    backgroundColor:"#e0dcdc"
-  },
-  lastName:{
-    flex:1,
-    height:28,
-    paddingLeft:4,
-    fontSize:16,
-    justifyContent:'flex-start',
-    backgroundColor:"#e0dcdc",
-  },
-  buttonPage:{
-    paddingTop:20,
-    alignItems:'center',
-  },
+  }
 });
 
 export default App;
