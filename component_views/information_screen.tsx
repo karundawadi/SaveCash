@@ -21,7 +21,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
             
         }
     }
-    
+    getValue()
     return (
     <View style={styles.base}>
         <View style={styles.body}>
