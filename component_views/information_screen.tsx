@@ -12,13 +12,11 @@ function InformationScreen({ navigation } : {navigation : any}) {
     const [transportation,ontransportationChange] = React.useState("")
 
     const getValue = async() => {
-        var test 
         try{
             await AsyncStorage.getItem('userDetails')
-            console.log("Working")
             navigation.navigate("HomePage")
         } catch(e){
-            
+            console.log(e)
         }
     }
     getValue()
@@ -27,8 +25,8 @@ function InformationScreen({ navigation } : {navigation : any}) {
         <View style={styles.body}>
             {/* Header */}
             <View style={styles.alignThisToTheCenter}>
-            <Text style={{fontSize:23, fontWeight:'bold'}}>Create profile</Text>
-            <Text style={{fontSize:15,width:'70%'}}>Looks like this is the first time you are using this application</Text>
+                <Text style={{fontSize:23, fontWeight:'bold'}}>Create profile</Text>
+                <Text style={{fontSize:15,width:'70%'}}>Looks like this is the first time you are using this application</Text>
             </View>
             <View style={{paddingTop:20}}></View>
 
@@ -83,30 +81,30 @@ function InformationScreen({ navigation } : {navigation : any}) {
                 // Saving data to AsyncStorage
                 // All the test conditions are kept here 
                 if (firstName.length == 0){
-                Alert.alert("First Name empty")
+                    Alert.alert("First Name empty")
                 }
                 else if (lastName.length == 0){
-                Alert.alert("Last Name Empty")
+                    Alert.alert("Last Name Empty")
                 }
                 else if (monthlyIncome.length == 0){
-                Alert.alert("Monthly income empty")
+                    Alert.alert("Monthly income empty")
                 }
                 else if (education.length == 0){
-                Alert.alert("Education field empty")
+                    Alert.alert("Education field empty")
                 }
                 else if (household.length == 0){
-                Alert.alert("Household field empty")
+                    Alert.alert("Household field empty")
                 }
                 else if (transportation.length == 0){
-                Alert.alert("Transporation field empty")
+                    Alert.alert("Transporation field empty")
                 }
                 // Since numeric key is only supported 
                 else if ((Number(monthlyIncome)<0) || (Number(education) < 0) || (Number(household) < 0) || (Number(transportation)<0)){
-                Alert.alert("Number cannot be negative")
+                    Alert.alert("Number cannot be negative")
                 }
                 // Will only show this if the total is less than zero meaning the overall sum is less than estimated budget
                 else if ((Number(monthlyIncome) - Number(education) - Number(transportation) - Number(household)) < 0){
-                Alert.alert("The amount is more than the budget")
+                    Alert.alert("The amount is more than the budget")
                 // If greater than zero will be stored as savings 
                 }
                 // Adding data to AsyncStorage 
