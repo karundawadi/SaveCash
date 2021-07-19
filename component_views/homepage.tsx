@@ -1,17 +1,34 @@
 import React from 'react';
-import {StyleSheet, View, Text, Alert, Button} from 'react-native';
+import {StyleSheet, View, Text, Alert, Button, Image, TouchableHighlight} from 'react-native';
 import CircularButton from '../custom_build/circular_button';
 
 function HomePage({ navigation } : {navigation : any}){
+    var icontext = '../icons/people.png'
+
+    var inst = setInterval(change, 1000);
+    var counter = true
+    function change() {
+        if (counter == true){
+            icontext = '../icons/list.png';
+        }
+        else{
+            icontext = '../icons/people.png';
+            counter = false;
+        }
+    }
+
     return (
         <View style={styles.base}>
             <View style={styles.body}>
                 <View style={{height:'15%',alignItems:'center',justifyContent:'center'}}>
-                    <CircularButton buttonText=":______:" styles={{backgroundColor:'pink'}} textStyle={{}} buttonTapHandler={()=>{
+                    {/* <CircularButton buttonText="Test" styles={{backgroundColor:'pink'}} textStyle={{}} buttonTapHandler={()=>{
                             Alert.alert("Working")
                     }}>
-
-                    </CircularButton>
+                    </CircularButton> */}
+                    <TouchableHighlight onPress={()=>{Alert.alert("Works!")}}>
+                        <Image style={{width:20,height:20}} source={require('../icons/people.png')}></Image>
+                    </TouchableHighlight>
+                    <Image style={{width:20,height:20}} source={require(icontext)}></Image>
                 </View>
                 <View style={{backgroundColor:'pink',height:'70%',alignItems:'center',justifyContent:'center'}}>
                     <Text>You have this much remaining.</Text>
