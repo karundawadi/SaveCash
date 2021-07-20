@@ -4,6 +4,9 @@ import InformationScreen from './component_views/information_screen'
 import HomePage from './component_views/homepage'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import 'react-native-gesture-handler';
+import AddExpense from './component_views/addexpense';
+import UserProfile from './component_views/profile_section/user_profile'
+import Financials from './component_views/profile_section/financials'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -16,6 +19,9 @@ function App() {
       <Stack.Navigator initialRouteName="InformationScreen">
         <Stack.Screen name="InformationScreen" component={InformationScreen} options={{headerShown:false}}/>
         <Stack.Screen name="HomePage" component={HomePage} options={{headerShown:false}}/>
+        <Stack.Screen name="AddExpense" component={AddExpense} />
+        <Stack.Screen name="UserProfile" component={UserProfile} />
+        <Stack.Screen name="Financials" component={Financials} />
       </Stack.Navigator>
     </NavigationContainer>
   )

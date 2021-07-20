@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Alert, Button, Image, TouchableHighlight} from 'react-native';
+import {StyleSheet, View, Text, Alert, Image, TouchableHighlight} from 'react-native';
 import CircularButton from '../custom_build/circular_button';
 import {Ionicons} from '@expo/vector-icons'
 
@@ -15,7 +15,9 @@ function HomePage({ navigation } : {navigation : any}){
                         paddingTop:'5%',
                         borderRadius:50,
                     }}>
-                    <TouchableHighlight onPress={()=>{Alert.alert("Works!")}}>
+                    <TouchableHighlight onPress={()=>{
+                        navigation.navigate("Financials")
+                    }}>
                         <Image style={{
                             height:35,
                             width:35
@@ -30,7 +32,9 @@ function HomePage({ navigation } : {navigation : any}){
                 <View style={{height:'15%',alignItems:'center',justifyContent:'center',paddingBottom:'4%'}}>
                     <TouchableHighlight style={{
                         borderRadius:40,
-                    }} onPress={()=>{Alert.alert("Add expense works!")}}>
+                    }} onPress={()=>{
+                            navigation.navigate("AddExpense")
+                        }}>
                         <Ionicons name="md-add-circle" size={40}/>
                     </TouchableHighlight>
                     {/* <CircularButton buttonText="+" styles={{

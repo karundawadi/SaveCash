@@ -1,6 +1,6 @@
 import React from 'react';
 import Zutton from '../custom_build/button';
-import { ScrollView, StyleSheet, Button, Text, View, TextInput, SafeAreaView, Alert } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, TextInput, SafeAreaView, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function InformationScreen({ navigation } : {navigation : any}) {
@@ -37,13 +37,13 @@ function InformationScreen({ navigation } : {navigation : any}) {
             {/* First Name and last name */}
             <View style={styles.inputArea}>
                 <SafeAreaView style={{flexDirection:"row",alignContent:"center"}}>
-                <TextInput style={styles.firstName} value={firstName} onChangeText={onFirstNameChange} placeholder="First Name"/>
-                <Text style={{padding:10,}}></Text>
-                <TextInput style={styles.lastName} value={lastName} onChangeText={onLastNameChange} placeholder="Last Name"/>
+                    <TextInput style={styles.firstName} value={firstName} onChangeText={onFirstNameChange} placeholder="First Name"/>
+                    <Text style={{padding:10,}}></Text>
+                    <TextInput style={styles.lastName} value={lastName} onChangeText={onLastNameChange} placeholder="Last Name"/>
                 </SafeAreaView>
             </View>
 
-            {/* Montly Income */}
+            {/* Monthly Income */}
             <View style={{flexDirection:"row", alignItems:'center', paddingTop:10, paddingLeft:10,paddingRight:10}}>
                 <Text style={{paddingRight:10}}>Your monthlty income</Text>
                 <Text>$</Text>
@@ -148,52 +148,52 @@ function InformationScreen({ navigation } : {navigation : any}) {
 
 // Styling is done after this point 
 const styles = StyleSheet.create({
-base:{
-    backgroundColor:"#A366E8",
-    flex:1, // This takes all the available space 
-    paddingTop:80,
-},
-descriptionText:{
-    alignContent:'flex-start',
-    justifyContent:'flex-start',
-    paddingTop:15,
-    paddingLeft:10
-},
-alignThisToTheCenter:{
-    alignItems:'center',
-},
-body:{
-    width:'100%',
-    height:'auto',
-    backgroundColor:'white',
-},
-inputArea:{
-    alignItems:'flex-start',
-    flexDirection:'row',
-    paddingLeft:10,
-    paddingRight:10,
-    width:'100%',
-},
-firstName:{
-    flex:1,
-    height:28,
-    fontSize:16,
-    paddingLeft:4,
-    justifyContent:"flex-end",
-    backgroundColor:"#e0dcdc"
-},
-lastName:{
-    flex:1,
-    height:28,
-    paddingLeft:4,
-    fontSize:16,
-    justifyContent:'flex-start',
-    backgroundColor:"#e0dcdc",
-},
-buttonPage:{
-    paddingTop:20,
-    alignItems:'center',
-},
+    base:{
+        backgroundColor:"#A366E8",
+        flex:1, // This takes all the available space 
+        paddingTop:80,
+    },
+    descriptionText:{
+        alignContent:'flex-start',
+        justifyContent:'flex-start',
+        paddingTop:15,
+        paddingLeft:10
+    },
+    alignThisToTheCenter:{
+        alignItems:'center',
+    },
+    body:{
+        width:'100%',
+        height:'auto',
+        backgroundColor:'white',
+    },
+    inputArea:{
+        alignItems:'flex-start',
+        flexDirection:'row',
+        paddingLeft:10,
+        paddingRight:10,
+        width:'100%',
+    },
+    firstName:{
+        flex:1,
+        height:28,
+        fontSize:16,
+        paddingLeft:4,
+        justifyContent:"flex-end",
+        backgroundColor:"#e0dcdc"
+    },
+    lastName:{
+        flex:1,
+        height:28,
+        paddingLeft:4,
+        fontSize:16,
+        justifyContent:'flex-start',
+        backgroundColor:"#e0dcdc",
+    },
+    buttonPage:{
+        paddingTop:20,
+        alignItems:'center',
+    },
 });
 
 export default InformationScreen;
