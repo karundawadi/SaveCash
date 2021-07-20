@@ -5,10 +5,18 @@ import {Ionicons} from '@expo/vector-icons'
 
 function AddExpense({ navigation } : {navigation : any}){
     return (
-        <View>
+        <View style={styles.base}>
             
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    base:{
+        flex:1,
+        paddingTop:100,
+        backgroundColor:'red'
+    }
+})
 
 export default AddExpense 

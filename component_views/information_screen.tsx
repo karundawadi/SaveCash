@@ -10,10 +10,10 @@ function InformationScreen({ navigation } : {navigation : any}) {
     const [household,onhouseholdchange] = React.useState("")
     const [education,oneducationChange] = React.useState("")
     const [transportation,ontransportationChange] = React.useState("")
-
     const getValue = async() => {
         try{
             await AsyncStorage.getItem('userDetails')
+            console.log(AsyncStorage.getItem('userDetails'))
             navigation.navigate("HomePage")
         } catch(e){
             console.log(e)
@@ -23,29 +23,31 @@ function InformationScreen({ navigation } : {navigation : any}) {
     return (
     <View style={styles.base}>
         <View style={styles.body}>
+            
             {/* Header */}
             <View style={styles.alignThisToTheCenter}>
-                <Text style={{fontSize:23, fontWeight:'bold'}}>Create profile</Text>
-                <Text style={{fontSize:15,width:'70%'}}>Looks like this is the first time you are using this application</Text>
+                <Text style={{fontSize:23, fontWeight:'bold',paddingTop:'2%'}}>Create profile</Text>
+                <Text style={{fontSize:15,paddingLeft:'2%'}}>Looks like this is the first time you are using this application</Text>
             </View>
-            <View style={{paddingTop:20}}></View>
-
+            <View style={{paddingTop:5}}></View>
+            
             {/* Form starts here */}
             <ScrollView>          
             <Text style={styles.descriptionText}>Enter your first name and last name</Text>
             <View style={{paddingTop:10}}></View>
+
             {/* First Name and last name */}
             <View style={styles.inputArea}>
-                <SafeAreaView style={{flexDirection:"row",alignContent:"center"}}>
+                <SafeAreaView style={{flexDirection:"row",alignContent:"center",justifyContent:'space-evenly'}}>
                     <TextInput style={styles.firstName} value={firstName} onChangeText={onFirstNameChange} placeholder="First Name"/>
                     <Text style={{padding:10,}}></Text>
-                    <TextInput style={styles.lastName} value={lastName} onChangeText={onLastNameChange} placeholder="Last Name"/>
+                    <TextInput style={styles.lastNameNew} value={lastName} onChangeText={onLastNameChange} placeholder="Last Name"/>
                 </SafeAreaView>
             </View>
 
             {/* Monthly Income */}
             <View style={{flexDirection:"row", alignItems:'center', paddingTop:10, paddingLeft:10,paddingRight:10}}>
-                <Text style={{paddingRight:10}}>Your monthlty income</Text>
+                <Text style={{paddingRight:10,flex:1}}>Your monthlty income</Text>
                 <Text>$</Text>
                 <TextInput style={styles.lastName} value={monthlyIncome} onChangeText={onmonthlyIncome} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
             </View>
@@ -132,9 +134,13 @@ function InformationScreen({ navigation } : {navigation : any}) {
                     saveUserInfo(userDetails)
                 }
             }} buttonText="Test" styles={{
-                width:50,
-                height:40,
+                height:'auto',
+                width:'auto',
                 backgroundColor: '#280861',
+                justifycontent:'center',
+                alignSelf:'center',
+                alignItems:'center',
+                borderRadius:4
             }} textStyle={{
                 color:'white',
             }}></Zutton>
@@ -151,7 +157,7 @@ const styles = StyleSheet.create({
     base:{
         backgroundColor:"#A366E8",
         flex:1, // This takes all the available space 
-        paddingTop:80,
+        paddingTop:'15%',
     },
     descriptionText:{
         alignContent:'flex-start',
@@ -174,26 +180,32 @@ const styles = StyleSheet.create({
         paddingRight:10,
         width:'100%',
     },
-    firstName:{
-        flex:1,
-        height:28,
-        fontSize:16,
-        paddingLeft:4,
-        justifyContent:"flex-end",
-        backgroundColor:"#e0dcdc"
-    },
     lastName:{
         flex:1,
         height:28,
-        paddingLeft:4,
+        paddingLeft:'1%',
         fontSize:16,
         justifyContent:'flex-start',
         backgroundColor:"#e0dcdc",
+        borderRadius:4
     },
-    buttonPage:{
-        paddingTop:20,
-        alignItems:'center',
+    firstName:{
+        flex:2,
+        height:28,
+        fontSize:16,
+        paddingLeft:'1%',
+        backgroundColor:"#e0dcdc",
+        borderRadius:4
     },
+    lastNameNew:{
+        flex:2,
+        height:28,
+        paddingLeft:'1%',
+        fontSize:16,
+        paddingRight:'2%',
+        backgroundColor:"#e0dcdc",
+        borderRadius:4
+    }
 });
 
 export default InformationScreen;
