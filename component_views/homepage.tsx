@@ -4,25 +4,22 @@ import CircularButton from '../custom_build/circular_button';
 import {Ionicons} from '@expo/vector-icons'
 
 function HomePage({ navigation } : {navigation : any}){
-    // var inst = setInterval(change, 8000);
-    var [counter,oncounterChange] = React.useState(true)
-
-    function change() {
-        if (counter == true){
-            return <Ionicons name="people-sharp" size={32} />
-        }
-        else{
-            return <Ionicons name="ios-stats-chart" size={32}/>
-        }
-    }
-
     return (
         <View style={styles.base}>
             <View style={styles.body}>
                 
-                <View style={{height:'15%',alignItems:'center',justifyContent:'center',paddingTop:'5%'}}>
+                <View style={{
+                        height:'15%',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        paddingTop:'5%',
+                        borderRadius:50,
+                    }}>
                     <TouchableHighlight onPress={()=>{Alert.alert("Works!")}}>
-                        {change()}
+                        <Image style={{
+                            height:35,
+                            width:35
+                        }} source={require('../Icons/profile.gif')} />
                     </TouchableHighlight>
                 </View>
 
