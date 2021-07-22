@@ -133,7 +133,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                     }
                     saveUserInfo(userDetails)
                 }
-            }} buttonText="Test" styles={{
+            }} buttonText="Sumbit" styles={{
                 height:'auto',
                 width:'auto',
                 backgroundColor: '#280861',

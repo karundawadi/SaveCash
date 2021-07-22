@@ -19,8 +19,7 @@ function App() {
         <Stack.Screen name="InformationScreen" component={InformationScreen} options={{headerShown:false}}/>
         <Stack.Screen name="HomePage" component={HomePage} options={{headerShown:false}}/>
         <Stack.Screen name="AddExpense" component={AddExpense} options={{
-          title:'',
-          
+          headerShown:false,
         }}/>
         <Stack.Screen name="UserProfile" component={UserProfile} />
         <Stack.Screen name="Financials" component={Financials} />
