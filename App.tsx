@@ -8,23 +8,30 @@ import UserProfile from './component_views/profile_section/user_profile'
 import Financials from './component_views/profile_section/financials'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
+import { store, persistor } from './redux/store';
 
 const Stack = createStackNavigator()
 
 function App() {
   var informationFilledIn:Boolean = false
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="InformationScreen">
-        <Stack.Screen name="InformationScreen" component={InformationScreen} options={{headerShown:false}}/>
-        <Stack.Screen name="HomePage" component={HomePage} options={{headerShown:false}}/>
-        <Stack.Screen name="AddExpense" component={AddExpense} options={{
-          headerShown:false,
-        }}/>
-        <Stack.Screen name="UserProfile" component={UserProfile} />
-        <Stack.Screen name="Financials" component={Financials} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="InformationScreen">
+            <Stack.Screen name="InformationScreen" component={InformationScreen} options={{headerShown:false}}/>
+            <Stack.Screen name="HomePage" component={HomePage} options={{headerShown:false}}/>
+            <Stack.Screen name="AddExpense" component={AddExpense} options={{
+              headerShown:false,
+            }}/>
+            <Stack.Screen name="UserProfile" component={UserProfile} />
+            <Stack.Screen name="Financials" component={Financials} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PersistGate>
+    </Provider>
   )
 }
 

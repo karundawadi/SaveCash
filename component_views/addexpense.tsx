@@ -7,7 +7,7 @@ import {Ionicons} from '@expo/vector-icons'
 function AddExpense({ navigation } : {navigation : any}){
     const [expenseName, onExpenseNameChange] = React.useState("")
     const [amount, onAmountChange] = React.useState("")
-    const [date, setDate] = React.useState(new Date(1598051730000));
+    const [date, setDate] = React.useState(new Date());
     const [category, onCategoryChange] = React.useState("")
     const [isRecurring, onIsRecurringChange] = React.useState(false);
     const toggleSwitch = () => onIsRecurringChange(previousState => !previousState);
@@ -68,13 +68,13 @@ function AddExpense({ navigation } : {navigation : any}){
                             borderRadius:4,
                             flexWrap:'wrap',
                             paddingLeft:10
-                        }} value={expenseName} onChangeText={onExpenseNameChange} placeholder="0.0" keyboardType="default"></TextInput>
+                        }} value={amount} onChangeText={onAmountChange} placeholder="0.0" keyboardType="default"></TextInput>
                     </View>
                 </View>
 
                 <View style={{padding:'2%'}}></View>
                 
-                <View style={{flexDirection:'row', alignItems:'flex-start',paddingLeft:10}}>
+                <View style={{flexDirection:'row', alignItems:'flex-start',justifyContent:'center',paddingLeft:10}}>
                     <Text style={{flex:2}}>Date</Text>
                     <DateTimePicker 
                         style={{flex:2}}
@@ -86,7 +86,7 @@ function AddExpense({ navigation } : {navigation : any}){
 
                 <View style={{padding:'2%'}}></View>
 
-                <View style={{flexDirection:'row',alignItems:'flex-start',paddingLeft:10}}>
+                <View style={{flexDirection:'row',alignItems:'flex-start',paddingLeft:10,justifyContent:'center'}}>
                     <Text style={{flex:2}}>Category</Text>
                     <View style={{
                         flex:2,
