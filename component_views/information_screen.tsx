@@ -1,6 +1,8 @@
 import React from 'react';
 import Zutton from '../custom_build/button';
 import { ScrollView, StyleSheet, Text, View, TextInput, SafeAreaView, Alert } from 'react-native';
+import { useSelector, useDispatch, useStore} from 'react-redux'; 
+import {changeFirstName} from '../redux/actions/user_details';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function InformationScreen({ navigation } : {navigation : any}) {
@@ -10,16 +12,24 @@ function InformationScreen({ navigation } : {navigation : any}) {
     const [household,onhouseholdchange] = React.useState("")
     const [education,oneducationChange] = React.useState("")
     const [transportation,ontransportationChange] = React.useState("")
-    const getValue = async() => {
-        try{
-            await AsyncStorage.getItem('userDetails')
-            console.log(AsyncStorage.getItem('userDetails'))
-            navigation.navigate("HomePage")
-        } catch(e){
-            console.log(e)
-        }
-    }
-    getValue()
+    // const getValue = async() => {
+    //     try{
+    //         await AsyncStorage.getItem('userDetails')
+    //         console.log(AsyncStorage.getItem('userDetails'))
+    //         navigation.navigate("HomePage")
+    //     } catch(e){
+    //         console.log(e)
+    //     }
+    // }
+    // getValue()
+
+    const firstNameValue = useSelector((state) => {
+        console.log(state.userDetails.firstName)
+    })
+    // console.log(firstNameValue)
+    const useSt = useStore();
+    // console.log(firstNameValue)
+    // console.log(useSt.getState())
     return (
     <View style={styles.base}>
         <View style={styles.body}>
@@ -35,7 +45,6 @@ function InformationScreen({ navigation } : {navigation : any}) {
             <ScrollView>          
             <Text style={styles.descriptionText}>Enter your first name and last name</Text>
             <View style={{paddingTop:10}}></View>
-
             {/* First Name and last name */}
             <View style={styles.inputArea}>
                 <SafeAreaView style={{flexDirection:"row",alignContent:"center",justifyContent:'space-evenly'}}>
@@ -193,14 +202,14 @@ const styles = StyleSheet.create({
         flex:2,
         height:28,
         fontSize:16,
-        paddingLeft:'1%',
+        paddingLeft:'2%',
         backgroundColor:"#e0dcdc",
         borderRadius:4
     },
     lastNameNew:{
         flex:2,
         height:28,
-        paddingLeft:'1%',
+        paddingLeft:'2%',
         fontSize:16,
         paddingRight:'2%',
         backgroundColor:"#e0dcdc",
