@@ -33,7 +33,9 @@ function InformationScreen({ navigation } : {navigation : any}) {
     if ((compareStates(store.getState().userDetails,firstState) == false)){
         // This means that state is already present and user has already enetered all the values 
         // Opening HomeScreen
-        navigation.navigate("HomePage")
+        React.useEffect(()=>{
+            navigation.navigate("HomePage")
+        },[navigation])
     }
 
     const dispatch = useDispatch()
