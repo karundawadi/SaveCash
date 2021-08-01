@@ -2,8 +2,11 @@ import React from 'react';
 import {StyleSheet, View, Text, Alert, Image, TouchableHighlight} from 'react-native';
 import CircularButton from '../custom_build/circular_button';
 import {Ionicons} from '@expo/vector-icons'
+import { useStore , useDispatch } from 'react-redux'; 
 
 function HomePage({ navigation } : {navigation : any}){
+    const store = useStore()
+    console.log(store.getState().userDetails)
     return (
         <View style={styles.base}>
             <View style={styles.body}>

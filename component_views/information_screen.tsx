@@ -30,7 +30,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
     }
 
     // To check if the state is already presnet or not 
-    if ((compareStates(store.getState().userDetails,firstState) == true)){
+    if ((compareStates(store.getState().userDetails,firstState) == false)){
         // This means that state is already present and user has already enetered all the values 
         // Opening HomeScreen
         navigation.navigate("HomePage")
@@ -117,69 +117,67 @@ function InformationScreen({ navigation } : {navigation : any}) {
 
             {/* Custom button; Zutton is created here */}
             <Zutton buttonTapHandler={
-                React.useEffect(() => {
-                    ()=>{
-                        // Saving data to AsyncStorage
-                        // All the test conditions are kept here 
-                        if (firstName.length == 0){
-                            Alert.alert("First Name empty")
+                ()=>{
+                    // Saving data to AsyncStorage
+                    // All the test conditions are kept here 
+                    if (firstName.length == 0){
+                        Alert.alert("First Name empty")
+                    }
+                    else if (lastName.length == 0){
+                        Alert.alert("Last Name Empty")
+                    }
+                    else if (monthlyIncome.length == 0){
+                        Alert.alert("Monthly income empty")
+                    }
+                    else if (education.length == 0){
+                        Alert.alert("Education field empty")
+                    }
+                    else if (household.length == 0){
+                        Alert.alert("Household field empty")
+                    }
+                    else if (transportation.length == 0){
+                        Alert.alert("Transporation field empty")
+                    }
+                    else if (entertainmentBudget.length == 0){
+                        Alert.alert("Entertainment field empty")
+                    }
+                    else if (selfBudget.length == 0){
+                        Alert.alert("Personal field empty")
+                    }
+                    else if (utilitiesBudget.length == 0){
+                        Alert.alert("Utilites field empty")
+                    }
+                    // Since numeric key is only supported 
+                    else if ((Number(monthlyIncome)<0) || (Number(education) < 0) || (Number(household) < 0) || (Number(transportation)<0) || (Number(entertainmentBudget) < 0) || (Number(selfBudget) < 0) || (Number(utilitiesBudget)<0) ){
+                        Alert.alert("Budget cannot be negative")
+                    }
+                    // Will only show this if the total is less than zero meaning the overall sum is less than estimated budget
+                    else if ((Number(monthlyIncome) - Number(education) - Number(transportation) - Number(household) - Number(entertainmentBudget) - Number(selfBudget) - Number(utilitiesBudget)) < 0){
+                        Alert.alert("The total amount is more than the budget")
+                    // If greater than zero will be stored as savings 
+                    }
+                    // Adding data to redux store 
+                    else{
+                        var navigateReady:boolean = false
+                        try {
+                            dispatch({type:'SET_FIRST_NAME',payload:firstName})
+                            dispatch({type:'SET_LAST_NAME',payload:lastName})
+                            dispatch({type:'SET_MONTHLY_INCOME',payload:parseFloat(monthlyIncome)})
+                            dispatch({type:'SET_HOUSEHOLD_BUDGET',payload:parseFloat(household)})
+                            dispatch({type:'SET_ENTERTAINMENT_BUDGET',payload:parseFloat(entertainmentBudget)})
+                            dispatch({type:'SET_TRANSPORTATION_BUDGET',payload:parseFloat(transportation)})
+                            dispatch({type:'SET_UTILITIES_BUDGET',payload:parseFloat(utilitiesBudget)})
+                            dispatch({type:'SET_SELF_BUDGET',payload:parseFloat(selfBudget)})
+                            navigateReady = true
+                        } catch (error) {
+                            Alert.alert("Error Found, Could not Save")
+                            navigateReady = false
                         }
-                        else if (lastName.length == 0){
-                            Alert.alert("Last Name Empty")
-                        }
-                        else if (monthlyIncome.length == 0){
-                            Alert.alert("Monthly income empty")
-                        }
-                        else if (education.length == 0){
-                            Alert.alert("Education field empty")
-                        }
-                        else if (household.length == 0){
-                            Alert.alert("Household field empty")
-                        }
-                        else if (transportation.length == 0){
-                            Alert.alert("Transporation field empty")
-                        }
-                        else if (entertainmentBudget.length == 0){
-                            Alert.alert("Entertainment field empty")
-                        }
-                        else if (selfBudget.length == 0){
-                            Alert.alert("Personal field empty")
-                        }
-                        else if (utilitiesBudget.length == 0){
-                            Alert.alert("Utilites field empty")
-                        }
-                        // Since numeric key is only supported 
-                        else if ((Number(monthlyIncome)<0) || (Number(education) < 0) || (Number(household) < 0) || (Number(transportation)<0) || (Number(entertainmentBudget) < 0) || (Number(selfBudget) < 0) || (Number(utilitiesBudget)<0) ){
-                            Alert.alert("Budget cannot be negative")
-                        }
-                        // Will only show this if the total is less than zero meaning the overall sum is less than estimated budget
-                        else if ((Number(monthlyIncome) - Number(education) - Number(transportation) - Number(household) - Number(entertainmentBudget) - Number(selfBudget) - Number(utilitiesBudget)) < 0){
-                            Alert.alert("The total amount is more than the budget")
-                        // If greater than zero will be stored as savings 
-                        }
-                        // Adding data to redux store 
-                        else{
-                            var navigateReady:boolean = false
-                            try {
-                                dispatch({type:'SET_FIRST_NAME',payload:firstName})
-                                dispatch({type:'SET_LAST_NAME',payload:lastName})
-                                dispatch({type:'SET_MONTHLY_INCOME',payload:parseFloat(monthlyIncome)})
-                                dispatch({type:'SET_HOUSEHOLD_BUDGET',payload:parseFloat(household)})
-                                dispatch({type:'SET_ENTERTAINMENT_BUDGET',payload:parseFloat(household)})
-                                dispatch({type:'SET_TRANSPORTATION_BUDGET',payload:parseFloat(transportation)})
-                                dispatch({type:'SET_UTILITIES_BUDGET',payload:parseFloat(transportation)})
-                                dispatch({type:'SET_SELF_BUDGET',payload:parseFloat(transportation)})
-                                navigateReady = true
-                            } catch (error) {
-                                Alert.alert("Error Found, Could not Save")
-                                navigateReady = false
-                            }
-                            if (navigateReady){
-                                navigation.navigate("HomePage")
-                            }
+                        if (navigateReady){
+                            navigation.navigate("HomePage")
                         }
                     }
-                })
+                }
             } buttonText="Sumbit" styles={{
                 height:'auto',
                 width:'auto',

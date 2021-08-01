@@ -16,6 +16,41 @@ export const changeUserInfo = (state = initialState, action:any) => {
                 ...state, 
                 firstName : action.payload
             }
+        case 'SET_LAST_NAME':
+            return {
+                ...state, 
+                lastName : action.payload
+            }
+        case 'SET_MONTHLY_INCOME':
+            return {
+                ...state, 
+                monthltyIncome : action.payload
+            }
+        case 'SET_ENTERTAINMENT_BUDGET':
+            return {
+                ...state, 
+                entertainmentBudget : action.payload
+            }
+        case 'SET_HOUSEHOLD_BUDGET':
+            return {
+                ...state, 
+                houseHoldBudget : action.payload
+            }
+        case 'SET_TRANSPORTATION_BUDGET':
+            return {
+                ...state, 
+                transportationBudget : action.payload
+            }
+        case 'SET_UTILITIES_BUDGET':
+            return {
+                ...state, 
+                utiltiesBudget : action.payload
+            }
+        case 'SET_SELF_BUDGET':
+            return {
+                ...state, 
+                selfBudget : action.payload
+            }
         default:
             return state
     }
