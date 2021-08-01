@@ -1,3 +1,4 @@
+// Need to make it more verbose 
 // Maintaining a strict test case 
 export const compareStates = (olderState : any, newerState :any) => {
     if (olderState.firstName === newerState.firstName) {
