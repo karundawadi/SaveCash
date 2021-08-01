@@ -10,7 +10,6 @@ function HomePage({ navigation } : {navigation : any}){
     return (
         <View style={styles.base}>
             <View style={styles.body}>
-                
                 <View style={{
                         height:'15%',
                         alignItems:'center',
@@ -28,7 +27,7 @@ function HomePage({ navigation } : {navigation : any}){
                     </TouchableHighlight>
                 </View>
 
-                <View style={{backgroundColor:'pink',height:'70%',alignItems:'center',justifyContent:'center'}}>
+                <View style={{height:'70%',alignItems:'center',justifyContent:'center'}}>
                     <Text>You have this much remaining.</Text>
                 </View>
 
@@ -60,7 +59,7 @@ function HomePage({ navigation } : {navigation : any}){
 
 const styles = StyleSheet.create({
     base:{
-        backgroundColor:'white',
+        backgroundColor:'#AFE1AF',
         flex:1,
     },
     body:{

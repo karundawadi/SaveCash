@@ -30,9 +30,14 @@ function InformationScreen({ navigation } : {navigation : any}) {
     }
 
     // To check if the state is already presnet or not 
-    if ((compareStates(store.getState().userDetails,firstState) == false)){
+    if ((compareStates(store.getState().userDetails,firstState) == true)){
         // This means that state is already present and user has already enetered all the values 
         // Opening HomeScreen
+        
+        // Navigation makes side effects; if present here without useEffect we have no way of breaking react's functional paradigm 
+        // Using useEffect takes to more known version and we are able to make changes as the side effect occurs and this code is rendered
+        // TLDR : useEffect makes sure that code with sideeffect navigation.navigate runs
+        // Using this does not let change the total reload values in the begining 
         React.useEffect(()=>{
             navigation.navigate("HomePage")
         },[navigation])
