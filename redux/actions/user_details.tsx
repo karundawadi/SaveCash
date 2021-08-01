@@ -28,28 +28,28 @@ export const changeHouseHoldIncome = (houseHoldBudget:number) => {
 
 export const changeEntertainmentBudget = (entertainmentBudget:number) => {
     return{
-        type: 'SET_HOUSEHOLD_BUDGET',
+        type: 'SET_ENTERTAINMENT_BUDGET',
         payload: entertainmentBudget
     }
 }
 
 export const changeTransportationBudget = (transportationBudget:number) => {
     return{
-        type: 'SET_HOUSEHOLD_BUDGET',
+        type: 'SET_TRANSPORTATION_BUDGET',
         payload: transportationBudget
     }
 }
 
 export const changeUtilitiesBudget = (utiltiesBudget:number) => {
     return{
-        type: 'SET_HOUSEHOLD_BUDGET',
+        type: 'SET_UTILITIES_BUDGET',
         payload: utiltiesBudget
     }
 }
 
 export const changeSelfBudget = (selfBudget:number) => {
     return{
-        type: 'SET_HOUSEHOLD_BUDGET',
+        type: 'SET_SELF_BUDGET',
         payload: selfBudget
     }
 }

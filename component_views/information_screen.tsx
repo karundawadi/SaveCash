@@ -2,8 +2,8 @@ import React from 'react';
 import Zutton from '../custom_build/button';
 import { ScrollView, StyleSheet, Text, View, TextInput, SafeAreaView, Alert } from 'react-native';
 import { useSelector, useDispatch, useStore} from 'react-redux'; 
-import {changeFirstName} from '../redux/actions/user_details';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {compareStates} from '../Helper/functions'
 
 function InformationScreen({ navigation } : {navigation : any}) {
     const [firstName, onFirstNameChange] = React.useState("")
@@ -12,24 +12,27 @@ function InformationScreen({ navigation } : {navigation : any}) {
     const [household,onhouseholdchange] = React.useState("")
     const [education,oneducationChange] = React.useState("")
     const [transportation,ontransportationChange] = React.useState("")
-    // const getValue = async() => {
-    //     try{
-    //         await AsyncStorage.getItem('userDetails')
-    //         console.log(AsyncStorage.getItem('userDetails'))
-    //         navigation.navigate("HomePage")
-    //     } catch(e){
-    //         console.log(e)
-    //     }
-    // }
-    // getValue()
 
-    const firstNameValue = useSelector((state) => {
-        console.log(state.userDetails.firstName)
-    })
-    // console.log(firstNameValue)
-    const useSt = useStore();
-    // console.log(firstNameValue)
-    // console.log(useSt.getState())
+    const store = useStore()
+    
+    const firstState = {
+        firstName : 'Karun',
+        lastName : '',
+        monthltyIncome : 0.00,
+        houseHoldBudget : 0.00,
+        entertainmentBudget : 0.00,
+        transportationBudget : 0.00,
+        utiltiesBudget : 0.00,
+        selfBudget : 0.00,
+    }
+
+    // To check if the state is already presnet or not 
+    if ((compareStates(store.getState().userDetails,firstState) == false)){
+        // This means that state is already present and user has already enetered all the values 
+        // Opening HomeScreen
+        navigation.navigate("HomePage")
+    }
+
     return (
     <View style={styles.base}>
         <View style={styles.body}>
@@ -120,27 +123,24 @@ function InformationScreen({ navigation } : {navigation : any}) {
                 }
                 // Adding data to AsyncStorage 
                 else{
-                    const userDetails = {
-                        firstName : firstName,
-                        lastName : lastName,
-                        monthlyIncome: monthlyIncome,
-                        budget:{
-                            household: household,
-                            transportation: transportation,
-                            education : education,
-                        }
+                    var navigateReady:boolean = false
+                    try {
+                        store.dispatch({type:'SET_FIRST_NAME',payload:firstName})
+                        store.dispatch({type:'SET_LAST_NAME',payload:lastName})
+                        store.dispatch({type:'SET_MONTHLY_INCOME',payload:parseFloat(monthlyIncome)})
+                        store.dispatch({type:'SET_HOUSEHOLD_BUDGET',payload:parseFloat(household)})
+                        store.dispatch({type:'SET_ENTERTAINMENT_BUDGET',payload:parseFloat(household)})
+                        store.dispatch({type:'SET_TRANSPORTATION_BUDGET',payload:parseFloat(transportation)})
+                        store.dispatch({type:'SET_UTILITIES_BUDGET',payload:parseFloat(transportation)})
+                        store.dispatch({type:'SET_SELF_BUDGET',payload:parseFloat(transportation)})
+                        navigateReady = true
+                    } catch (error) {
+                        Alert.alert("Error Found, Could not Save")
+                        navigateReady = false
                     }
-                    const saveUserInfo = async (value:any) =>{
-                        try{
-                            const jsonValue = JSON.stringify(value)
-                            await AsyncStorage.setItem('userDetails',jsonValue)
-                            // Navigating to another screen
-                            navigation.navigate("HomePage")
-                        } catch(e){
-                            Alert.alert("Error entering data. Please try again!")
-                        }
+                    if (navigateReady){
+                        navigation.navigate("HomePage")
                     }
-                    saveUserInfo(userDetails)
                 }
             }} buttonText="Sumbit" styles={{
                 height:'auto',
