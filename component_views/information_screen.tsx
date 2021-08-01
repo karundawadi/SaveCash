@@ -30,7 +30,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
     }
 
     // To check if the state is already presnet or not 
-    if ((compareStates(store.getState().userDetails,firstState) == true)){
+    if ((compareStates(store.getState().userDetails,firstState) == false)){
         // This means that state is already present and user has already enetered all the values 
         // Opening HomeScreen
         
@@ -42,7 +42,6 @@ function InformationScreen({ navigation } : {navigation : any}) {
             navigation.navigate("HomePage")
         },[navigation])
     }
-
     const dispatch = useDispatch()
     return (
     <View style={styles.base}>
