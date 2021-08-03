@@ -22,3 +22,13 @@ export const compareStates = (olderState : any, newerState :any) => {
     }
     return false
 }
+
+// This is to create a hash map for expesneInformation or actions hashmap 
+const expenseInformation = (expenseAmount:number,expenseDescription:string, expenseCategory : string, expenseDate: Date, type:string)=>{
+    return {
+        amount : expenseAmount,
+        description: expenseDescription,
+        date: expenseDate,
+        type : type, 
+    }
+}
