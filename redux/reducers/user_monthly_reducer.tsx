@@ -52,6 +52,8 @@ export const monthlyBalance = (state = monthlyState, action:any) => {
                 ...state,
                 surplus: action.payload
             }
+        case 'PURGE':
+            return monthlyState
         default:
             return state
     }

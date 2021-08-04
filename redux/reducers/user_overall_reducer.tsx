@@ -60,6 +60,8 @@ export const yearlyBalance = (state = yearlyState, action:any) => {
                 ...state,
                 totalDebt : action.payload
             }
+        case 'PURGE':
+            return yearlyState
     
         default:
             return state

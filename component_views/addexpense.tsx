@@ -2,7 +2,10 @@ import React from 'react';
 import {StyleSheet, View, Text, Switch, Button, TextInput, Modal, Platform ,Alert, Image, TouchableHighlight} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import RNPickerSelect from 'react-native-picker-select';
-import {Ionicons} from '@expo/vector-icons'
+import {Ionicons} from '@expo/vector-icons';
+import { useStore , useDispatch } from 'react-redux'; 
+
+// Basically this adds to the value 
 
 function AddExpense({ navigation } : {navigation : any}){
     const [expenseName, onExpenseNameChange] = React.useState("")
@@ -10,13 +13,15 @@ function AddExpense({ navigation } : {navigation : any}){
     const [date, setDate] = React.useState(new Date());
     const [category, onCategoryChange] = React.useState("")
     const [isRecurring, onIsRecurringChange] = React.useState(false);
-    const toggleSwitch = () => onIsRecurringChange(previousState => !previousState);
-
+    const toggleSwitch = () => onIsRecurringChange(previousState => !previousState)
     const onChange = (event:any, selectedDate:any) => {
         const currentDate = selectedDate || date;
         setDate(currentDate);
     };
 
+    const dispatch  = useDispatch()
+    const store = useStore()
+    console.log(store.getState().allTransactions)
     return (
         <View style={styles.base}>
             <View style={styles.form}>
@@ -104,9 +109,11 @@ function AddExpense({ navigation } : {navigation : any}){
                                 value:null
                             }}
                             items={[ 
-                                { label: 'Football', value: 'football' },
-                                { label: 'Baseball', value: 'baseball' },
-                                { label: 'Hockey', value: 'hockey' },
+                                { label: 'HouseHold', value: 'houseHold' },
+                                { label: 'Personal', value: 'self' },
+                                { label: 'Transportation', value: 'transportation' },
+                                { label: 'Utilities', value: 'utilities' },
+                                { label: 'Entertainment', value: 'entertainment' },
                             ]}
                         />
                     </View>
@@ -137,7 +144,46 @@ function AddExpense({ navigation } : {navigation : any}){
                             borderRadius:40,
                         }} 
                         onPress={()=>{
-                                Alert.alert("Hello")
+                            var now = new Date()
+                            if (expenseName.length == 0){
+                                Alert.alert("Expense Name cannot be Empty")
+                            }
+                            else if (amount.length == 0){
+                                Alert.alert("Amount cannot be empty")
+                            }
+                            else if (date > now){
+                                Alert.alert("Date cannot be in the future") 
+                            }
+                            else if (category.length == 0){
+                                Alert.alert("Category cannnot be empty")
+                            }
+                            else if (category === "Select an item"){
+                                Alert.alert("Please select a category")
+                            }
+                            else if (Number(amount) < 0){
+                                Alert.alert("Amount cannot be less than 0")
+                            }
+                            else if (Number(amount) == 0){
+                                Alert.alert("Amount cannot be zero")
+                            }
+                            else{
+                                // Adds to redux store 
+                                switch (category){
+                                    case "houseHold": 
+                                        dispatch({type:'ADD_TO_HOUSEHOLD_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                        console.log(store.getState().allTransactions)
+                                    case "self":
+                                        dispatch({type:'ADD_TO_SELF_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                    case "transportation":
+                                        dispatch({type:'ADD_TO_TRANSPORTATION_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                    case "utilities":
+                                        dispatch({type:'ADD_TO_UTILITIES_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                    case "entertainment":
+                                        dispatch({type:'ADD_TO_ENTERTAINMENT_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                    default:
+                                        Alert.alert("Please select a category")
+                                }
+                            }
                         }}>
                             <Ionicons name="add-circle-outline" color="green" size={40}/>
                     </TouchableHighlight>

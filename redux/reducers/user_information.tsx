@@ -51,6 +51,9 @@ export const changeUserInfo = (state = initialState, action:any) => {
                 ...state, 
                 selfBudget : action.payload
             }
+        case 'PURGE':
+            return initialState
+            
         default:
             return state
     }

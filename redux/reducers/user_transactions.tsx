@@ -9,12 +9,11 @@ const overallTransactions = {
 // Creating only setters here logic will be written later 
 export const allTransactions = (state = overallTransactions, action:any) => {
     switch (action.type){
-        case 'ADD_TO_HOUSEHOLD':
-            return [
-                {
-                    ... overallTransactions,
+        case 'ADD_TO_HOUSEHOLD_TRANSACTION':
+            return {
+                    ...state,
                     household: [
-                        ...overallTransactions.household,
+                        ...state.household,
                         {
                             amount : action.amount,
                             description: action.description,
@@ -22,14 +21,12 @@ export const allTransactions = (state = overallTransactions, action:any) => {
                         }
                     ]
                 }
-            ]
 
         case 'ADD_TO_SELF_TRANSACTION':
-            return [
-                {
-                    ... overallTransactions,
+            return {
+                    ...state,
                     self: [
-                        ...overallTransactions.household,
+                        ...state.household,
                         {
                             amount : action.amount,
                             description: action.description,
@@ -37,14 +34,13 @@ export const allTransactions = (state = overallTransactions, action:any) => {
                         }
                     ]
                 }
-            ]
+            
         
         case 'ADD_TO_TRANSPORTATION_TRANSACTION':
-            return [
-                {
-                    ... overallTransactions,
+            return {
+                    ...state,
                     transportation: [
-                        ...overallTransactions.household,
+                        ...state.household,
                         {
                             amount : action.amount,
                             description: action.description,
@@ -52,13 +48,12 @@ export const allTransactions = (state = overallTransactions, action:any) => {
                         }
                     ]
                 }
-            ]
+            
         case 'ADD_TO_UTILITIES_TRANSACTION':
-            return [
-                {
-                    ... overallTransactions,
+            return {
+                    ...state,
                     utilities: [
-                        ...overallTransactions.household,
+                        ...state.household,
                         {
                             amount : action.amount,
                             description: action.description,
@@ -66,14 +61,13 @@ export const allTransactions = (state = overallTransactions, action:any) => {
                         }
                     ]
                 }
-            ]
+            
 
         case 'ADD_TO_ENTERTAINMENT_TRANSACTION':
-            return [
-                {
-                    ... overallTransactions,
+            return {
+                    ...state,
                     entertainment: [
-                        ...overallTransactions.household,
+                        ...state.household,
                         {
                             amount : action.amount,
                             description: action.description,
@@ -81,7 +75,8 @@ export const allTransactions = (state = overallTransactions, action:any) => {
                         }
                     ]
                 }
-            ]
+        case 'PURGE':
+            return overallTransactions
 
         default:
             return state

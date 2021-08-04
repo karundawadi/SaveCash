@@ -14,7 +14,6 @@ function InformationScreen({ navigation } : {navigation : any}) {
     const [selfBudget, onSelfBudgetChange] = React.useState("")
     const [entertainmentBudget,onEntertainmentBudgetChange] = React.useState("")
     const [utilitiesBudget, onUtlitiesBudgetChange] = React.useState("")
-
     const store = useStore()
     
     // This is the state at the begining of the program 
@@ -31,13 +30,9 @@ function InformationScreen({ navigation } : {navigation : any}) {
 
     // To check if the state is already presnet or not 
     if ((compareStates(store.getState().userDetails,firstState) == false)){
-        // This means that state is already present and user has already enetered all the values 
-        // Opening HomeScreen
-        
-        // Navigation makes side effects; if present here without useEffect we have no way of breaking react's functional paradigm 
-        // Using useEffect takes to more known version and we are able to make changes as the side effect occurs and this code is rendered
-        // TLDR : useEffect makes sure that code with sideeffect navigation.navigate runs
-        // Using this does not let change the total reload values in the begining 
+        // Use Effect was used here cause the program runs the compareStates condition 
+        // Verifies that it is true, then comes here. State of navigation changes
+        // Reloads the program, useEffect changes only the navigation  
         React.useEffect(()=>{
             navigation.navigate("HomePage")
         },[navigation])
