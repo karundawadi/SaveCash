@@ -172,17 +172,24 @@ function AddExpense({ navigation } : {navigation : any}){
                                     case "houseHold": 
                                         dispatch({type:'ADD_TO_HOUSEHOLD_TRANSACTION',description:expenseName,amount:amount,date:date})
                                         console.log(store.getState().allTransactions)
+                                        break;
                                     case "self":
                                         dispatch({type:'ADD_TO_SELF_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                        break;
                                     case "transportation":
                                         dispatch({type:'ADD_TO_TRANSPORTATION_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                        break;
                                     case "utilities":
                                         dispatch({type:'ADD_TO_UTILITIES_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                        break;
                                     case "entertainment":
                                         dispatch({type:'ADD_TO_ENTERTAINMENT_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                        break;
                                     default:
                                         Alert.alert("Please select a category")
+                                        break;
                                 }
+                                Alert.alert("Successful")
                             }
                         }}>
                             <Ionicons name="add-circle-outline" color="green" size={40}/>

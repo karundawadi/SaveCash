@@ -26,7 +26,7 @@ export const allTransactions = (state = overallTransactions, action:any) => {
             return {
                     ...state,
                     self: [
-                        ...state.household,
+                        ...state.self,
                         {
                             amount : action.amount,
                             description: action.description,
@@ -40,7 +40,7 @@ export const allTransactions = (state = overallTransactions, action:any) => {
             return {
                     ...state,
                     transportation: [
-                        ...state.household,
+                        ...state.transportation,
                         {
                             amount : action.amount,
                             description: action.description,
@@ -53,7 +53,7 @@ export const allTransactions = (state = overallTransactions, action:any) => {
             return {
                     ...state,
                     utilities: [
-                        ...state.household,
+                        ...state.utilities,
                         {
                             amount : action.amount,
                             description: action.description,
@@ -67,7 +67,7 @@ export const allTransactions = (state = overallTransactions, action:any) => {
             return {
                     ...state,
                     entertainment: [
-                        ...state.household,
+                        ...state.entertainment,
                         {
                             amount : action.amount,
                             description: action.description,
@@ -75,7 +75,7 @@ export const allTransactions = (state = overallTransactions, action:any) => {
                         }
                     ]
                 }
-        case 'PURGE':
+        case 'PURGE_TRANSACTIONS':
             return overallTransactions
 
         default:

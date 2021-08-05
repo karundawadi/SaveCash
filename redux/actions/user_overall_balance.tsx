@@ -60,3 +60,9 @@ export const setDebtOverall = (total:string) => {
         payload : total
     }
 }
+
+export const purgeAll = (details:any) => {
+    return{
+        type: 'PURGE_OVERALL_BALANCE',
+    }
+}

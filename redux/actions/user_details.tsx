@@ -53,3 +53,9 @@ export const changeSelfBudget = (selfBudget:number) => {
         payload: selfBudget
     }
 }
+
+export const purgeAll = (details:any) => {
+    return{
+        type: 'PURGE_USER_DETAILS',
+    }
+}

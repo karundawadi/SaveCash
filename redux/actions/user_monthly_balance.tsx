@@ -53,3 +53,9 @@ export const setSurplus = (total:string) => {
         payload : total
     }
 }
+
+export const purgeAll = (details:any) => {
+    return{
+        type: 'PURGE_MONTHLY',
+    }
+}
