@@ -54,6 +54,63 @@ export const setSurplus = (total:string) => {
     }
 }
 
+export const subtractFromTotalForMonth = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_TOTAL_FOR_MONTH',
+        payload : total
+    }
+}
+
+export const subtractFromEntertainment = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_ENTERTAINMENT_FOR_MONTH',
+        payload : total
+    }
+}
+
+export const subtractFromHouseHold = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_HOUSEHOLD_FOR_MONTH',
+        payload : total
+    }
+}
+
+export const subtractFromSelf = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_SELF_FOR_MONTH',
+        payload : total
+    }
+}
+
+export const subtractFromTransportation = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_TRANSPORTATION_FOR_MONTH',
+        payload : total
+    }
+}
+
+export const subtractFromUtilites = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_UTILITIES_FOR_MONTH',
+        payload : total
+    }
+}
+
+export const addToDebt = (total:string) => {
+    return {
+        type : 'ADD_TO_DEBT_FOR_MONTH',
+        payload : total
+    }
+}
+
+export const subtractFromSurplus = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_SURPLUS_FOR_MONTH',
+        payload : total
+    }
+}
+
+
 export const purgeAll = (details:any) => {
     return{
         type: 'PURGE_MONTHLY',

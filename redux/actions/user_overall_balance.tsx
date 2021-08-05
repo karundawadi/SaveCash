@@ -61,6 +61,71 @@ export const setDebtOverall = (total:string) => {
     }
 }
 
+// Will hardly be ever used 
+export const subtractFromTotalOverall = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_TOTAL',
+        payload : total
+    }
+}
+
+export const subtractFromIncomeOverall = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_INCOME',
+        payload : total
+    }
+}
+
+export const subtractFromEntertainmentOverall = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_ENTERTAINEMENT',
+        payload : total
+    }
+}
+
+export const subtractFromtHouseHoldOverall = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_HOUSEHOLD',
+        payload : total
+    }
+}
+
+export const subtractFromSelfOverall = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_SELF',
+        payload : total
+    }
+}
+
+export const subtractFromTransportationOverall = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_TRANSPORTATION',
+        payload : total
+    }
+}
+
+export const subtractFromUtilitesOverall = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_UTILITIES',
+        payload : total
+    }
+}
+
+export const subtractFromSurplusOverall = (total:string) => {
+    return {
+        type : 'SUBTRACT_FROM_SURPLUS',
+        payload : total
+    }
+}
+
+export const subtractFromDebtOverall = (total:string) => {
+    return {
+        type : 'ADD_TO_DEBT',
+        payload : total
+    }
+}
+
+
 export const purgeAll = (details:any) => {
     return{
         type: 'PURGE_OVERALL_BALANCE',
