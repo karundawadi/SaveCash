@@ -32,7 +32,7 @@ function HomePage(){
                         }} 
                         underlayColor='white' 
                         onPress={()=>{
-                        navigation.navigate("Financials")
+                        navigation.navigate("UserProfile")
                         }}>
                             <Ionicons name="create-outline" size={40}/>
                     </TouchableHighlight>

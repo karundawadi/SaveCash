@@ -5,7 +5,6 @@ import HomePage from './component_views/homepage'
 import 'react-native-gesture-handler';
 import AddExpense from './component_views/addexpense';
 import UserProfile from './component_views/profile_section/user_profile'
-import Financials from './component_views/profile_section/financials'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -25,8 +24,7 @@ function App() {
             <Stack.Screen name="AddExpense" component={AddExpense} options={{
               headerShown:false,
             }}/>
-            <Stack.Screen name="UserProfile" component={UserProfile} />
-            <Stack.Screen name="Financials" component={Financials} />
+            <Stack.Screen name="UserProfile" component={UserProfile}  />
           </Stack.Navigator>
         </NavigationContainer>
       </PersistGate>
