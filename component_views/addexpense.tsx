@@ -4,10 +4,12 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import RNPickerSelect from 'react-native-picker-select';
 import {Ionicons} from '@expo/vector-icons';
 import { useStore , useDispatch } from 'react-redux'; 
+import { useNavigation } from '@react-navigation/native';
 
-// Basically this adds to the value 
 
-function AddExpense({ navigation } : {navigation : any}){
+// Basically this adds to the store and makes the changes 
+
+function AddExpense(){
     const [expenseName, onExpenseNameChange] = React.useState("")
     const [amount, onAmountChange] = React.useState("")
     const [date, setDate] = React.useState(new Date());
@@ -18,10 +20,11 @@ function AddExpense({ navigation } : {navigation : any}){
         const currentDate = selectedDate || date;
         setDate(currentDate);
     };
-
     const dispatch  = useDispatch()
     const store = useStore()
     const allExpense = store.getState().allTransactions
+    const navigation = useNavigation()
+
     return (
         <View style={styles.base}>
             <View style={styles.form}>
@@ -35,7 +38,7 @@ function AddExpense({ navigation } : {navigation : any}){
                         }} 
                         underlayColor='white'
                         onPress={()=>{
-                            navigation.navigate("HomePage")
+                            navigation.navigate('HomePage')
                         }}>
                             <Ionicons name="close-outline" color='red' size={40}/>
                     </TouchableHighlight>
@@ -168,27 +171,43 @@ function AddExpense({ navigation } : {navigation : any}){
                             }
                             else{
                                 // Adds to redux store 
+                                // This will subtract from the total as this should be done if we end till this point 
+                                dispatch({type:'SUBTRACT_FROM_TOTAL_FOR_MONTH',payload:parseFloat(amount)}) // Will update to monthly 
+                                dispatch({type:'SUBTRACT_FROM_TOTAL',payload:parseFloat(amount)}) // Will update on yearly 
+                                // This pattern is followed in the dispatch functions below. In the first line, the transaction is also saved
+
                                 switch (category){
                                     case "houseHold": 
                                         dispatch({type:'ADD_TO_HOUSEHOLD_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                        dispatch({type:'SUBTRACT_FROM_HOUSEHOLD_FOR_MONTH',payload:parseFloat(amount)})
+                                        dispatch({type:'SUBTRACT_FROM_HOUSEHOLD',payload:parseFloat(amount)})
                                         break;
                                     case "self":
                                         dispatch({type:'ADD_TO_SELF_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                        dispatch({type:'SUBTRACT_FROM_SELF_FOR_MONTH',payload:parseFloat(amount)})
+                                        dispatch({type:'SUBTRACT_FROM_SELF',payload:parseFloat(amount)})
                                         break;
                                     case "transportation":
                                         dispatch({type:'ADD_TO_TRANSPORTATION_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                        dispatch({type:'SUBTRACT_FROM_TRANSPORTATION_FOR_MONTH',payload:parseFloat(amount)})
+                                        dispatch({type:'SUBTRACT_FROM_TRANSPORTATION',payload:parseFloat(amount)})
                                         break;
                                     case "utilities":
                                         dispatch({type:'ADD_TO_UTILITIES_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                        dispatch({type:'SUBTRACT_FROM_UTILITIES_FOR_MONTH',payload:parseFloat(amount)})
+                                        dispatch({type:'SUBTRACT_FROM_UTILITIES',payload:parseFloat(amount)})
                                         break;
                                     case "entertainment":
                                         dispatch({type:'ADD_TO_ENTERTAINMENT_TRANSACTION',description:expenseName,amount:amount,date:date})
+                                        dispatch({type:'SUBTRACT_FROM_ENTERTAINMENT_FOR_MONTH',payload:parseFloat(amount)})
+                                        dispatch({type:'SUBTRACT_FROM_ENTERTAINEMENT',payload:parseFloat(amount)})
                                         break;
                                     default:
-                                        Alert.alert("Please select a category")
+                                        Alert.alert("Please select an category")
                                         break;
                                 }
                                 Alert.alert("Successful")
+                                navigation.navigate('HomePage')
                             }
                         }}>
                             <Ionicons name="add-circle-outline" color="green" size={40}/>

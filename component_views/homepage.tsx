@@ -3,12 +3,17 @@ import {StyleSheet, View, Text, Alert, Image, TouchableHighlight} from 'react-na
 import CircularButton from '../custom_build/circular_button';
 import {Ionicons} from '@expo/vector-icons'
 import { useStore, useSelector } from 'react-redux'; 
+import { useNavigation } from '@react-navigation/native';
 
-function HomePage({ navigation } : {navigation : any}){
+
+function HomePage(){
     const store = useStore()
     console.log(store.getState())
-    const total = store.getState().monthlyBalance.totalForMonth + 1
-
+    const [total,setTotal] = React.useState(0)
+    const navigation = useNavigation()
+    React.useEffect(() => {
+        setTotal(store.getState().monthlyBalance.totalForMonth)
+    }, [])
     return (
         <View style={(total > 0)? styles.base : {
             ...styles.base,

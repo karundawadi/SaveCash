@@ -69,6 +69,7 @@ export const subtractFromTotalOverall = (total:string) => {
     }
 }
 
+// Hardly will be used 
 export const subtractFromIncomeOverall = (total:string) => {
     return {
         type : 'SUBTRACT_FROM_INCOME',
