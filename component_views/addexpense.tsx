@@ -206,8 +206,7 @@ function AddExpense(){
                                         Alert.alert("Please select an category")
                                         break;
                                 }
-                                Alert.alert("Successful")
-                                navigation.navigate('HomePage')
+                                Alert.alert("Added !")
                             }
                         }}>
                             <Ionicons name="add-circle-outline" color="green" size={40}/>

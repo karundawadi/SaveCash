@@ -8,12 +8,11 @@ import { useNavigation } from '@react-navigation/native';
 
 function HomePage(){
     const store = useStore()
-    console.log(store.getState())
-    const [total,setTotal] = React.useState(0)
     const navigation = useNavigation()
-    React.useEffect(() => {
-        setTotal(store.getState().monthlyBalance.totalForMonth)
-    }, [])
+    const [total,updateTotal] = React.useState(store.getState().monthlyBalance.totalForMonth.toFixed(2))
+    store.subscribe(()=>{
+        updateTotal(store.getState().monthlyBalance.totalForMonth.toFixed(2))
+    })
     return (
         <View style={(total > 0)? styles.base : {
             ...styles.base,
@@ -38,7 +37,9 @@ function HomePage(){
                 </View>
 
                 <View style={{height:'70%',alignItems:'center',justifyContent:'center'}}>
-                    <Text>You have ${total} remaining</Text>
+                    {
+                        total > 0 ? <Text>You have ${total} remaining</Text> : <Text>You have -${total*(-1)} remaining</Text>
+                    }
                 </View>
 
                 <View style={{height:'15%',alignItems:'center',justifyContent:'center',paddingBottom:'4%'}}>
