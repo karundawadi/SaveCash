@@ -14,8 +14,8 @@ function AddExpense(){
     const [amount, onAmountChange] = React.useState("")
     const [date, setDate] = React.useState(new Date());
     const [category, onCategoryChange] = React.useState("")
-    const [isRecurring, onIsRecurringChange] = React.useState(false);
-    const toggleSwitch = () => onIsRecurringChange(previousState => !previousState)
+    // const [isRecurring, onIsRecurringChange] = React.useState(false);
+    // const toggleSwitch = () => onIsRecurringChange(previousState => !previousState)
     const onChange = (event:any, selectedDate:any) => {
         const currentDate = selectedDate || date;
         setDate(currentDate);
@@ -123,8 +123,9 @@ function AddExpense(){
                 </View>
 
                 <View style={{padding:'2%'}}></View>
-
-                <View style={{
+                
+                {/* Recurring button removed */}
+                {/* <View style={{
                     flexDirection:'row',
                     paddingLeft:10
                     }}>
@@ -139,7 +140,7 @@ function AddExpense(){
                         />
                     </View>
                 </View>    
-                <View style={{paddingTop:'2%'}}></View>            
+                <View style={{paddingTop:'2%'}}></View>             */}
                 
                 <View style={{alignItems:'center'}}>
                     <TouchableHighlight 

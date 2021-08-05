@@ -26,13 +26,15 @@ function HomePage(){
                         paddingTop:'5%',
                         borderRadius:50,
                     }}>
-                    <TouchableHighlight onPress={()=>{
+                    <TouchableHighlight 
+                        style={{
+                            borderRadius:45,
+                        }} 
+                        underlayColor='white' 
+                        onPress={()=>{
                         navigation.navigate("Financials")
-                    }}>
-                        <Image style={{
-                            height:35,
-                            width:35
-                        }} source={require('../Icons/profile.gif')} />
+                        }}>
+                            <Ionicons name="create-outline" size={40}/>
                     </TouchableHighlight>
                 </View>
 
@@ -43,9 +45,12 @@ function HomePage(){
                 </View>
 
                 <View style={{height:'15%',alignItems:'center',justifyContent:'center',paddingBottom:'4%'}}>
-                    <TouchableHighlight style={{
+                    <TouchableHighlight 
+                        style={{
                         borderRadius:40,
-                    }} onPress={()=>{
+                        }} 
+                        underlayColor='white'
+                        onPress={()=>{
                             navigation.navigate("AddExpense")
                         }}>
                         <Ionicons name="md-add-circle" size={40}/>
