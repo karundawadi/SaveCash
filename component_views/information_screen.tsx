@@ -161,6 +161,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                     else{
                         var navigateReady:boolean = false
                         try {
+                            // Setting for the first time 
                             dispatch({type:'SET_FIRST_NAME',payload:firstName})
                             dispatch({type:'SET_LAST_NAME',payload:lastName})
                             dispatch({type:'SET_MONTHLY_INCOME',payload:parseFloat(monthlyIncome)})
@@ -169,6 +170,17 @@ function InformationScreen({ navigation } : {navigation : any}) {
                             dispatch({type:'SET_TRANSPORTATION_BUDGET',payload:parseFloat(transportation)})
                             dispatch({type:'SET_UTILITIES_BUDGET',payload:parseFloat(utilitiesBudget)})
                             dispatch({type:'SET_SELF_BUDGET',payload:parseFloat(selfBudget)})
+                            
+                            // Setting to the monthly store 
+                            dispatch({type:'SET_TOTAL_FOR_MONTH',payload:parseFloat(monthlyIncome)})
+                            dispatch({type:'SET_HOUSEHOLD_FOR_MONTH',payload:parseFloat(household)})
+                            dispatch({type:'SET_ENTERTAINMENT_FOR_MONTH',payload:parseFloat(entertainmentBudget)})
+                            dispatch({type:'SET_TRANSPORTATION_FOR_MONTH',payload:parseFloat(transportation)})
+                            dispatch({type:'SET_UTILITIES_FOR_MONTH',payload:parseFloat(utilitiesBudget)})
+                            dispatch({type:'SET_SELF_FOR_MONTH',payload:parseFloat(selfBudget)})
+
+                            // Initially both debt and surplus are set to zero so we are okay with that 
+
                             navigateReady = true
                         } catch (error) {
                             Alert.alert("Error Found, Could not Save")

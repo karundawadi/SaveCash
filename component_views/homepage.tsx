@@ -2,13 +2,18 @@ import React from 'react';
 import {StyleSheet, View, Text, Alert, Image, TouchableHighlight} from 'react-native';
 import CircularButton from '../custom_build/circular_button';
 import {Ionicons} from '@expo/vector-icons'
-import { useStore , useDispatch } from 'react-redux'; 
+import { useStore, useSelector } from 'react-redux'; 
 
 function HomePage({ navigation } : {navigation : any}){
     const store = useStore()
-    console.log(store.getState().userDetails)
+    console.log(store.getState())
+    const total = store.getState().monthlyBalance.totalForMonth + 1
+
     return (
-        <View style={styles.base}>
+        <View style={(total > 0)? styles.base : {
+            ...styles.base,
+            backgroundColor:'red',
+        }}>
             <View style={styles.body}>
                 <View style={{
                         height:'15%',
@@ -28,7 +33,7 @@ function HomePage({ navigation } : {navigation : any}){
                 </View>
 
                 <View style={{height:'70%',alignItems:'center',justifyContent:'center'}}>
-                    <Text>You have this much remaining.</Text>
+                    <Text>You have ${total} remaining</Text>
                 </View>
 
                 <View style={{height:'15%',alignItems:'center',justifyContent:'center',paddingBottom:'4%'}}>
@@ -39,18 +44,6 @@ function HomePage({ navigation } : {navigation : any}){
                         }}>
                         <Ionicons name="md-add-circle" size={40}/>
                     </TouchableHighlight>
-                    {/* <CircularButton buttonText="+" styles={{
-                        borderWidth:1,
-                        borderColor:'rgba(0,0,0,0.2)',
-                        alignItems:'center',
-                        justifyContent:'center',
-                        width:50,
-                        height:50,
-                        backgroundColor:'lightgreen',
-                        borderRadius:50,
-                    }} textStyle={{}} buttonTapHandler={()=>{
-                            Alert.alert("Working")
-                    }} ></CircularButton> */}
                 </View>
             </View>
         </View>
@@ -59,8 +52,8 @@ function HomePage({ navigation } : {navigation : any}){
 
 const styles = StyleSheet.create({
     base:{
-        backgroundColor:'#AFE1AF',
         flex:1,
+        backgroundColor:'#AFE1AF',
     },
     body:{
         flex:1,

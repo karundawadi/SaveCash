@@ -21,7 +21,7 @@ function AddExpense({ navigation } : {navigation : any}){
 
     const dispatch  = useDispatch()
     const store = useStore()
-    console.log(store.getState().allTransactions)
+    const allExpense = store.getState().allTransactions
     return (
         <View style={styles.base}>
             <View style={styles.form}>
@@ -171,7 +171,6 @@ function AddExpense({ navigation } : {navigation : any}){
                                 switch (category){
                                     case "houseHold": 
                                         dispatch({type:'ADD_TO_HOUSEHOLD_TRANSACTION',description:expenseName,amount:amount,date:date})
-                                        console.log(store.getState().allTransactions)
                                         break;
                                     case "self":
                                         dispatch({type:'ADD_TO_SELF_TRANSACTION',description:expenseName,amount:amount,date:date})
