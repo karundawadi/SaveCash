@@ -19,12 +19,18 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="InformationScreen">
-            <Stack.Screen name="InformationScreen" component={InformationScreen} options={{headerShown:false}}/>
-            <Stack.Screen name="HomePage" component={HomePage} options={{headerShown:false}}/>
+            <Stack.Screen name="InformationScreen" component={InformationScreen} options={{
+              headerShown:false,
+              gestureEnabled: false
+              }}/>
+            <Stack.Screen name="HomePage" component={HomePage} options={{
+              headerShown:false,
+              gestureEnabled: false
+              }}/>
             <Stack.Screen name="AddExpense" component={AddExpense} options={{
               headerShown:false,
             }}/>
-            <Stack.Screen name="UserProfile" component={UserProfile}  />
+            <Stack.Screen name="UserProfile" component={UserProfile} options={{headerShown:false}}/>
           </Stack.Navigator>
         </NavigationContainer>
       </PersistGate>

@@ -12,11 +12,9 @@ export default function CircularButton(props:any) {
 
 const styles = StyleSheet.create({
     buttonStyle:{
-        alignSelf:'center',
-        borderRadius:8,
+        borderRadius:10,
         paddingVertical:10,
         paddingHorizontal:10,
-        alignItems:'center',
         shadowColor:'#2a2a2a',
         shadowRadius:100,
         shadowOffset: {
@@ -24,10 +22,11 @@ const styles = StyleSheet.create({
             height:2,
         },
         elevation:2,
-        backgroundColor:'pink'
+        backgroundColor:'white',
     },
     textStyle:{
         fontWeight:'bold',
         textAlign:'center',
+        color:'blue'
     }
 })

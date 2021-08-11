@@ -7,6 +7,7 @@ const initialState = {
     transportationBudget : 0.00,
     utiltiesBudget : 0.00,
     selfBudget : 0.00,
+    educationBudget: 0.00,
 }
 
 export const changeUserInfo = (state = initialState, action:any) => {
@@ -30,6 +31,11 @@ export const changeUserInfo = (state = initialState, action:any) => {
             return {
                 ...state, 
                 entertainmentBudget : action.payload
+            }
+        case 'SET_EDUCATION_BUDGET':
+            return {
+                ...state, 
+                educationBudget : action.payload
             }
         case 'SET_HOUSEHOLD_BUDGET':
             return {

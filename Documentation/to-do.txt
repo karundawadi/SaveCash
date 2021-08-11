@@ -3,3 +3,22 @@
 # Future improvement 
 - Need to make more verbose test case 
 - Need to implement credit cases 
+- Add an data is getting erased alert on Add Expense screen
+- Need to add checks whether to display alert on change information screen or not 
+- Need to make the edit and done color change 
+
+## Notes: 
+Alert can be customized :
+Alert.alert(
+    //         // 'Discard changes?',
+    //         // 'You have unsaved changes. Are you sure to discard them and leave the screen?',
+    //         // [
+    //         //     { text: "Don't leave", style: 'cancel', onPress: () => {} },
+    //         //     {
+    //         //         text: 'Discard',
+    //         //         style: 'destructive',
+    //         //         onPress: () => navigation.dispatch(action),
+    //         //     },
+    //         // ]
+
+-- Fix data stored inside the store (education excluded) - in all stores 
