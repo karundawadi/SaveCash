@@ -3,7 +3,6 @@ import {StyleSheet, View, Text, Alert, Image, TouchableHighlight, Switch, TextIn
 import {Ionicons} from '@expo/vector-icons';
 import { useStore , useDispatch } from 'react-redux'; 
 import { ScrollView } from 'react-native-gesture-handler';
-import CircularButton from '../../custom_build/circular_button';
 
 // Basically false is Userprofile and true is financials 
 function UserProfile({ navigation } : {navigation : any}){
