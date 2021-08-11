@@ -3,6 +3,8 @@ import {StyleSheet, View, Text, Alert, Image, TouchableHighlight, Switch, TextIn
 import {Ionicons} from '@expo/vector-icons';
 import { useStore , useDispatch } from 'react-redux'; 
 import { ScrollView } from 'react-native-gesture-handler';
+import { VictoryPie } from "victory-native";
+
 
 // Basically false is Userprofile and true is financials 
 function UserProfile({ navigation } : {navigation : any}){
@@ -326,14 +328,21 @@ function UserDetails(){
 }
 
 // This screen is for financial details like piechart and others 
+// Since different functions are used no longer need to balance the overall count for hooks 
 function FinancialDetails(){
-    const [firstName, onFirstNameChange] = React.useState("")
-    const [lastName, onLastNameChange] = React.useState("")
     return <View style={styles.financialDetailsStyle}>
         <ScrollView>
             <Text style={{backgroundColor:'white'}} >
                 Test Financial 
             </Text>
+            <VictoryPie
+                colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
+                data={[
+                    { x: "Cats", y: 35 },
+                    { x: "Dogs", y: 40 },
+                    { x: "Birds", y: 55 }
+                ]}
+            />
         </ScrollView>
     </View>
 }
