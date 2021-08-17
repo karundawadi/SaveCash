@@ -6,6 +6,7 @@
 - Add an data is getting erased alert on Add Expense screen
 - Need to add checks whether to display alert on change information screen or not 
 - Need to make the edit and done color change 
+- Need to show over budget components on homescreen
 
 ## Notes: 
 Alert can be customized :
