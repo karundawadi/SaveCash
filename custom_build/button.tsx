@@ -3,10 +3,10 @@ import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 
 export default function Zutton(props:any) {
     return (
-    // Making sure additional values can be passed when Zutton is called 
-    <TouchableHighlight onPress={props.buttonTapHandler} style={{...styles.buttonStyle,...props.styles}}>
-        <Text style={{...styles.textStyle,...props.textStyle}}>{props.buttonText}</Text>
-    </TouchableHighlight>
+        // Making sure additional values can be passed when Zutton is called 
+        <TouchableHighlight onPress={props.buttonTapHandler} style={{...styles.buttonStyle,...props.styles}}>
+            <Text style={{...styles.textStyle,...props.textStyle}}>{props.buttonText}</Text>
+        </TouchableHighlight>
     )
 }
 

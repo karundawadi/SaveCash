@@ -7,15 +7,9 @@ import {ProgressChart} from "react-native-chart-kit";
 import { Dimensions } from "react-native";
 import ActivityRings from "react-native-activity-rings";
 
-// This is to generate random color in rgba 
-function random_rgba() {
-    var o = Math.round, r = Math.random, s = 255;
-    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
-}
-
 // This screen is for financial details like piechart and others 
 // Since different functions are used no longer need to balance the overall count for hooks 
-function FinancialDetails(){
+function FinancialDetails({ navigation } : {navigation : any}){
 
     // This is the data that will be taken from the application itself 
     const data = [ 
@@ -123,10 +117,27 @@ function FinancialDetails(){
             <View style={
                 {
                     backgroundColor:'white',
-                    flex:1
+                    flex:1,
+                    justifyContent:'space-around',
+                    alignItems:'center',
+                    flexDirection:'row'
                 }
             }>
-                <Text>This is where the modal's will appear</Text>
+                <TouchableHighlight onPress={()=>{
+                    Alert.alert("Test")
+                }} style={styles.buttonStyle}>
+                    <Text style={styles.buttonText}>Grocery</Text>
+                </TouchableHighlight>
+                <TouchableHighlight onPress={()=>{
+                    Alert.alert("Test")
+                }} style={styles.buttonStyle}>
+                    <Text style={styles.buttonText}>Grocery</Text>
+                </TouchableHighlight>
+                <TouchableHighlight onPress={()=>{
+                    Alert.alert("Test")
+                }} style={styles.buttonStyle}>
+                    <Text style={styles.buttonText}>Grocery</Text>
+                </TouchableHighlight>
             </View>
 
         </ScrollView>
@@ -152,6 +163,24 @@ const styles = StyleSheet.create({
         flex:1,
         width:'100%',
         backgroundColor:'pink'
+    },
+    buttonStyle:{
+        alignSelf:'center',
+        borderRadius:8,
+        paddingVertical:10,
+        paddingHorizontal:10,
+        alignItems:'center',
+        shadowColor:'#2a2a2a',
+        backgroundColor:'blue',
+        shadowRadius:4,
+        shadowOffset: {
+            width:0,
+            height:2,
+        },
+        elevation:2,
+    },
+    buttonText:{
+        color:'white'
     }
 })
 

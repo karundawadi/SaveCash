@@ -12,7 +12,26 @@ function UserProfile({ navigation } : {navigation : any}){
     return (
         <View style={styles.base}>
             <View style={styles.topBar}>
-                <View style={styles.topBarLeft}>
+                    <View style={styles.topBarLeft}>
+                        <Ionicons name="person-circle-outline" color='black' size={40}/>
+                            <View style={styles.padding2}></View>
+                                <Switch
+                                    trackColor={{ false: "white", true: "pink" }}
+                                    thumbColor={isEnabled ? "beige" : "lightgreen"}
+                                    ios_backgroundColor="#3e3e3e"
+                                    style={{
+                                        transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }],
+                                        alignSelf:'center'
+                                    }} 
+                                    onValueChange={toggleSwitch}
+                                    value={isEnabled}
+                                />
+                            <View style={styles.padding2}></View>
+                        <Ionicons name="stats-chart-outline" color="black" size={40}></Ionicons>
+                    <View style={styles.padding2}></View>
+                </View>
+
+                <View style={styles.topBarRight}>
                     <TouchableHighlight 
                             style={{
                                 borderRadius:40,
@@ -26,25 +45,6 @@ function UserProfile({ navigation } : {navigation : any}){
                             }}>
                                 <Ionicons name="close-outline" color='red' size={30}/>
                     </TouchableHighlight>
-                </View>
-
-                <View style={styles.topBarRight}>
-                    <Ionicons name="person-circle-outline" color='black' size={40}/>
-                    <View style={styles.padding2}></View>
-                        <Switch
-                            trackColor={{ false: "white", true: "pink" }}
-                            thumbColor={isEnabled ? "beige" : "lightgreen"}
-                            ios_backgroundColor="#3e3e3e"
-                            style={{
-                                transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }],
-                                alignSelf:'center'
-                            }} 
-                            onValueChange={toggleSwitch}
-                            value={isEnabled}
-                        />
-                    <View style={styles.padding2}></View>
-                    <Ionicons name="stats-chart-outline" color="black" size={40}></Ionicons>
-                    <View style={styles.padding2}></View>
                 </View>
             </View>
             <View style={styles.padding5}></View>
@@ -67,14 +67,14 @@ const styles = StyleSheet.create({
     topBarLeft:{
         flexDirection:'row',
         justifyContent:'center',
-        flex:1,
-        paddingLeft:'2%'
+        flex:9,
     },
     topBarRight:{
-        alignContent:'center',
-        justifyContent:'center',
+        alignContent:'flex-end',
+        justifyContent:'flex-end',
         flexDirection:'row',
-        flex:9
+        flex:1,
+        paddingRight:'2%',
     },
     padding2:{
         padding:'2%'

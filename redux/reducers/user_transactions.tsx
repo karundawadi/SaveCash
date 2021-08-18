@@ -76,7 +76,14 @@ export const allTransactions = (state = overallTransactions, action:any) => {
                     ]
                 }
         case 'PURGE_TRANSACTIONS':
-            return overallTransactions
+            console.log("Deleting Transactions")
+            return {
+                household:[],
+                self:[],
+                transportation:[],
+                utilities:[],
+                entertainment:[],
+            }
 
         default:
             return state

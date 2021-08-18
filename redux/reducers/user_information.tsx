@@ -58,7 +58,18 @@ export const changeUserInfo = (state = initialState, action:any) => {
                 selfBudget : action.payload
             }
         case 'PURGE_USER_DETAILS':
-            return initialState
+            console.log("Deleting user details")
+            return {
+                firstName : '',
+                lastName : '',
+                monthltyIncome : 0.00,
+                houseHoldBudget : 0.00,
+                entertainmentBudget : 0.00,
+                transportationBudget : 0.00,
+                utiltiesBudget : 0.00,
+                selfBudget : 0.00,
+                educationBudget: 0.00,
+            }
 
         default:
             return state

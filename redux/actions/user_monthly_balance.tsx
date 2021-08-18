@@ -111,7 +111,7 @@ export const subtractFromSurplus = (total:string) => {
 }
 
 
-export const purgeAll = (details:any) => {
+export const purgeAll = () => {
     return{
         type: 'PURGE_MONTHLY',
     }

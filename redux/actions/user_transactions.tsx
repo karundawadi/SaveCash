@@ -45,7 +45,7 @@ export const addEntertainmentBudget = (details:any) => {
     }
 }
 
-export const purgeAll = (details:any) => {
+export const purgeAll = () => {
     return{
         type: 'PURGE_TRANSACTIONS',
     }

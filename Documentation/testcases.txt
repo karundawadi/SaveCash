@@ -5,3 +5,4 @@ For the main data entry form verify:
 - If the data entered is less than budget (done)
 - All the fields are marked as necessary (Done -- If the necessary field is missing then alert is displayed)
 - Cross check the values entered (done)
+- Make sure tha amount entered is in number 

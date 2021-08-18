@@ -1,9 +1,9 @@
 import React from 'react';
-import {StyleSheet, View, Text, Alert, Image, TouchableHighlight, Switch, TextInput} from 'react-native';
+import {StyleSheet, View, Text, Alert, Image, TouchableHighlight, Switch, TextInput, DevSettings} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import { useStore , useDispatch } from 'react-redux'; 
 import { ScrollView } from 'react-native-gesture-handler';
-
+import * as Updates from 'expo-updates';
 
 // First screen set here 
 function UserDetails(){
@@ -19,6 +19,7 @@ function UserDetails(){
     const [editPressed, onEditPressed] = React.useState(false)
     const store = useStore()
     const dispatch = useDispatch()
+
 
     const state_val = () => {
         onFirstNameChange(store.getState().userDetails.firstName)
@@ -44,13 +45,12 @@ function UserDetails(){
                 flexDirection:'row',
             }}>
                 <View style={{
-                    flex:3,
+                    flex:5,
                     paddingLeft:'2%'
                 }}>
                     <TouchableHighlight 
                             style={{
                                 borderRadius:40,
-                                width:'30%',
                                 alignSelf:'flex-start'
                             }} 
                             underlayColor='white'
@@ -66,50 +66,72 @@ function UserDetails(){
                 </View>
 
                 <View style={{
-                    flex:3,
+                    flex:5,
                     paddingRight:'2%',
                 }}>
                     <TouchableHighlight 
                             style={{
                                 borderRadius:40,
-                                width:'30%',
                                 alignSelf:'flex-end'
                             }} 
                             underlayColor='white'
                             onPress={()=>{
-                                onEditPressed(false)
-                                // Dispatching actions 
                                 try {
-                                    Alert.alert(
-                                        'Update details?',
-                                        'This will default your monthly budget and also delete the expenses till this month.',
-                                        [
-                                            { text: "Cancel", style: 'cancel', onPress: () => {} },
-                                            {
-                                                text: 'Procceed',
-                                                style: 'destructive',
-                                                onPress: () => {
-                                                    // Setting for the first time 
-                                                    dispatch({type:'SET_FIRST_NAME',payload:firstName})
-                                                    dispatch({type:'SET_LAST_NAME',payload:lastName})
-                                                    dispatch({type:'SET_MONTHLY_INCOME',payload:parseFloat(monthlyIncome)})
-                                                    dispatch({type:'SET_HOUSEHOLD_BUDGET',payload:parseFloat(household)})
-                                                    dispatch({type:'SET_ENTERTAINMENT_BUDGET',payload:parseFloat(entertainmentBudget)})
-                                                    dispatch({type:'SET_TRANSPORTATION_BUDGET',payload:parseFloat(transportation)})
-                                                    dispatch({type:'SET_UTILITIES_BUDGET',payload:parseFloat(utilitiesBudget)})
-                                                    dispatch({type:'SET_SELF_BUDGET',payload:parseFloat(selfBudget)})
-                                                    
-                                                    // Setting to the monthly store 
-                                                    dispatch({type:'SET_TOTAL_FOR_MONTH',payload:parseFloat(monthlyIncome)})
-                                                    dispatch({type:'SET_HOUSEHOLD_FOR_MONTH',payload:parseFloat(household)})
-                                                    dispatch({type:'SET_ENTERTAINMENT_FOR_MONTH',payload:parseFloat(entertainmentBudget)})
-                                                    dispatch({type:'SET_TRANSPORTATION_FOR_MONTH',payload:parseFloat(transportation)})
-                                                    dispatch({type:'SET_UTILITIES_FOR_MONTH',payload:parseFloat(utilitiesBudget)})
-                                                    dispatch({type:'SET_SELF_FOR_MONTH',payload:parseFloat(selfBudget)})
+                                    if (editPressed === false){
+                                        Alert.alert(
+                                            'Delete account?',
+                                            'This will delete all your account details. You will lose all data from this application',
+                                            [
+                                                { text: "Cancel", style: 'cancel', onPress: () => {} },
+                                                {
+                                                    text: 'Procceed',
+                                                    style: 'destructive',
+                                                    onPress: () => {
+                                                        // Resetting all the data 
+                                                        // Since our reducer needs an payload or something similar in action 
+                                                        dispatch({type:'PURGE_USER_DETAILS',payload:{}})
+                                                        dispatch({type:'PURGE_MONTHLY',payload:{}})
+                                                        dispatch({type:'PURGE_OVERALL_BALANCE',payload:{}})
+                                                        dispatch({type:'PURGE_TRANSACTIONS',payload:{}})
+                                                        Updates.reloadAsync()
+                                                    },
                                                 },
-                                            },
-                                        ]
-                                    )
+                                            ]
+                                        )
+                                    }
+                                    else{
+                                        onEditPressed(false)
+                                        Alert.alert(
+                                            'Update details?',
+                                            'This will default your monthly budget and also delete the expenses till this month.',
+                                            [
+                                                { text: "Cancel", style: 'cancel', onPress: () => {} },
+                                                {
+                                                    text: 'Procceed',
+                                                    style: 'destructive',
+                                                    onPress: () => {
+                                                        // Setting for the first time 
+                                                        dispatch({type:'SET_FIRST_NAME',payload:firstName})
+                                                        dispatch({type:'SET_LAST_NAME',payload:lastName})
+                                                        dispatch({type:'SET_MONTHLY_INCOME',payload:parseFloat(monthlyIncome)})
+                                                        dispatch({type:'SET_HOUSEHOLD_BUDGET',payload:parseFloat(household)})
+                                                        dispatch({type:'SET_ENTERTAINMENT_BUDGET',payload:parseFloat(entertainmentBudget)})
+                                                        dispatch({type:'SET_TRANSPORTATION_BUDGET',payload:parseFloat(transportation)})
+                                                        dispatch({type:'SET_UTILITIES_BUDGET',payload:parseFloat(utilitiesBudget)})
+                                                        dispatch({type:'SET_SELF_BUDGET',payload:parseFloat(selfBudget)})
+                                                        
+                                                        // Setting to the monthly store 
+                                                        dispatch({type:'SET_TOTAL_FOR_MONTH',payload:parseFloat(monthlyIncome)})
+                                                        dispatch({type:'SET_HOUSEHOLD_FOR_MONTH',payload:parseFloat(household)})
+                                                        dispatch({type:'SET_ENTERTAINMENT_FOR_MONTH',payload:parseFloat(entertainmentBudget)})
+                                                        dispatch({type:'SET_TRANSPORTATION_FOR_MONTH',payload:parseFloat(transportation)})
+                                                        dispatch({type:'SET_UTILITIES_FOR_MONTH',payload:parseFloat(utilitiesBudget)})
+                                                        dispatch({type:'SET_SELF_FOR_MONTH',payload:parseFloat(selfBudget)})
+                                                    },
+                                                },
+                                            ]
+                                        )
+                                    }
                                 } catch (error) {
                                     Alert.alert("Error Found, Could not Save")
                                 }
@@ -118,7 +140,7 @@ function UserDetails(){
                                 fontSize:16,
                                 paddingLeft:'2%',
                                 color:'blue'
-                            }}>Done</Text>
+                            }}>{editPressed? "Done": "Delete"}</Text>
                     </TouchableHighlight>
                 </View>
             </View>

@@ -127,7 +127,7 @@ export const subtractFromDebtOverall = (total:string) => {
 }
 
 
-export const purgeAll = (details:any) => {
+export const purgeAll = () => {
     return{
         type: 'PURGE_OVERALL_BALANCE',
     }

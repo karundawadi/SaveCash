@@ -54,7 +54,7 @@ export const changeSelfBudget = (selfBudget:number) => {
     }
 }
 
-export const purgeAll = (details:any) => {
+export const purgeAll = () => {
     return{
         type: 'PURGE_USER_DETAILS',
     }
