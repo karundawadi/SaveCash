@@ -16,7 +16,7 @@ function HomePage(){
     return (
         <View style={(total > 0)? styles.base : {
             ...styles.base,
-            backgroundColor:'red',
+            backgroundColor:'#ffbeb5',
         }}>
             <View style={styles.body}>
                 <View style={{
@@ -40,7 +40,7 @@ function HomePage(){
 
                 <View style={{height:'70%',alignItems:'center',justifyContent:'center'}}>
                     {
-                        total > 0 ? <Text>You have ${total} remaining</Text> : <Text>You have -${total*(-1)} remaining</Text>
+                        total > 0 ? <Text style={{...styles.textStyle}}>You have ${total} remaining</Text> : <Text style={{...styles.textStyle}}>You have -${total*(-1)} remaining</Text>
                     }
                 </View>
 
@@ -64,10 +64,13 @@ function HomePage(){
 const styles = StyleSheet.create({
     base:{
         flex:1,
-        backgroundColor:'#AFE1AF',
+        backgroundColor:'#bbf2c1',
     },
     body:{
         flex:1,
+    },
+    textStyle:{
+        color:'black'
     }
 })
 
