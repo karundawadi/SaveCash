@@ -9,7 +9,7 @@ import ActivityRings from "react-native-activity-rings";
 
 // This screen is for financial details like piechart and others 
 // Since different functions are used no longer need to balance the overall count for hooks 
-function FinancialDetails({ navigation } : {navigation : any}){
+function FinancialDetails(){
 
     // This is the data that will be taken from the application itself 
     const data = [ 
