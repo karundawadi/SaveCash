@@ -4,6 +4,7 @@ const overallTransactions = {
     transportation:[],
     utilities:[],
     entertainment:[],
+    education:[]
 }
 
 // Creating only setters here logic will be written later 
@@ -14,6 +15,31 @@ export const allTransactions = (state = overallTransactions, action:any) => {
                     ...state,
                     household: [
                         ...state.household,
+                        {
+                            amount : action.amount,
+                            description: action.description,
+                            date: action.date,
+                        }
+                    ]
+                }
+        
+        case 'ADD_TO_EDUCATION_TRANSACTION':
+            console.log("This is working")
+            console.log({
+                ...state,
+                education: [
+                    ...state.education,
+                    {
+                        amount : action.amount,
+                        description: action.description,
+                        date: action.date,
+                    }
+                ]
+            })
+            return {
+                    ...state,
+                    education: [
+                        ...state.education,
                         {
                             amount : action.amount,
                             description: action.description,

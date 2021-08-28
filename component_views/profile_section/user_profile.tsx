@@ -48,7 +48,7 @@ function UserProfile({ navigation } : {navigation : any}){
                 </View>
             </View>
             <View style={styles.padding5}></View>
-            {isEnabled? <FinancialDetails/> : <UserDetails/>}
+            {isEnabled ? <FinancialDetails/> : <UserDetails/>}
         </View>
     )
 }

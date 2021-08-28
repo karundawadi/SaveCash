@@ -5,6 +5,7 @@ const monthlyState = {
     selfLeft: 0.00,
     transportationLeft : 0.00,
     utilitiesLeft : 0.00,
+    educationLeft:0.00,
     debt : 0.00, // This will be added to total debt 
     surplus : 0.00, // Will be added to total surplus 
 }
@@ -32,6 +33,13 @@ export const monthlyBalance = (state = monthlyState, action:any) => {
                 ...state,
                 selfLeft: action.payload
             }
+        
+        case "SET_EDUCATION_FOR_MONTH":
+            return {
+                ...state,
+                educationLeft: action.payload
+            }
+
         case "SET_TRANSPORTATION_FOR_MONTH":
             return {
                 ...state,
@@ -56,6 +64,11 @@ export const monthlyBalance = (state = monthlyState, action:any) => {
             return {
                 ...state,
                 entertainmentLeft: state.entertainmentLeft - action.payload
+            } 
+        case "SUBTRACT_FROM_EDUCATION_FOR_MONTH":
+            return {
+                ...state,
+                educationLeft: state.educationLeft - action.payload
             } 
         case "SUBTRACT_FROM_TOTAL_FOR_MONTH":
             return {

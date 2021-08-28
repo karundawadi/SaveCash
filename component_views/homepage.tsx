@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
         flex:1,
     },
     textStyle:{
-        color:'black'
+        color:'black',
+        fontSize:16
     }
 })
 

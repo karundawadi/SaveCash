@@ -26,7 +26,7 @@ function UserDetails(){
         onLastNameChange(store.getState().userDetails.lastName)
         onMonthlyIncomeChange(String(store.getState().userDetails.monthltyIncome))
         onhouseholdchange(String(store.getState().userDetails.houseHoldBudget))
-        oneducationChange(String(store.getState().userDetails.firstName))
+        oneducationChange(String(store.getState().userDetails.educationBudget))
         ontransportationChange(String(store.getState().userDetails.transportationBudget))
         onSelfBudgetChange(String(store.getState().userDetails.selfBudget))
         onEntertainmentBudgetChange(String(store.getState().userDetails.entertainmentBudget))

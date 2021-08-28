@@ -5,6 +5,7 @@ const yearlyState = {
     totalHousehold : 0.00,
     totalSelf : 0.00,
     totalTransportation : 0.00,
+    totalEducation: 0.00,
     totalUtilities : 0.00,
     totalSurplus: 0.00,
     totalDebt : 0.00
@@ -67,6 +68,12 @@ export const yearlyBalance = (state = yearlyState, action:any) => {
                 totalDebt : action.payload
             }
         
+        case "SET_EDUCATION":
+            return {
+                ...state,
+                totalEducation : action.payload
+            }
+        
         // Subtracting cases from here 
 
         case "SUBTRACT_FROM_ENTERTAINEMENT":
@@ -104,6 +111,13 @@ export const yearlyBalance = (state = yearlyState, action:any) => {
                 ...state,
                 totalSurplus : state.totalSurplus - action.payload
             }
+
+        case "SUBTRACT_FROM_EDUCATION":
+            return {
+                ...state,
+                totalEducation : state.totalEducation - action.payload
+            }
+            
         case "ADD_TO_DEBT":
             return {
                 ...state,

@@ -38,7 +38,6 @@ function InformationScreen({ navigation } : {navigation : any}) {
             navigation.navigate("HomePage")
         },[navigation])
     }
-
     const dispatch = useDispatch()
     return (
             <KeyboardAvoidingView enabled={hideKeyboard}
@@ -268,6 +267,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
 
                                             // Setting to the monthly store 
                                             dispatch({type:'SET_TOTAL_FOR_MONTH',payload:parseFloat(monthlyIncome)})
+                                            dispatch({type:'SET_EDUCATION_FOR_MONTH',payload:parseFloat(education)})
                                             dispatch({type:'SET_HOUSEHOLD_FOR_MONTH',payload:parseFloat(household)})
                                             dispatch({type:'SET_ENTERTAINMENT_FOR_MONTH',payload:parseFloat(entertainmentBudget)})
                                             dispatch({type:'SET_TRANSPORTATION_FOR_MONTH',payload:parseFloat(transportation)})
