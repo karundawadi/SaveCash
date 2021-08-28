@@ -206,7 +206,7 @@ function UserDetails(){
                         paddingRight:'2%',
                     }}>
                         <Text >Your monthly income</Text>
-                        <TextInput style = {editPressed? styles.textEdit : styles.textDone} value={monthlyIncome} editable={editPressed} onChangeText={onMonthlyIncomeChange}></TextInput>
+                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone} value={monthlyIncome} editable={editPressed} onChangeText={onMonthlyIncomeChange}></TextInput>
                     </View>
                     
                     <View style={{
@@ -214,7 +214,7 @@ function UserDetails(){
                         paddingRight:'2%',
                     }}>
                         <Text>Your household budget</Text>
-                        <TextInput style = {editPressed? styles.textEdit : styles.textDone}  value={household} editable={editPressed} onChangeText={onhouseholdchange}></TextInput>
+                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={household} editable={editPressed} onChangeText={onhouseholdchange}></TextInput>
                     </View>
 
                     <View style={{
@@ -222,7 +222,7 @@ function UserDetails(){
                         paddingRight:'2%',
                     }}>
                         <Text>Your education budget</Text>
-                        <TextInput style = {editPressed? styles.textEdit : styles.textDone} value = {education} editable={editPressed} onChangeText={oneducationChange}></TextInput>
+                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone} value = {education} editable={editPressed} onChangeText={oneducationChange}></TextInput>
                     </View>
 
                     <View style={{
@@ -230,7 +230,7 @@ function UserDetails(){
                         paddingRight:'2%',
                     }}>
                         <Text>Your transportation budget</Text>
-                        <TextInput style = {editPressed? styles.textEdit : styles.textDone}  value={transportation} editable={editPressed} onChangeText={ontransportationChange}></TextInput>
+                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={transportation} editable={editPressed} onChangeText={ontransportationChange}></TextInput>
                     </View>
 
                     <View style={{
@@ -238,7 +238,7 @@ function UserDetails(){
                         paddingRight:'2%',
                     }}>
                         <Text>Your selfbudget budget</Text>
-                        <TextInput style = {editPressed? styles.textEdit : styles.textDone}  value={selfBudget} editable={editPressed} onChangeText={onSelfBudgetChange}></TextInput>
+                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={selfBudget} editable={editPressed} onChangeText={onSelfBudgetChange}></TextInput>
                     </View>
 
                     <View style={{
@@ -246,7 +246,7 @@ function UserDetails(){
                         paddingRight:'2%',
                     }}>
                         <Text>Your entertainment Budget</Text>
-                        <TextInput style = {editPressed? styles.textEdit : styles.textDone}  value={entertainmentBudget} editable={editPressed} onChangeText={onEntertainmentBudgetChange}></TextInput>
+                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={entertainmentBudget} editable={editPressed} onChangeText={onEntertainmentBudgetChange}></TextInput>
                     </View>
 
                     <View style={{
@@ -254,7 +254,7 @@ function UserDetails(){
                         paddingRight:'2%',
                     }}>
                         <Text>Your utilities Budget</Text>
-                        <TextInput style = {editPressed? styles.textEdit : styles.textDone}  value={utilitiesBudget} editable={editPressed} onChangeText={onUtlitiesBudgetChange}></TextInput>
+                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={utilitiesBudget} editable={editPressed} onChangeText={onUtlitiesBudgetChange}></TextInput>
                     </View>
                 </ScrollView>
         </View>

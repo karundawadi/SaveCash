@@ -75,7 +75,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                             <View style={{...styles.flexadd,...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1}}>Your monthlty income</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput onFocus={()=>onKeyBoardHideChange(false)} style={styles.lastName} value={monthlyIncome} onChangeText={onmonthlyIncome} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
+                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(false)} style={styles.lastName} value={monthlyIncome} onChangeText={onmonthlyIncome} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
                             </View>
                             
                             {/* Monthly Budget */}
@@ -85,42 +85,42 @@ function InformationScreen({ navigation } : {navigation : any}) {
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1}}>Household</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={household} onChangeText={onhouseholdchange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
+                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={household} onChangeText={onhouseholdchange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
                             </View>
 
                             {/* Education budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1}}>Education</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={education} onChangeText={oneducationChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
+                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={education} onChangeText={oneducationChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
                             </View>
 
                             {/* Transportation budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1}}>Transportation</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={transportation} onChangeText={ontransportationChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
+                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={transportation} onChangeText={ontransportationChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
                             </View>
                             
                             {/* Self budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1}}>Personal</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={selfBudget} onChangeText={onSelfBudgetChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
+                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={selfBudget} onChangeText={onSelfBudgetChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
                             </View>
 
                             {/* Entertainment budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1}}>Entertainment</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={entertainmentBudget} onChangeText={onEntertainmentBudgetChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
+                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={entertainmentBudget} onChangeText={onEntertainmentBudgetChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
                             </View>
 
                             {/* Utilties budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1}}>Utilites</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={utilitiesBudget} onChangeText={onUtlitiesBudgetChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
+                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={utilitiesBudget} onChangeText={onUtlitiesBudgetChange} placeholder="0.00" keyboardType="numbers-and-punctuation"></TextInput>
                             </View>
 
                             <View style={{...styles.paddingTop2}}></View>

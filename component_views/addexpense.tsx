@@ -93,7 +93,7 @@ function AddExpense(){
                                             borderRadius:4,
                                             flexWrap:'wrap',
                                             paddingLeft:10
-                                        }} value={amount} onChangeText={onAmountChange} placeholder="0.0" keyboardType="default"></TextInput>
+                                        }} value={amount} onChangeText={onAmountChange} placeholder="0.0" keyboardType="numeric"></TextInput>
                                     </View>
                                 </View>
 
