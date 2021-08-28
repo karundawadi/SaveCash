@@ -255,6 +255,7 @@ function UserDetails(){
                     }}>
                         <Text>Your utilities Budget</Text>
                         <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={utilitiesBudget} editable={editPressed} onChangeText={onUtlitiesBudgetChange}></TextInput>
+                        
                     </View>
                 </ScrollView>
         </View>
