@@ -241,7 +241,7 @@ function AddExpense(){
                                                         Alert.alert("Please select an category")
                                                         break;
                                                 }
-                                                Alert.alert("Added !")
+                                                Alert.alert("Expense added !")
                                             }
                                         }}>
                                             <Ionicons name="add-circle-outline" color="green" size={40}/>

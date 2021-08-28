@@ -16,9 +16,9 @@ function UserProfile({ navigation } : {navigation : any}){
                         <Ionicons name="person-circle-outline" color='black' size={40}/>
                             <View style={styles.padding2}></View>
                                 <Switch
-                                    trackColor={{ false: "white", true: "pink" }}
-                                    thumbColor={isEnabled ? "beige" : "lightgreen"}
-                                    ios_backgroundColor="#3e3e3e"
+                                    trackColor={{ false: "grey", true: "grey" }}
+                                    thumbColor={isEnabled ? "white" : "black"}
+                                    ios_backgroundColor="white"
                                     style={{
                                         transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }],
                                         alignSelf:'center'
@@ -33,17 +33,20 @@ function UserProfile({ navigation } : {navigation : any}){
 
                 <View style={styles.topBarRight}>
                     <TouchableHighlight 
-                            style={{
-                                borderRadius:40,
-                                alignSelf:'flex-end',
-                                alignContent:'center',
-                                backgroundColor:'lightpink'
-                            }} 
-                            underlayColor='green'
+                            // style={{
+                            //     borderRadius:40,
+                            //     alignSelf:'flex-end',
+                            //     alignContent:'center',
+                            //     backgroundColor:'lightpink'
+                            // }} 
+                            underlayColor='white'
                             onPress={()=>{
                                 navigation.navigate('HomePage')
                             }}>
-                                <Ionicons name="close-outline" color='red' size={30}/>
+                                <Text style={{
+                                    color:'#147EFB',
+                                    fontSize:16
+                                }}>Close</Text>
                     </TouchableHighlight>
                 </View>
             </View>
@@ -67,13 +70,14 @@ const styles = StyleSheet.create({
     topBarLeft:{
         flexDirection:'row',
         justifyContent:'center',
-        flex:9,
+        flex:8,
     },
     topBarRight:{
-        alignContent:'flex-end',
+        alignContent:'center',
+        alignSelf:'center',
         justifyContent:'flex-end',
         flexDirection:'row',
-        flex:1,
+        flex:2,
         paddingRight:'2%',
     },
     padding2:{
