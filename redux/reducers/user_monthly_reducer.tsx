@@ -109,8 +109,9 @@ export const monthlyBalance = (state = monthlyState, action:any) => {
                 selfLeft: 0.00,
                 transportationLeft : 0.00,
                 utilitiesLeft : 0.00,
+                educationLeft:0.00,
                 debt : 0.00, // This will be added to total debt 
-                surplus : 0.00, // Will be added to total surplus 
+                surplus : 0.00, // Will be added to total surplus  
             }
 
         default:

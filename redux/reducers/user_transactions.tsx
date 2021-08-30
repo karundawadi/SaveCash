@@ -109,6 +109,7 @@ export const allTransactions = (state = overallTransactions, action:any) => {
                 transportation:[],
                 utilities:[],
                 entertainment:[],
+                education:[]
             }
 
         default:

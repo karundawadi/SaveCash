@@ -133,6 +133,7 @@ export const yearlyBalance = (state = yearlyState, action:any) => {
                 totalHousehold : 0.00,
                 totalSelf : 0.00,
                 totalTransportation : 0.00,
+                totalEducation: 0.00,
                 totalUtilities : 0.00,
                 totalSurplus: 0.00,
                 totalDebt : 0.00
