@@ -46,7 +46,6 @@ function FinancialDetails(){
     const transporatationLeft = Number(useStore().getState().monthlyBalance.transportationLeft)
     const utiltiesLeft = Number(useStore().getState().monthlyBalance.utilitiesLeft)
     const personalLeft = Number(useStore().getState().monthlyBalance.selfLeft)
-    console.log(useStore().getState())
 
     // This will be displayed in the modal 
     var componentToRender; 

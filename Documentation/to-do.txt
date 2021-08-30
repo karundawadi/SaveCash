@@ -1,26 +1,7 @@
-- Need to add more fields in the form screen (Done) 
-
 # Future improvement 
-- Need to make more verbose test case 
-- Need to implement credit cases 
-- Add an data is getting erased alert on Add Expense screen
-- Need to add checks whether to display alert on change information screen or not 
-- Need to make the edit and done color change 
 - Need to show over budget components on homescreen
-- Make only some fields editable 
-
-## Notes: 
-Alert can be customized :
-Alert.alert(
-    //         // 'Discard changes?',
-    //         // 'You have unsaved changes. Are you sure to discard them and leave the screen?',
-    //         // [
-    //         //     { text: "Don't leave", style: 'cancel', onPress: () => {} },
-    //         //     {
-    //         //         text: 'Discard',
-    //         //         style: 'destructive',
-    //         //         onPress: () => navigation.dispatch(action),
-    //         //     },
-    //         // ]
-
--- Fix data stored inside the store (education excluded) - in all stores 
+- Need to add more finance details graphs 
+- Add the feature of debt and surplus
+- Show overall transactions details 
+- Fix many GUI units 
+- Fix spellings 
