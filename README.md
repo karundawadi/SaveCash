@@ -16,5 +16,7 @@ If you encounter any error it may be because you may not have access to the appl
 ## Contributing
 Pull requests are welcome. These requests will be reviewed before merging. For major changes, please open an issue first to discuss what you would like to change.
 
+If you would like to submit design changes or feature changes please use this [google form](https://forms.gle/kRkCRP1VKtmUSYMAA).
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
