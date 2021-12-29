@@ -4,15 +4,17 @@ import CircularButton from '../custom_build/circular_button';
 import {Ionicons} from '@expo/vector-icons'
 import { useStore, useSelector } from 'react-redux'; 
 import { useNavigation } from '@react-navigation/native';
-
+import * as Animatable from 'react-native-animatable';
 
 function HomePage(){
     const store = useStore()
     const navigation = useNavigation()
     const [total,updateTotal] = React.useState(store.getState().monthlyBalance.totalForMonth.toFixed(2))
+    const date = new Date()
     store.subscribe(()=>{
         updateTotal(store.getState().monthlyBalance.totalForMonth.toFixed(2))
     })
+    const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     return (
         <View style={(total > 0)? styles.base : {
             ...styles.base,
@@ -40,7 +42,7 @@ function HomePage(){
 
                 <View style={{height:'70%',alignItems:'center',justifyContent:'center'}}>
                     {
-                        total > 0 ? <Text style={{...styles.textStyle}}>You have ${total} remaining</Text> : <Text style={{...styles.textStyle}}>You have -${total*(-1)} remaining</Text>
+                        total > 0 ? <Animatable.Text animation="tada" style={{...styles.textStyle}}>${total} remaining for {month[date.getMonth()]}.</Animatable.Text> : <Animatable.Text animation="tada" style={{...styles.textStyle}}>-${total*(-1)} remaining for {month[date.getMonth()]}.</Animatable.Text>
                     }
                 </View>
 
@@ -70,8 +72,9 @@ const styles = StyleSheet.create({
         flex:1,
     },
     textStyle:{
-        color:'black',
-        fontSize:16
+        color:'#333232',
+        fontSize:20,
+        fontWeight:'300'
     }
 })
 
