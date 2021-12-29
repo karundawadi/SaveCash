@@ -44,6 +44,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={{flex:1}}
             >
+                <View style={{flex:1,backgroundColor:'#9901ff'}}></View>
                 <View style={styles.base}>
                     <View style={styles.body}>
 
@@ -52,13 +53,21 @@ function InformationScreen({ navigation } : {navigation : any}) {
 
                             {/* Header */}
                             <View style={styles.alignThisToTheCenter}>
-                                <Text style={{fontSize:23, fontWeight:'bold',paddingTop:'2%'}}>Create profile</Text>
-                                <Text style={{fontSize:15,paddingLeft:'2%'}}>Looks like this is the first time you are using this application</Text>
+                                <Text style={{fontSize:25, fontWeight:'400',paddingTop:'2%'}}>Let's create your profile</Text>
                             </View>
+                            
+                            <View style={{paddingTop:4}}></View>  
+
+                            <View
+                                style={{
+                                borderWidth: 1,
+                                borderColor: '#8a8888',
+                                }}
+                            />
 
                             <View style={{...styles.paddingTop2}}></View>  
                             
-                            <Text style={styles.descriptionText}>Enter your first name and last name</Text>
+                            <Text style={{...styles.descriptionText,fontSize:18,fontWeight:'300'}}>What is your first and last name?</Text>
 
                             <View style={{...styles.paddingTop2,flex:1}}></View>
 
@@ -73,56 +82,60 @@ function InformationScreen({ navigation } : {navigation : any}) {
 
                             {/* Monthly Income */}
                             <View style={{...styles.flexadd,...styles.commonCharacterstics}}>
-                                <Text style={{paddingRight:10,flex:1}}>Your monthlty income</Text>
+                                <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Your monthlty income ? </Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
                                 <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(false)} style={styles.lastName} value={monthlyIncome} onChangeText={onmonthlyIncome} placeholder="0.00"></TextInput>
                             </View>
                             
                             {/* Monthly Budget */}
-                            <Text style={styles.descriptionText}>Let's create your monthly budget :</Text>
+                            <Text style={{...styles.descriptionText,fontSize:18,fontWeight:'300'}}>How does your monthly budget look like?</Text>
                             
+                            <View style={{...styles.paddingTop2}}></View>  
+
                             {/* Household budget */}
                             <View style={{...styles.commonCharacterstics}}>
-                                <Text style={{paddingRight:10,flex:1}}>Household</Text>
+                                <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Household</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
                                 <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={household} onChangeText={onhouseholdchange} placeholder="0.00" ></TextInput>
                             </View>
 
                             {/* Education budget */}
                             <View style={{...styles.commonCharacterstics}}>
-                                <Text style={{paddingRight:10,flex:1}}>Education</Text>
+                                <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Education</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
                                 <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={education} onChangeText={oneducationChange} placeholder="0.00"></TextInput>
                             </View>
 
                             {/* Transportation budget */}
                             <View style={{...styles.commonCharacterstics}}>
-                                <Text style={{paddingRight:10,flex:1}}>Transportation</Text>
+                                <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Transportation</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
                                 <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={transportation} onChangeText={ontransportationChange} placeholder="0.00"></TextInput>
                             </View>
                             
                             {/* Self budget */}
                             <View style={{...styles.commonCharacterstics}}>
-                                <Text style={{paddingRight:10,flex:1}}>Personal</Text>
+                                <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Personal</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
                                 <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={selfBudget} onChangeText={onSelfBudgetChange} placeholder="0.00"></TextInput>
                             </View>
 
                             {/* Entertainment budget */}
                             <View style={{...styles.commonCharacterstics}}>
-                                <Text style={{paddingRight:10,flex:1}}>Entertainment</Text>
+                                <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Entertainment</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
                                 <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={entertainmentBudget} onChangeText={onEntertainmentBudgetChange} placeholder="0.00"></TextInput>
                             </View>
 
                             {/* Utilties budget */}
                             <View style={{...styles.commonCharacterstics}}>
-                                <Text style={{paddingRight:10,flex:1}}>Utilites</Text>
+                                <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Utilites</Text>
                                 <Text style={{...styles.dollarSign}} >$</Text>
                                 <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={utilitiesBudget} onChangeText={onUtlitiesBudgetChange} placeholder="0.00"></TextInput>
                             </View>
 
+                            <View style={{...styles.paddingTop2}}></View>
+                            
                             <View style={{...styles.paddingTop2}}></View>
 
                             {/* Custom button; Zutton is created here */}
@@ -133,7 +146,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     if (firstName.length == 0){
                                         Alert.alert(
                                             "First Name Empty",
-                                            "It looks like the first name field is empty. Please fill out the first name field.",
+                                            "It looks like the first name field is empty. You will need to fill out the first name field to proceed.",
                                             [
                                                 { text: "OK", onPress: () => {} }                                              
                                             ]
@@ -142,7 +155,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else if (lastName.length == 0){
                                         Alert.alert(
                                             "Last Name Empty",
-                                            "It looks like the last name field is empty. Please fill out the last name field.",
+                                            "It looks like the last name field is empty. You will need to fill out the last name field to proceed.",
                                             [
                                                 { text: "OK", onPress: () => {} }                                              
                                             ]
@@ -151,7 +164,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else if (monthlyIncome.length == 0){
                                         Alert.alert(
                                             "Monthly Income Empty",
-                                            "It looks like the montly income is empty. Please fill out the montly income field.",
+                                            "It looks like the montly income is empty.You will need to fill out the montly income field to proceed.",
                                             [
                                                 { text: "OK", onPress: () => {} },                                    
                                                 { text:'Make Zero', onPress : () => {onmonthlyIncome("0")}, style:'destructive'},         
@@ -161,7 +174,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else if (education.length == 0){
                                         Alert.alert(
                                             "Education Empty",
-                                            "It looks like the education field empty. Please fill out the education field.",
+                                            "It looks like the education field empty. You will need to fill out the education field to proceed.",
                                             [
                                                 { text: "OK", onPress: () => {} },                                               
                                                 { text:'Make Zero', onPress : () => {oneducationChange("0")}, style:'destructive'},         
@@ -171,7 +184,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else if (household.length == 0){
                                         Alert.alert(
                                             "Household Empty",
-                                            "It looks like the household field empty. Please fill out the household field.",
+                                            "It looks like the household field empty. You will need to fill out the household field to proceed.",
                                             [
                                                 { text: "OK", onPress: () => {} },  
                                                 { text:'Make Zero', onPress : () => {onhouseholdchange("0")}, style:'destructive'},         
@@ -181,7 +194,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else if (transportation.length == 0){
                                         Alert.alert(
                                             "Transportation Empty",
-                                            "It looks like the transportation field empty. Please fill out the transporation field.",
+                                            "It looks like the transportation field empty. You will need to fill out the transporation field to proceed.",
                                             [
                                                 { text: "OK", onPress: () => {} },                                               
                                                 { text:'Make Zero', onPress : () => {ontransportationChange("0")}, style:'destructive'},         
@@ -191,7 +204,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else if (entertainmentBudget.length == 0){
                                         Alert.alert(
                                             "Entertainment Empty",
-                                            "It looks like the entertainment field empty. Please fill out the entertainment field.",
+                                            "It looks like the entertainment field empty. You will need to fill out the entertainment field to proceed.",
                                             [
                                                 { text: "OK", onPress: () => {} },                                           
                                                 { text:'Make Zero', onPress : () => {onEntertainmentBudgetChange("0")}, style:'destructive'},         
@@ -201,7 +214,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else if (selfBudget.length == 0){
                                         Alert.alert(
                                             "Personal field Empty",
-                                            "It looks like the personal field empty. Please fill out the personal field.",
+                                            "It looks like the personal field empty. You will need to fill out the personal field to proceed.",
                                             [
                                                 { text: "OK", onPress: () => {} }, 
                                                 { text:'Make Zero', onPress : () => {onSelfBudgetChange("0")}, style:'destructive'},         
@@ -211,7 +224,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else if (utilitiesBudget.length == 0){
                                         Alert.alert(
                                             "Utilites field Empty",
-                                            "It looks like the utilities field empty. Please fill out the utilities field.",
+                                            "It looks like the utilities field empty. You will need to fill out the utilities field to proceed.",
                                             [
                                                 { text: "OK", onPress: () => {} }, 
                                                 { text:'Make Zero', onPress : () => {onUtlitiesBudgetChange("0")}, style:'destructive'},                                                        
@@ -224,6 +237,10 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                         console.log("Numeric field detected")
                                         Alert.alert(
                                             "Letter detected in numeric field",
+                                            "You cannot have letter present on any of the fields",
+                                            [
+                                                { text: "OK", onPress: () => {} }, 
+                                            ]
                                         )
                                     // If greater than zero will be stored as savings 
                                     }
@@ -232,7 +249,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else if ((Number(monthlyIncome)<0) || (Number(education) < 0) || (Number(household) < 0) || (Number(transportation)<0) || (Number(entertainmentBudget) < 0) || (Number(selfBudget) < 0) || (Number(utilitiesBudget)<0) ){
                                         Alert.alert(
                                             "Number cannot be negative",
-                                            "It looks like you are trying to enter a negative number in a field.",
+                                            "It looks like you are trying to enter a negative number in one of the field.",
                                             [
                                                 { text: "OK", onPress: () => {} }                                              
                                             ]
@@ -242,7 +259,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else if ((Number(monthlyIncome) - Number(education) - Number(transportation) - Number(household) - Number(entertainmentBudget) - Number(selfBudget) - Number(utilitiesBudget)) < 0){
                                         Alert.alert(
                                             "Budget cannot be negative",
-                                            "It looks like you will be in debt according to your plan. Enter your budget for now you can enter your debt later in the app.",
+                                            "Remember this is only creating your budget. Budget cannot be higher than your income.",
                                             [
                                                 { text: "OK", onPress: () => {} }                                              
                                             ]
@@ -289,19 +306,22 @@ function InformationScreen({ navigation } : {navigation : any}) {
                             } buttonText="Submit" styles={{
                                 height:'auto',
                                 width:'auto',
-                                backgroundColor: 'darkgreen',
+                                backgroundColor: '#ffbb00',
                                 justifycontent:'center',
                                 alignSelf:'center',
                                 alignItems:'center',
-                                borderRadius:4
+                                borderRadius:4,
                             }} textStyle={{
-                                color:'white',
+                                color:'#9901ff',
+                                fontWeight:'400',
+                                fontSize:18
                             }}></Zutton>
                             
                             <View style={{...styles.paddingBottom2}}></View>
 
                         </ScrollView>    
                 </View>
+                <View style={{flex:1}}></View>
             </View>
         </KeyboardAvoidingView>
     );
@@ -314,9 +334,8 @@ const styles = StyleSheet.create({
     },
     
     base:{
-        backgroundColor:"#A366E8",
-        flex:1, // This takes all the available space 
-        paddingTop:'15%',
+        backgroundColor:"#9901ff",
+        flex:8, 
     },
 
     paddingTop2:{
@@ -363,6 +382,7 @@ const styles = StyleSheet.create({
         justifyContent:'flex-end',
         backgroundColor:"#e0dcdc",
         borderRadius:4,
+        fontWeight:'300'
         // textAlign
     },
 
@@ -395,8 +415,11 @@ const styles = StyleSheet.create({
     },
 
     dollarSign:{
-        color:'#404040',
+        color:'#c9c5c5',
 
+    },
+    commonAddition:{
+        fontSize:15,fontWeight:'300'
     }
 });
 
