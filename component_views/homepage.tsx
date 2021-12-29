@@ -42,7 +42,7 @@ function HomePage(){
 
                 <View style={{height:'70%',alignItems:'center',justifyContent:'center'}}>
                     {
-                        total > 0 ? <Animatable.Text animation="tada" style={{...styles.textStyle}}>${total} remaining for {month[date.getMonth()]}.</Animatable.Text> : <Animatable.Text animation="tada" style={{...styles.textStyle}}>-${total*(-1)} remaining for {month[date.getMonth()]}.</Animatable.Text>
+                        total > 0 ? <Animatable.Text animation="wobble" style={{...styles.textStyle}}>${total} remaining for {month[date.getMonth()]}.</Animatable.Text> : <Animatable.Text animation="tada" style={{...styles.textStyle}}>-${total*(-1)} remaining for {month[date.getMonth()]}.</Animatable.Text>
                     }
                 </View>
 

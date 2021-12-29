@@ -74,7 +74,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
                             {/* First Name and last name */}
                             <View style={styles.inputArea}>
                                 <SafeAreaView style={{flexDirection:"row",alignContent:"center",justifyContent:'space-evenly'}}>
-                                    <TextInput onFocus={()=>onKeyBoardHideChange(false)} style={styles.firstName} value={firstName} onChangeText={onFirstNameChange} placeholder="First Name"/>
+                                    <TextInput onFocus={()=>onKeyBoardHideChange(false)} style={{...styles.firstName,fontWeight:'300'}} value={firstName} onChangeText={onFirstNameChange} placeholder="First Name"/>
                                     <Text style={{padding:10,}}></Text>
                                     <TextInput onFocus={()=>onKeyBoardHideChange(false)} style={styles.lastNameNew} value={lastName} onChangeText={onLastNameChange} placeholder="Last Name"/>
                                 </SafeAreaView>
@@ -403,7 +403,8 @@ const styles = StyleSheet.create({
         fontSize:16,
         paddingRight:'2%',
         backgroundColor:"#e0dcdc",
-        borderRadius:4
+        borderRadius:4,
+        fontWeight:'300'
     },
 
     commonCharacterstics:{
