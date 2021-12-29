@@ -5,6 +5,7 @@ import HomePage from './component_views/homepage'
 import 'react-native-gesture-handler';
 import AddExpense from './component_views/addexpense';
 import UserProfile from './component_views/profile_section/user_profile'
+import LandingPage from './component_views/landing_page';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -18,7 +19,11 @@ function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="InformationScreen">
+          <Stack.Navigator initialRouteName="LandingPage">
+            <Stack.Screen name="LandingPage" component={LandingPage} options={{
+              headerShown:false,
+              gestureEnabled: false,
+              }}/>
             <Stack.Screen name="InformationScreen" component={InformationScreen} options={{
               headerShown:false,
               gestureEnabled: false
