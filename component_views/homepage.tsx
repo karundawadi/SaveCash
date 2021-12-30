@@ -14,6 +14,15 @@ function HomePage(){
     store.subscribe(()=>{
         updateTotal(store.getState().monthlyBalance.totalForMonth.toFixed(2))
     })
+    // Total spent so far
+    // Will add on the future versions (Shows information on the screen itself)
+    const educationLeft = Number(useStore().getState().monthlyBalance.educationLeft)
+    const entertainmentLeft = Number(useStore().getState().monthlyBalance.entertainmentLeft)
+    const householdLeft = Number(useStore().getState().monthlyBalance.householdLeft)
+    const transporatationLeft = Number(useStore().getState().monthlyBalance.transportationLeft)
+    const utiltiesLeft = Number(useStore().getState().monthlyBalance.utilitiesLeft)
+    const personalLeft = Number(useStore().getState().monthlyBalance.selfLeft)
+
     const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     return (
         <View style={(total > 0)? styles.base : {

@@ -12,22 +12,30 @@ function UserProfile({ navigation } : {navigation : any}){
     return (
         <View style={styles.base}>
             <View style={styles.topBar}>
-                    <View style={styles.topBarLeft}>
-                        <Ionicons name="person-circle-outline" color='black' size={40}/>
+                    <View style={{...styles.topBarLeft}}>
+                        <View style={{
+                            flexDirection:'row',
+                            alignItems:'center',
+                            }}>
+                            <Ionicons name="person-circle-outline" color='#ffbb00' size={40}/>
+                            <View style={{
+                            ...styles.padding2,
+                            }}></View>
+
+                            <Switch
+                                trackColor={{ false: "white", true: "white" }}
+                                thumbColor={isEnabled ? "#00cc00" : "#800000"}
+                                ios_backgroundColor="white"
+                                style={{
+                                    transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }],
+                                }} 
+                                onValueChange={toggleSwitch}
+                                value={isEnabled}
+                            />
+                            
                             <View style={styles.padding2}></View>
-                                <Switch
-                                    trackColor={{ false: "grey", true: "grey" }}
-                                    thumbColor={isEnabled ? "white" : "black"}
-                                    ios_backgroundColor="white"
-                                    style={{
-                                        transform: [{ scaleX: 1.1 }, { scaleY: 1.1 }],
-                                        alignSelf:'center'
-                                    }} 
-                                    onValueChange={toggleSwitch}
-                                    value={isEnabled}
-                                />
-                            <View style={styles.padding2}></View>
-                        <Ionicons name="stats-chart-outline" color="black" size={40}></Ionicons>
+                            <Ionicons name="stats-chart-outline" color="#ffbb00" size={40}></Ionicons>
+                        </View>
                     <View style={styles.padding2}></View>
                 </View>
 
@@ -44,7 +52,7 @@ function UserProfile({ navigation } : {navigation : any}){
                                 navigation.navigate('HomePage')
                             }}>
                                 <Text style={{
-                                    color:'#147EFB',
+                                    color:'#ffbb00',
                                     fontSize:16
                                 }}>Close</Text>
                     </TouchableHighlight>
@@ -60,7 +68,7 @@ function UserProfile({ navigation } : {navigation : any}){
 const styles = StyleSheet.create({
     base:{
         paddingTop:'8%',
-        backgroundColor:'white',
+        backgroundColor:'#9901ff',
         flex:1,
         alignItems:'center',
     },
@@ -70,7 +78,8 @@ const styles = StyleSheet.create({
     topBarLeft:{
         flexDirection:'row',
         justifyContent:'center',
-        flex:8,
+        alignItems:'center',
+        flex:9,
     },
     topBarRight:{
         alignContent:'center',

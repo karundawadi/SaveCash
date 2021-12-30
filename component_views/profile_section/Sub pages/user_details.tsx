@@ -48,6 +48,7 @@ function UserDetails(){
         <View style={{...styles.userDetailsStyle}}>
                 <View style={{
                     flexDirection:'row',
+                    paddingBottom:'2%'
                 }}>
                     <View style={{
                         flex:5,
@@ -110,7 +111,17 @@ function UserDetails(){
                                                 'Update details?',
                                                 'This will default your monthly budget and also delete the expenses till this month.',
                                                 [
-                                                    { text: "Cancel", style: 'cancel', onPress: () => {} },
+                                                    { text: "Cancel", style: 'cancel', onPress: () => {
+                                                        onFirstNameChange(store.getState().userDetails.firstName)
+                                                        onLastNameChange(store.getState().userDetails.lastName)
+                                                        onMonthlyIncomeChange(String(store.getState().userDetails.monthltyIncome))
+                                                        onhouseholdchange(String(store.getState().userDetails.houseHoldBudget))
+                                                        oneducationChange(String(store.getState().userDetails.educationBudget))
+                                                        ontransportationChange(String(store.getState().userDetails.transportationBudget))
+                                                        onSelfBudgetChange(String(store.getState().userDetails.selfBudget))
+                                                        onEntertainmentBudgetChange(String(store.getState().userDetails.entertainmentBudget))
+                                                        onUtlitiesBudgetChange(String(store.getState().userDetails.utiltiesBudget))
+                                                    } },
                                                     {
                                                         text: 'Procceed',
                                                         style: 'destructive',
@@ -172,90 +183,132 @@ function UserDetails(){
                                 <Text style={{
                                     fontSize:16,
                                     paddingLeft:'2%',
-                                    color:'#147EFB'
+                                    color:'red'
                                 }}>{editPressed? "Done": "Delete"}</Text>
                         </TouchableHighlight>
                     </View>
                 </View>
+                
+                <View
+                    style={{
+                    borderWidth: 1,
+                    borderColor: '#8a8888',
+                    }}
+                />
+
                 <ScrollView bounces={false} style={{
                 }}>
-                    <Text style={{
-                        paddingLeft:'2%',
-                        paddingRight:'2%',
-                        paddingTop:'2%',
-                        fontSize:16
-                    }}>
-                        Name:
-                    </Text>
                     {/* This contains the name  */}
                     <View style={{
-                            flexDirection:'row',
-                            paddingLeft:'2%',
-                            paddingRight:'2%',
-                            paddingTop:'1.5%',
+                            ...styles.viewContainerStyle,
                         }}>
-                            <TextInput style = {editPressed? {backgroundColor:'lightgrey',flex:3, fontSize: 16} : {backgroundColor:'white',flex:3 , fontSize: 16}} value={firstName} editable={editPressed} onChangeText={onFirstNameChange} placeholder='First Name'></TextInput>
+                            <Text style={{
+                                paddingLeft:'2%',
+                                paddingRight:'2%',
+                                paddingTop:'2%',
+                                fontSize:16,
+                                flex:3,
+                                fontWeight:'500'
+                            }}>
+                                Name:
+                            </Text>
 
-                            <View style={{flex:0.5,}}></View>
+                            <View style = {editPressed? {flex:3,...styles.editMode } : {flex:3,...styles.doneMode}}>
+                                <TextInput style = {editPressed? {...styles.textEdit } : {...styles.textDone}} value={firstName} editable={editPressed} onChangeText={onFirstNameChange} placeholder='First Name'></TextInput>
+                            </View>
 
-                            <TextInput style = {editPressed? {backgroundColor:'lightgrey',flex:3, fontSize: 16} : {backgroundColor:'white',flex:3, fontSize: 16}} value={lastName} editable={editPressed} onChangeText={onLastNameChange} placeholder='Last Name'></TextInput>
+                            <View style={{flex:1}}></View>
+
+                            <View style = {editPressed? {flex:3,...styles.editMode } : {flex:3,...styles.doneMode}}>
+                                <TextInput style = {editPressed? {...styles.textEdit } : {...styles.textDone}} value={lastName} editable={editPressed} onChangeText={onLastNameChange} placeholder='Last Name'></TextInput>
+                            </View>
+
                     </View>
                     
                     <View style={{
-                        paddingLeft:'2%',
-                        paddingRight:'2%',
+                        ...styles.viewContainerStyle
                     }}>
-                        <Text >Your monthly income</Text>
-                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone} value={monthlyIncome} editable={editPressed} onChangeText={onMonthlyIncomeChange}></TextInput>
+                        <Text style={{
+                            ...styles.descriptiveTextStyle
+                        }} >Monthly Income</Text>
+                        <View style={{...styles.viewContainerInside}}>
+                            <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                <Text style={styles.dollarSign}>$</Text>
+                                <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone} value={monthlyIncome} editable={editPressed} onChangeText={onMonthlyIncomeChange}></TextInput>
+                            </View>
+                        </View>
                     </View>
                     
                     <View style={{
-                        paddingLeft:'2%',
-                        paddingRight:'2%',
+                        ...styles.viewContainerStyle
                     }}>
-                        <Text>Your household budget</Text>
-                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={household} editable={editPressed} onChangeText={onhouseholdchange}></TextInput>
+                        <Text style={{...styles.descriptiveTextStyle}}>Household Budget</Text>
+                        <View style={{...styles.viewContainerInside}}>
+                            <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                <Text style={styles.dollarSign}>$</Text>
+                                <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={household} editable={editPressed} onChangeText={onhouseholdchange}></TextInput>
+                            </View>
+                        </View>
                     </View>
 
                     <View style={{
-                        paddingLeft:'2%',
-                        paddingRight:'2%',
+                        ...styles.viewContainerStyle
                     }}>
-                        <Text>Your education budget</Text>
-                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone} value = {education} editable={editPressed} onChangeText={oneducationChange}></TextInput>
+                        <Text style={{...styles.descriptiveTextStyle}}>Education Budget</Text>
+                        <View style={{...styles.viewContainerInside}}>
+                            <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                <Text style={styles.dollarSign}>$</Text>
+                                <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone} value = {education} editable={editPressed} onChangeText={oneducationChange}></TextInput>
+                            </View>
+                        </View>
                     </View>
 
                     <View style={{
-                        paddingLeft:'2%',
-                        paddingRight:'2%',
+                        ...styles.viewContainerStyle
                     }}>
-                        <Text>Your transportation budget</Text>
-                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={transportation} editable={editPressed} onChangeText={ontransportationChange}></TextInput>
+                        <Text style={{...styles.descriptiveTextStyle}}>Transportation Budget</Text>
+                        <View style={{...styles.viewContainerInside}}>
+                            <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                <Text style={styles.dollarSign}>$</Text>
+                                <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={transportation} editable={editPressed} onChangeText={ontransportationChange}></TextInput>
+                            </View>
+                        </View>
                     </View>
 
                     <View style={{
-                        paddingLeft:'2%',
-                        paddingRight:'2%',
+                        ...styles.viewContainerStyle
                     }}>
-                        <Text>Your selfbudget budget</Text>
-                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={selfBudget} editable={editPressed} onChangeText={onSelfBudgetChange}></TextInput>
+                        <Text style={{...styles.descriptiveTextStyle}}>Selfbudget Budget</Text>
+                        <View style={{...styles.viewContainerInside}}>
+                            <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                <Text style={styles.dollarSign}>$</Text>
+                                <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={selfBudget} editable={editPressed} onChangeText={onSelfBudgetChange}></TextInput>
+                            </View>
+                        </View>
                     </View>
 
                     <View style={{
-                        paddingLeft:'2%',
-                        paddingRight:'2%',
+                        ...styles.viewContainerStyle
                     }}>
-                        <Text>Your entertainment Budget</Text>
-                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={entertainmentBudget} editable={editPressed} onChangeText={onEntertainmentBudgetChange}></TextInput>
+                        <Text style={{...styles.descriptiveTextStyle}}>Entertainment Budget</Text>
+                        <View style={{...styles.viewContainerInside}}>
+                            <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                <Text style={styles.dollarSign}>$</Text>
+                                <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={entertainmentBudget} editable={editPressed} onChangeText={onEntertainmentBudgetChange}></TextInput>
+                            </View>
+                        </View>
                     </View>
 
                     <View style={{
-                        paddingLeft:'2%',
-                        paddingRight:'2%',
+                        ...styles.viewContainerStyle
                     }}>
-                        <Text>Your utilities Budget</Text>
-                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={utilitiesBudget} editable={editPressed} onChangeText={onUtlitiesBudgetChange}></TextInput>
-                        
+                        <Text style={{...styles.descriptiveTextStyle}}>Utilities Budget</Text>
+                        <View style={{...styles.viewContainerInside}}>
+                            <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                <Text style={styles.dollarSign}>$</Text>
+                                <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={utilitiesBudget} editable={editPressed} onChangeText={onUtlitiesBudgetChange}></TextInput>
+                            </View>
+                        </View>
                     </View>
                 </ScrollView>
         </View>
@@ -277,13 +330,58 @@ const styles = StyleSheet.create({
         backgroundColor:'pink'
     },
     textEdit:{
-        backgroundColor:'lightgrey',
-        fontSize:16
+        fontSize:16,
+        fontWeight:'400',
+        paddingRight:'5%'
     },
     textDone:{
-        backgroundColor:'white',
-        fontSize:16
+        fontSize:16,
+        fontWeight:'300',
+        paddingRight:'5%'
+    },
+    viewContainerStyle:{
+        paddingLeft:'2%',
+        paddingRight:'2%',
+        flexDirection:'row',
+        paddingTop:'2%',
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    descriptiveTextStyle:{
+        paddingLeft:'2%',
+        paddingRight:'2%',
+        paddingTop:'2%',
+        fontSize:16,
+        flex:5,
+        fontWeight:'500'
+    },
+    dollarSign:{
+        fontWeight:'200',
+        paddingLeft:'5%'
+    },
+    viewContainerInside:{
+        flex:3,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    editMode:{
+        justifyContent:'center',
+        borderRadius:5,
+        backgroundColor:'#e8e8e8',
+        flexDirection:'row',
+        minWidth:80,
+        maxWidth:110
+    },
+    doneMode:{
+        justifyContent:'center',
+        borderRadius:4,
+        backgroundColor:'#d1d1d1',
+        flexDirection:'row',
+        minWidth:80,
+        maxWidth:110
     }
+
 })
 
 export default UserDetails

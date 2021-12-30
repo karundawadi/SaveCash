@@ -243,7 +243,11 @@ function AddExpense(){
                                                 Alert.alert("Please select an category")
                                                 break;
                                         }
+                                        
                                         Alert.alert("Expense added !")
+                                        onExpenseNameChange("")
+                                        onAmountChange("")
+                                        setDate(new Date())
                                     }
                                 }}>
                                     <Ionicons name="add-circle-outline" color="#ffbb00" size={40}/>
