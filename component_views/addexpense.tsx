@@ -70,31 +70,35 @@ function AddExpense(){
                         <View style={{
                                 flexDirection:'row',
                                 alignItems:'flex-start',
+                                paddingRight:10,
                                 paddingLeft:10
                             }}>
                             <Text style={{
                                 flex:2,
                                 ...styles.fontDetails
                             }}>Total Amount</Text>
-
-                            <Text style={{
-                                alignSelf:'center',
-                                ...styles.fontDetails,
-                                color:'#c9c5c5'
-                            }}>$</Text>
-
+                            <View style={{flex:1}}></View>
+                            
                             <View style={{
-                                flex:2,
-                                paddingRight:10
+                                ...styles.fixedDollarStyle,
+                                flex:3,
                             }}>
-                                <TextInput style={{
-                                    height:30,
+                                <Text style={{
+                                    alignSelf:'center',
                                     ...styles.fontDetails,
-                                    backgroundColor:"#e0dcdc",
-                                    borderRadius:4,
-                                    flexWrap:'wrap',
-                                    paddingLeft:10
-                                }} value={amount} onChangeText={onAmountChange} placeholder="0.0" keyboardType="numeric"></TextInput>
+                                    color:'grey'
+                                }}>$</Text>
+
+                                <View style={{
+                                    height:30,
+                                }}>
+                                    <TextInput style={{
+                                        height:30,
+                                        ...styles.fontDetails,
+                                        borderRadius:4,
+                                        flexWrap:'wrap',
+                                    }} value={amount} onChangeText={onAmountChange} placeholder="0.0" keyboardType="numeric"></TextInput>
+                                </View>
                             </View>
                         </View>
 
@@ -284,6 +288,18 @@ const styles = StyleSheet.create({
     fontDetails:{
         fontSize:16,
         fontWeight:'300'
+    },
+    fixedDollarStyle:{
+        flex:1,
+        height:28,
+        paddingLeft:'2%',
+        fontSize:16,
+        backgroundColor:"#e0dcdc",
+        borderRadius:4,
+        fontWeight:'300',
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'flex-start'
     }
 })
 

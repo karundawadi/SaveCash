@@ -46,7 +46,7 @@ function FinancialDetails(){
     const transporatationLeft = Number(useStore().getState().monthlyBalance.transportationLeft)
     const utiltiesLeft = Number(useStore().getState().monthlyBalance.utilitiesLeft)
     const personalLeft = Number(useStore().getState().monthlyBalance.selfLeft)
-
+    
     // This will be displayed in the modal 
     var componentToRender; 
     if (educationClicked){
@@ -84,32 +84,32 @@ function FinancialDetails(){
     const data = [ 
         {
             label: "House Hold",
-            value: (houseHoldBudget-householdLeft)/houseHoldBudget, // ring will use color from theme
+            value: ((houseHoldBudget-householdLeft)/houseHoldBudget)/100, // ring will use color from theme
             color:'#FD0100'
         },
         {
             label: "Personal",
-            value: (personalBudget-personalLeft)/personalBudget,
+            value: ((personalBudget-personalLeft)/personalBudget)/100,
             color:'#F76915'
         },
         {
             label: "Transportation",
-            value: (transportationBudget-transporatationLeft)/transportationBudget,
+            value: ((transportationBudget-transporatationLeft)/transportationBudget)/100,
             color:'#EEDE04'
         },
         {
             label: "Utilities",
-            value: (utilitiesBudget-utiltiesLeft)/utilitiesBudget, // ring will use color from theme
+            value: ((utilitiesBudget-utiltiesLeft)/utilitiesBudget)/100, // ring will use color from theme
             color:'#A0D636'
         },
         {
             label: "Entertainment",
-            value: (entertainmentBudget-entertainmentLeft)/entertainmentBudget,
+            value: ((entertainmentBudget-entertainmentLeft)/entertainmentBudget)/100,
             color:'#2FA236'
         },
         {
             label: "Education",
-            value: (educationBudget-educationLeft)/educationBudget,
+            value: ((educationBudget-educationLeft)/educationBudget)/100,
             color:'#333ED4'
         }
     ]
@@ -151,10 +151,10 @@ function FinancialDetails(){
                                 <View style={{paddingTop:10}}></View>
                                 <Pressable
                                     style={{
-                                        borderRadius: 20,
+                                        borderRadius: 10,
                                         padding: 10,
                                         elevation: 2,
-                                        backgroundColor:'#362819',
+                                        backgroundColor:'#4D0CF0',
                                     }}
                                     onPress={() => {
                                         setModalVisible(false)
@@ -167,7 +167,7 @@ function FinancialDetails(){
                                         setModalVisible(!modalVisible)
                                     }}
                                     >
-                                    <Text style={{color:'white'}}>Close</Text>
+                                    <Text style={{color:'#D4FA16'}}>Close</Text>
                                 </Pressable>
                             </View>
                         </ScrollView>
@@ -184,7 +184,7 @@ function FinancialDetails(){
                             ...styles.fontDetails,
                             ...styles.paddingTopStyle,
                             ...styles.paddingBottomView,
-                            fontWeight:'bold',
+                            fontWeight:'500',
                         }}
                         >
                             History
@@ -250,7 +250,7 @@ function FinancialDetails(){
                             ...styles.fontDetails,
                             ...styles.paddingBottomView,
                             ...styles.paddingTopStyle,
-                            fontWeight:'bold'
+                            fontWeight:'500'
                         }}>
                             Percentage of each category used
                     </Text>
@@ -278,7 +278,7 @@ function FinancialDetails(){
                             ...styles.fontDetails,
                             ...styles.paddingBottomView,
                             ...styles.paddingTopStyle,
-                            fontWeight:'bold'
+                            fontWeight:'500'
                         }}>
                             Expenses broken down
                     </Text>
@@ -362,7 +362,8 @@ const styles = StyleSheet.create({
         paddingLeft:'2%',
     },
     fontDetails:{
-        fontSize:16
+        fontSize:16,
+        fontWeight:'300'
     },
     paddingBottomView:{
         paddingBottom:'2%'
@@ -390,7 +391,7 @@ const styles = StyleSheet.create({
         paddingHorizontal:10,
         alignItems:'center',
         shadowColor:'#2a2a2a',
-        backgroundColor:'blue',
+        backgroundColor:'#ffbb00',
         shadowRadius:4,
         shadowOffset: {
             width:0,
@@ -399,21 +400,23 @@ const styles = StyleSheet.create({
         elevation:2,
     },
     buttonText:{
-        color:'white'
+        color:'#9901ff'
     },
     expesneBarStyle:{
-        backgroundColor:'#b4b8b5',
+        backgroundColor:'#00D9B8',
         flexDirection:'row',
         justifyContent:'space-around',
         paddingLeft:'2%'
     },
     expenseBarLeft:{
         flex:8,
-        fontSize:16
+        fontSize:16,
+        fontWeight:'400'
     },
     expenseBarRight:{
         flex:2,
-        fontSize:16
+        fontSize:16,
+        fontWeight:'400'
     },
     buttonInsideExpenseStyle:{
         flexWrap:'wrap'
@@ -456,7 +459,7 @@ function ListValues(props:any){
     if(props.arrayVal.length == 0){
         return <View style={{width:'100%'}}>
         {
-            <Text style={{fontSize:16,fontStyle:'italic',paddingTop:'2%'}}>There are no transactions so far. Please try again later.</Text>
+            <Text style={{fontSize:16,fontStyle:'italic',paddingTop:'2%',fontWeight:'300'}}>There are no transactions so far. Please try again later.</Text>
         }
     </View>
     }

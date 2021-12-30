@@ -83,8 +83,12 @@ function InformationScreen({ navigation } : {navigation : any}) {
                             {/* Monthly Income */}
                             <View style={{...styles.flexadd,...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Your monthlty income ? </Text>
-                                <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(false)} style={styles.lastName} value={monthlyIncome} onChangeText={onmonthlyIncome} placeholder="0.00"></TextInput>
+                                <View style={{
+                                    ...styles.fixedDollarStyle,
+                                }}>
+                                    <Text style={{...styles.dollarSign}} >$</Text>
+                                    <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(false)} style={{...styles.lastName}} value={monthlyIncome} onChangeText={onmonthlyIncome} placeholder="0.00"></TextInput>
+                                </View>
                             </View>
                             
                             {/* Monthly Budget */}
@@ -95,43 +99,67 @@ function InformationScreen({ navigation } : {navigation : any}) {
                             {/* Household budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Household</Text>
-                                <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={household} onChangeText={onhouseholdchange} placeholder="0.00" ></TextInput>
+                                <View style={{
+                                    ...styles.fixedDollarStyle,
+                                }}>
+                                    <Text style={{...styles.dollarSign}} >$</Text>
+                                    <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={household} onChangeText={onhouseholdchange} placeholder="0.00" ></TextInput>
+                                </View>
                             </View>
 
                             {/* Education budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Education</Text>
-                                <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={education} onChangeText={oneducationChange} placeholder="0.00"></TextInput>
+                                <View style={{
+                                    ...styles.fixedDollarStyle,
+                                }}>
+                                    <Text style={{...styles.dollarSign}} >$</Text>
+                                    <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={education} onChangeText={oneducationChange} placeholder="0.00"></TextInput>
+                                </View>
                             </View>
 
                             {/* Transportation budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Transportation</Text>
-                                <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={transportation} onChangeText={ontransportationChange} placeholder="0.00"></TextInput>
+                                <View style={{
+                                    ...styles.fixedDollarStyle,
+                                }}>
+                                    <Text style={{...styles.dollarSign}} >$</Text>
+                                    <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={transportation} onChangeText={ontransportationChange} placeholder="0.00"></TextInput>
+                                </View>
                             </View>
                             
                             {/* Self budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Personal</Text>
-                                <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={selfBudget} onChangeText={onSelfBudgetChange} placeholder="0.00"></TextInput>
+                                <View style={{
+                                    ...styles.fixedDollarStyle,
+                                }}>
+                                    <Text style={{...styles.dollarSign}} >$</Text>
+                                    <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={selfBudget} onChangeText={onSelfBudgetChange} placeholder="0.00"></TextInput>
+                                </View>
                             </View>
 
                             {/* Entertainment budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Entertainment</Text>
-                                <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={entertainmentBudget} onChangeText={onEntertainmentBudgetChange} placeholder="0.00"></TextInput>
+                                <View style={{
+                                    ...styles.fixedDollarStyle,
+                                }}>
+                                    <Text style={{...styles.dollarSign}} >$</Text>
+                                    <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={entertainmentBudget} onChangeText={onEntertainmentBudgetChange} placeholder="0.00"></TextInput>
+                                </View>
                             </View>
 
                             {/* Utilties budget */}
                             <View style={{...styles.commonCharacterstics}}>
                                 <Text style={{paddingRight:10,flex:1,...styles.commonAddition}}>Utilites</Text>
-                                <Text style={{...styles.dollarSign}} >$</Text>
-                                <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={utilitiesBudget} onChangeText={onUtlitiesBudgetChange} placeholder="0.00"></TextInput>
+                                <View style={{
+                                    ...styles.fixedDollarStyle,
+                                }}>
+                                    <Text style={{...styles.dollarSign}} >$</Text>
+                                    <TextInput keyboardType="numeric" onFocus={()=>onKeyBoardHideChange(true)} style={styles.lastName} value={utilitiesBudget} onChangeText={onUtlitiesBudgetChange} placeholder="0.00"></TextInput>
+                                </View>
                             </View>
 
                             <View style={{...styles.paddingTop2}}></View>
@@ -416,11 +444,23 @@ const styles = StyleSheet.create({
     },
 
     dollarSign:{
-        color:'#c9c5c5',
+        color:'grey',
 
     },
     commonAddition:{
         fontSize:15,fontWeight:'300'
+    },
+    fixedDollarStyle:{
+        flex:1,
+        height:28,
+        paddingLeft:'2%',
+        fontSize:16,
+        backgroundColor:"#e0dcdc",
+        borderRadius:4,
+        fontWeight:'300',
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'flex-start'
     }
 });
 
