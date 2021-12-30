@@ -78,38 +78,38 @@ function FinancialDetails(){
         ringSize:7,
         radius: 14
     }
-    
+    console.log(((houseHoldBudget-householdLeft)/houseHoldBudget)/100)
     // If more than 99% doesn't display the circle 
     // This is the data that will be taken from the application itself ; replaced all the sections with needed data 
     const data = [ 
         {
             label: "House Hold",
-            value: ((houseHoldBudget-householdLeft)/houseHoldBudget)/100, // ring will use color from theme
+            value: ((houseHoldBudget-householdLeft)/houseHoldBudget), // ring will use color from theme
             color:'#FD0100'
         },
         {
             label: "Personal",
-            value: ((personalBudget-personalLeft)/personalBudget)/100,
+            value: ((personalBudget-personalLeft)/personalBudget),
             color:'#F76915'
         },
         {
             label: "Transportation",
-            value: ((transportationBudget-transporatationLeft)/transportationBudget)/100,
+            value: ((transportationBudget-transporatationLeft)/transportationBudget),
             color:'#EEDE04'
         },
         {
             label: "Utilities",
-            value: ((utilitiesBudget-utiltiesLeft)/utilitiesBudget)/100, // ring will use color from theme
+            value: ((utilitiesBudget-utiltiesLeft)/utilitiesBudget), // ring will use color from theme
             color:'#A0D636'
         },
         {
             label: "Entertainment",
-            value: ((entertainmentBudget-entertainmentLeft)/entertainmentBudget)/100,
+            value: ((entertainmentBudget-entertainmentLeft)/entertainmentBudget),
             color:'#2FA236'
         },
         {
             label: "Education",
-            value: ((educationBudget-educationLeft)/educationBudget)/100,
+            value: ((educationBudget-educationLeft)/educationBudget),
             color:'#333ED4'
         }
     ]

@@ -12,6 +12,9 @@ function UserProfile({ navigation } : {navigation : any}){
     return (
         <View style={styles.base}>
             <View style={styles.topBar}>
+                    <View style={{}}>
+
+                    </View>
                     <View style={{...styles.topBarLeft}}>
                         <View style={{
                             flexDirection:'row',
@@ -37,6 +40,12 @@ function UserProfile({ navigation } : {navigation : any}){
                             <Ionicons name="stats-chart-outline" color="#ffbb00" size={40}></Ionicons>
                         </View>
                     <View style={styles.padding2}></View>
+                </View>
+                
+                <View style={{
+                    flex:1
+                }}>
+
                 </View>
 
                 <View style={styles.topBarRight}>
@@ -77,7 +86,7 @@ const styles = StyleSheet.create({
     },
     topBarLeft:{
         flexDirection:'row',
-        justifyContent:'center',
+        justifyContent:'flex-end',
         alignItems:'center',
         flex:9,
     },
