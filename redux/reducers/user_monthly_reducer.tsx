@@ -103,6 +103,7 @@ export const monthlyBalance = (state = monthlyState, action:any) => {
         case 'PURGE_MONTHLY':
             console.log("Deleting monthly transactions")
             return {
+                ...state,
                 totalForMonth : 0.00,
                 entertainmentLeft : 0.0 ,
                 householdLeft : 0.00, 
@@ -111,7 +112,7 @@ export const monthlyBalance = (state = monthlyState, action:any) => {
                 utilitiesLeft : 0.00,
                 educationLeft:0.00,
                 debt : 0.00, // This will be added to total debt 
-                surplus : 0.00, // Will be added to total surplus  
+                surplus : 0.00, // Will be added to total surplus 
             }
 
         default:

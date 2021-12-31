@@ -22,14 +22,17 @@ function App() {
           <Stack.Navigator initialRouteName="LandingPage">
             <Stack.Screen name="LandingPage" component={LandingPage} options={{
               headerShown:false,
+              headerLeft: ()=>null,
               gestureEnabled: false,
               }}/>
             <Stack.Screen name="InformationScreen" component={InformationScreen} options={{
               headerShown:false,
+              headerLeft: ()=>null,
               gestureEnabled: false
               }}/>
             <Stack.Screen name="HomePage" component={HomePage} options={{
               headerShown:false,
+              headerLeft: ()=>null,
               gestureEnabled: false
               }}/>
             <Stack.Screen name="AddExpense" component={AddExpense} options={{

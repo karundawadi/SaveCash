@@ -127,6 +127,7 @@ export const yearlyBalance = (state = yearlyState, action:any) => {
         case 'PURGE_OVERALL_BALANCE':
             console.log("Deleting overall balance")
             return {
+                ...state,
                 totalExpenses : 0.00,
                 totalincome : 0.00,
                 totalEntertainment : 0.00,

@@ -4,8 +4,6 @@ import {Ionicons} from '@expo/vector-icons';
 import { useStore , useDispatch } from 'react-redux'; 
 import { ScrollView } from 'react-native-gesture-handler';
 import * as Updates from 'expo-updates';
-// import {Restart} from 'fiction-expo-restart';
-
 
 // First screen set here 
 function UserDetails(){
@@ -41,301 +39,315 @@ function UserDetails(){
         state_val()
     }
     return <KeyboardAvoidingView
-    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    behavior={Platform.OS === "ios"?"padding":"height"}
     style={{
         flex:1,
-        width:'100%'
+        width:'100%',
     }}
     >
-        <View style={{...styles.userDetailsStyle}}>
-                <View style={{
-                    flex:3,
-                }}>
+        <ScrollView bounces={false} contentContainerStyle={{
+            flex:1,
+            backgroundColor:"#9901ff",
+        }}>
+            <View style={{...styles.userDetailsStyle}}>
                     <View style={{
-                        flexDirection:'row',
-                        paddingBottom:'2%',
                     }}>
                         <View style={{
-                            flex:5,
-                            paddingLeft:'2%'
+                            flexDirection:'row',
+                            paddingBottom:'2%',
                         }}>
-                            <TouchableHighlight 
-                                    style={{
-                                        borderRadius:40,
-                                        alignSelf:'flex-start'
-                                    }} 
-                                    underlayColor='white'
-                                    onPress={()=>{
-                                        onEditPressed(true)
-                                    }}>
-                                    <Text style={{
-                                        fontSize:16,
-                                        paddingLeft:'2%',
-                                        color:'#147EFB'
-                                    }}>Edit</Text>
-                            </TouchableHighlight>
-                        </View>
+                            <View style={{
+                                flex:5,
+                                paddingLeft:'2%'
+                            }}>
+                                <TouchableHighlight 
+                                        style={{
+                                            borderRadius:40,
+                                            alignSelf:'flex-start'
+                                        }} 
+                                        underlayColor='white'
+                                        onPress={()=>{
+                                            onEditPressed(true)
+                                        }}>
+                                        <Text style={{
+                                            fontSize:16,
+                                            paddingLeft:'2%',
+                                            color:'#147EFB'
+                                        }}>Edit</Text>
+                                </TouchableHighlight>
+                            </View>
 
-                        <View style={{
-                            flex:5,
-                            paddingRight:'2%',
+                            <View style={{
+                                flex:5,
+                                paddingRight:'2%',
+                            }}>
+                                <TouchableHighlight 
+                                        style={{
+                                            borderRadius:40,
+                                            alignSelf:'flex-end'
+                                        }} 
+                                        underlayColor='white'
+                                        onPress={()=>{
+                                            try {
+                                                if (editPressed === false){
+                                                    Alert.alert(
+                                                        'Delete account?',
+                                                        'This will delete all your account details. You will lose all data from this application',
+                                                        [
+                                                            { text: "Cancel", style: 'cancel', onPress: () => {} },
+                                                            {
+                                                                text: 'Procceed',
+                                                                style: 'destructive',
+                                                                onPress: () => {
+                                                                    // Resetting all the data 
+                                                                    // Since our reducer needs an payload or something similar in action 
+                                                                    dispatch({type:'PURGE_USER_DETAILS',payload:{}})
+                                                                    dispatch({type:'PURGE_MONTHLY',payload:{}})
+                                                                    dispatch({type:'PURGE_OVERALL_BALANCE',payload:{}})
+                                                                    dispatch({type:'PURGE_TRANSACTIONS',payload:{}})
+                                                                    if (Platform.OS == "android"){
+                                                                        console.log("This is being set")
+                                                                        dispatch({type:'SET_FIRST_NAME',payload:''})
+                                                                        dispatch({type:'SET_LAST_NAME',payload:''})
+                                                                        dispatch({type:'SET_MONTHLY_INCOME',payload:0.00})
+                                                                        dispatch({type:'SET_HOUSEHOLD_BUDGET',payload:0.00})
+                                                                        dispatch({type:'SET_ENTERTAINMENT_BUDGET',payload:0.00})
+                                                                        dispatch({type:'SET_TRANSPORTATION_BUDGET',payload:0.00})
+                                                                        dispatch({type:'SET_UTILITIES_BUDGET',payload:0.00})
+                                                                        dispatch({type:'SET_SELF_BUDGET',payload:0.00})
+                                                                        dispatch({type:'SET_EDUCATION_BUDGET',payload:0.00})
+                                                                    }
+                                                                    console.log("This is what happens")
+                                                                    console.log(store.getState().userDetails)
+                                                                    console.log(store.getState().monthlyBalance)
+                                                                    Updates.reloadAsync()
+                                                                },
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                                else{
+                                                    onEditPressed(false)
+                                                    Alert.alert(
+                                                        'Update details?',
+                                                        'This will chnage your budget and also delete the expenses till this month.',
+                                                        [
+                                                            { text: "Cancel", style: 'cancel', onPress: () => {
+                                                                onFirstNameChange(store.getState().userDetails.firstName)
+                                                                onLastNameChange(store.getState().userDetails.lastName)
+                                                                onMonthlyIncomeChange(String(store.getState().userDetails.monthltyIncome))
+                                                                onhouseholdchange(String(store.getState().userDetails.houseHoldBudget))
+                                                                oneducationChange(String(store.getState().userDetails.educationBudget))
+                                                                ontransportationChange(String(store.getState().userDetails.transportationBudget))
+                                                                onSelfBudgetChange(String(store.getState().userDetails.selfBudget))
+                                                                onEntertainmentBudgetChange(String(store.getState().userDetails.entertainmentBudget))
+                                                                onUtlitiesBudgetChange(String(store.getState().userDetails.utiltiesBudget))
+                                                            } },
+                                                            {
+                                                                text: 'Procceed',
+                                                                style: 'destructive',
+                                                                onPress: () => {
+                                                                    if (isNaN(Number(monthlyIncome)) || isNaN(Number(household)) || isNaN(Number(entertainmentBudget)) || isNaN(Number(transportation)) || isNaN(Number(utilitiesBudget)) || isNaN(Number(selfBudget)) || isNaN(Number(education)) || isNaN(Number(monthlyIncome))) {
+                                                                        Alert.alert("Letter in number detected.", "Changes Not saved")
+                                                                        onFirstNameChange(store.getState().userDetails.firstName)
+                                                                        onLastNameChange(store.getState().userDetails.lastName)
+                                                                        onMonthlyIncomeChange(String(store.getState().userDetails.monthltyIncome))
+                                                                        onhouseholdchange(String(store.getState().userDetails.houseHoldBudget))
+                                                                        oneducationChange(String(store.getState().userDetails.educationBudget))
+                                                                        ontransportationChange(String(store.getState().userDetails.transportationBudget))
+                                                                        onSelfBudgetChange(String(store.getState().userDetails.selfBudget))
+                                                                        onEntertainmentBudgetChange(String(store.getState().userDetails.entertainmentBudget))
+                                                                        onUtlitiesBudgetChange(String(store.getState().userDetails.utiltiesBudget))
+                                                                    }
+                                                                    else if (( Number(household) + Number(entertainmentBudget) + Number(transportation) + Number(utilitiesBudget) + Number(selfBudget) + Number(education)) <= Number(monthlyIncome)){
+                                                                        // Setting for the first time 
+                                                                        dispatch({type:'SET_FIRST_NAME',payload:firstName})
+                                                                        dispatch({type:'SET_LAST_NAME',payload:lastName})
+                                                                        dispatch({type:'SET_MONTHLY_INCOME',payload:parseFloat(monthlyIncome)})
+                                                                        dispatch({type:'SET_HOUSEHOLD_BUDGET',payload:parseFloat(household)})
+                                                                        dispatch({type:'SET_ENTERTAINMENT_BUDGET',payload:parseFloat(entertainmentBudget)})
+                                                                        dispatch({type:'SET_TRANSPORTATION_BUDGET',payload:parseFloat(transportation)})
+                                                                        dispatch({type:'SET_UTILITIES_BUDGET',payload:parseFloat(utilitiesBudget)})
+                                                                        dispatch({type:'SET_SELF_BUDGET',payload:parseFloat(selfBudget)})
+                                                                        dispatch({type:'SET_EDUCATION_BUDGET',payload:parseFloat(education)})
+                                                                        
+                                                                        // Setting to the monthly store 
+                                                                        dispatch({type:'SET_TOTAL_FOR_MONTH',payload:parseFloat(monthlyIncome)})
+                                                                        dispatch({type:'SET_HOUSEHOLD_FOR_MONTH',payload:parseFloat(household)})
+                                                                        dispatch({type:'SET_ENTERTAINMENT_FOR_MONTH',payload:parseFloat(entertainmentBudget)})
+                                                                        dispatch({type:'SET_TRANSPORTATION_FOR_MONTH',payload:parseFloat(transportation)})
+                                                                        dispatch({type:'SET_UTILITIES_FOR_MONTH',payload:parseFloat(utilitiesBudget)})
+                                                                        dispatch({type:'SET_SELF_FOR_MONTH',payload:parseFloat(selfBudget)})
+                                                                        dispatch({type:'SET_EDUCATION_FOR_MONTH',payload:parseFloat(education)}) 
+                                                                        Alert.alert("Done")   
+                                                                    }
+                                                                    else{
+                                                                        Alert.alert("Monthly income is less than budget","Changes not saved")
+                                                                        onLastNameChange(store.getState().userDetails.lastName)
+                                                                        onMonthlyIncomeChange(String(store.getState().userDetails.monthltyIncome))
+                                                                        onhouseholdchange(String(store.getState().userDetails.houseHoldBudget))
+                                                                        oneducationChange(String(store.getState().userDetails.educationBudget))
+                                                                        ontransportationChange(String(store.getState().userDetails.transportationBudget))
+                                                                        onSelfBudgetChange(String(store.getState().userDetails.selfBudget))
+                                                                        onEntertainmentBudgetChange(String(store.getState().userDetails.entertainmentBudget))
+                                                                        onUtlitiesBudgetChange(String(store.getState().userDetails.utiltiesBudget))
+                                                                    }
+                                                                },
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                            } catch (error) {
+                                                Alert.alert("Error Found, Could not Save")
+                                            }
+                                        }}>
+                                        <Text style={{
+                                            fontSize:16,
+                                            paddingLeft:'2%',
+                                            color:'red'
+                                        }}>{editPressed? "Done": "Delete"}</Text>
+                                </TouchableHighlight>
+                            </View>
+                        </View>
+                        
+                        <View
+                            style={{
+                            borderWidth: 1,
+                            borderColor: '#8a8888',
+                            }}
+                        />
+
+                        <ScrollView bounces={false} style={{
                         }}>
-                            <TouchableHighlight 
-                                    style={{
-                                        borderRadius:40,
-                                        alignSelf:'flex-end'
-                                    }} 
-                                    underlayColor='white'
-                                    onPress={()=>{
-                                        try {
-                                            if (editPressed === false){
-                                                Alert.alert(
-                                                    'Delete account?',
-                                                    'This will delete all your account details. You will lose all data from this application',
-                                                    [
-                                                        { text: "Cancel", style: 'cancel', onPress: () => {} },
-                                                        {
-                                                            text: 'Procceed',
-                                                            style: 'destructive',
-                                                            onPress: () => {
-                                                                // Resetting all the data 
-                                                                // Since our reducer needs an payload or something similar in action 
-                                                                dispatch({type:'PURGE_USER_DETAILS',payload:{}})
-                                                                dispatch({type:'PURGE_MONTHLY',payload:{}})
-                                                                dispatch({type:'PURGE_OVERALL_BALANCE',payload:{}})
-                                                                dispatch({type:'PURGE_TRANSACTIONS',payload:{}})
-                                                                Updates.reloadAsync()
-                                                                // Restart()
-                                                            },
-                                                        },
-                                                    ]
-                                                )
-                                            }
-                                            else{
-                                                onEditPressed(false)
-                                                Alert.alert(
-                                                    'Update details?',
-                                                    'This will default your monthly budget and also delete the expenses till this month.',
-                                                    [
-                                                        { text: "Cancel", style: 'cancel', onPress: () => {
-                                                            onFirstNameChange(store.getState().userDetails.firstName)
-                                                            onLastNameChange(store.getState().userDetails.lastName)
-                                                            onMonthlyIncomeChange(String(store.getState().userDetails.monthltyIncome))
-                                                            onhouseholdchange(String(store.getState().userDetails.houseHoldBudget))
-                                                            oneducationChange(String(store.getState().userDetails.educationBudget))
-                                                            ontransportationChange(String(store.getState().userDetails.transportationBudget))
-                                                            onSelfBudgetChange(String(store.getState().userDetails.selfBudget))
-                                                            onEntertainmentBudgetChange(String(store.getState().userDetails.entertainmentBudget))
-                                                            onUtlitiesBudgetChange(String(store.getState().userDetails.utiltiesBudget))
-                                                        } },
-                                                        {
-                                                            text: 'Procceed',
-                                                            style: 'destructive',
-                                                            onPress: () => {
-                                                                if (isNaN(Number(monthlyIncome)) || isNaN(Number(household)) || isNaN(Number(entertainmentBudget)) || isNaN(Number(transportation)) || isNaN(Number(utilitiesBudget)) || isNaN(Number(selfBudget)) || isNaN(Number(education)) || isNaN(Number(monthlyIncome))) {
-                                                                    Alert.alert("Letter in number detected.", "Changes Not saved")
-                                                                    onFirstNameChange(store.getState().userDetails.firstName)
-                                                                    onLastNameChange(store.getState().userDetails.lastName)
-                                                                    onMonthlyIncomeChange(String(store.getState().userDetails.monthltyIncome))
-                                                                    onhouseholdchange(String(store.getState().userDetails.houseHoldBudget))
-                                                                    oneducationChange(String(store.getState().userDetails.educationBudget))
-                                                                    ontransportationChange(String(store.getState().userDetails.transportationBudget))
-                                                                    onSelfBudgetChange(String(store.getState().userDetails.selfBudget))
-                                                                    onEntertainmentBudgetChange(String(store.getState().userDetails.entertainmentBudget))
-                                                                    onUtlitiesBudgetChange(String(store.getState().userDetails.utiltiesBudget))
-                                                                }
-                                                                else if (( Number(household) + Number(entertainmentBudget) + Number(transportation) + Number(utilitiesBudget) + Number(selfBudget) + Number(education)) <= Number(monthlyIncome)){
-                                                                    // Setting for the first time 
-                                                                    dispatch({type:'SET_FIRST_NAME',payload:firstName})
-                                                                    dispatch({type:'SET_LAST_NAME',payload:lastName})
-                                                                    dispatch({type:'SET_MONTHLY_INCOME',payload:parseFloat(monthlyIncome)})
-                                                                    dispatch({type:'SET_HOUSEHOLD_BUDGET',payload:parseFloat(household)})
-                                                                    dispatch({type:'SET_ENTERTAINMENT_BUDGET',payload:parseFloat(entertainmentBudget)})
-                                                                    dispatch({type:'SET_TRANSPORTATION_BUDGET',payload:parseFloat(transportation)})
-                                                                    dispatch({type:'SET_UTILITIES_BUDGET',payload:parseFloat(utilitiesBudget)})
-                                                                    dispatch({type:'SET_SELF_BUDGET',payload:parseFloat(selfBudget)})
-                                                                    dispatch({type:'SET_EDUCATION_BUDGET',payload:parseFloat(education)})
-                                                                    
-                                                                    // Setting to the monthly store 
-                                                                    dispatch({type:'SET_TOTAL_FOR_MONTH',payload:parseFloat(monthlyIncome)})
-                                                                    dispatch({type:'SET_HOUSEHOLD_FOR_MONTH',payload:parseFloat(household)})
-                                                                    dispatch({type:'SET_ENTERTAINMENT_FOR_MONTH',payload:parseFloat(entertainmentBudget)})
-                                                                    dispatch({type:'SET_TRANSPORTATION_FOR_MONTH',payload:parseFloat(transportation)})
-                                                                    dispatch({type:'SET_UTILITIES_FOR_MONTH',payload:parseFloat(utilitiesBudget)})
-                                                                    dispatch({type:'SET_SELF_FOR_MONTH',payload:parseFloat(selfBudget)})
-                                                                    dispatch({type:'SET_EDUCATION_FOR_MONTH',payload:parseFloat(education)}) 
-                                                                    Alert.alert("Done")   
-                                                                }
-                                                                else{
-                                                                    Alert.alert("Monthly income is less than budget","Changes not saved")
-                                                                    onLastNameChange(store.getState().userDetails.lastName)
-                                                                    onMonthlyIncomeChange(String(store.getState().userDetails.monthltyIncome))
-                                                                    onhouseholdchange(String(store.getState().userDetails.houseHoldBudget))
-                                                                    oneducationChange(String(store.getState().userDetails.educationBudget))
-                                                                    ontransportationChange(String(store.getState().userDetails.transportationBudget))
-                                                                    onSelfBudgetChange(String(store.getState().userDetails.selfBudget))
-                                                                    onEntertainmentBudgetChange(String(store.getState().userDetails.entertainmentBudget))
-                                                                    onUtlitiesBudgetChange(String(store.getState().userDetails.utiltiesBudget))
-                                                                }
-                                                            },
-                                                        },
-                                                    ]
-                                                )
-                                            }
-                                        } catch (error) {
-                                            Alert.alert("Error Found, Could not Save")
-                                        }
-                                    }}>
+                            {/* This contains the name  */}
+                            <View style={{
+                                    ...styles.viewContainerStyle,
+                                }}>
                                     <Text style={{
-                                        fontSize:16,
                                         paddingLeft:'2%',
-                                        color:'red'
-                                    }}>{editPressed? "Done": "Delete"}</Text>
-                            </TouchableHighlight>
-                        </View>
-                    </View>
-                    
-                    <View
-                        style={{
-                        borderWidth: 1,
-                        borderColor: '#8a8888',
-                        }}
-                    />
+                                        paddingRight:'2%',
+                                        paddingTop:'2%',
+                                        fontSize:16,
+                                        flex:3,
+                                        fontWeight:'500'
+                                    }}>
+                                        Name:
+                                    </Text>
 
-                    <ScrollView bounces={false} style={{
-                    }}>
-                        {/* This contains the name  */}
-                        <View style={{
-                                ...styles.viewContainerStyle,
+                                    <View style = {editPressed? {flex:3,...styles.editMode } : {flex:3,...styles.doneMode}}>
+                                        <TextInput style = {editPressed? {...styles.textEdit } : {...styles.textDone}} value={firstName} editable={editPressed} onChangeText={onFirstNameChange} placeholder='First Name'></TextInput>
+                                    </View>
+
+                                    <View style={{flex:1}}></View>
+
+                                    <View style = {editPressed? {flex:3,...styles.editMode } : {flex:3,...styles.doneMode}}>
+                                        <TextInput style = {editPressed? {...styles.textEdit } : {...styles.textDone}} value={lastName} editable={editPressed} onChangeText={onLastNameChange} placeholder='Last Name'></TextInput>
+                                    </View>
+
+                            </View>
+                            
+                            <View style={{
+                                ...styles.viewContainerStyle
                             }}>
                                 <Text style={{
-                                    paddingLeft:'2%',
-                                    paddingRight:'2%',
-                                    paddingTop:'2%',
-                                    fontSize:16,
-                                    flex:3,
-                                    fontWeight:'500'
-                                }}>
-                                    Name:
-                                </Text>
-
-                                <View style = {editPressed? {flex:3,...styles.editMode } : {flex:3,...styles.doneMode}}>
-                                    <TextInput style = {editPressed? {...styles.textEdit } : {...styles.textDone}} value={firstName} editable={editPressed} onChangeText={onFirstNameChange} placeholder='First Name'></TextInput>
-                                </View>
-
-                                <View style={{flex:1}}></View>
-
-                                <View style = {editPressed? {flex:3,...styles.editMode } : {flex:3,...styles.doneMode}}>
-                                    <TextInput style = {editPressed? {...styles.textEdit } : {...styles.textDone}} value={lastName} editable={editPressed} onChangeText={onLastNameChange} placeholder='Last Name'></TextInput>
-                                </View>
-
-                        </View>
-                        
-                        <View style={{
-                            ...styles.viewContainerStyle
-                        }}>
-                            <Text style={{
-                                ...styles.descriptiveTextStyle
-                            }} >Monthly Income</Text>
-                            <View style={{...styles.viewContainerInside}}>
-                                <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
-                                    <Text style={styles.dollarSign}>$</Text>
-                                    <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone} value={monthlyIncome} editable={editPressed} onChangeText={onMonthlyIncomeChange}></TextInput>
+                                    ...styles.descriptiveTextStyle
+                                }} >Monthly Income</Text>
+                                <View style={{...styles.viewContainerInside}}>
+                                    <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                        <Text style={styles.dollarSign}>$</Text>
+                                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone} value={monthlyIncome} editable={editPressed} onChangeText={onMonthlyIncomeChange}></TextInput>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
-                        
-                        <View style={{
-                            ...styles.viewContainerStyle
-                        }}>
-                            <Text style={{...styles.descriptiveTextStyle}}>Household Budget</Text>
-                            <View style={{...styles.viewContainerInside}}>
-                                <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
-                                    <Text style={styles.dollarSign}>$</Text>
-                                    <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={household} editable={editPressed} onChangeText={onhouseholdchange}></TextInput>
+                            
+                            <View style={{
+                                ...styles.viewContainerStyle
+                            }}>
+                                <Text style={{...styles.descriptiveTextStyle}}>Household Budget</Text>
+                                <View style={{...styles.viewContainerInside}}>
+                                    <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                        <Text style={styles.dollarSign}>$</Text>
+                                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={household} editable={editPressed} onChangeText={onhouseholdchange}></TextInput>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
 
-                        <View style={{
-                            ...styles.viewContainerStyle
-                        }}>
-                            <Text style={{...styles.descriptiveTextStyle}}>Education Budget</Text>
-                            <View style={{...styles.viewContainerInside}}>
-                                <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
-                                    <Text style={styles.dollarSign}>$</Text>
-                                    <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone} value = {education} editable={editPressed} onChangeText={oneducationChange}></TextInput>
+                            <View style={{
+                                ...styles.viewContainerStyle
+                            }}>
+                                <Text style={{...styles.descriptiveTextStyle}}>Education Budget</Text>
+                                <View style={{...styles.viewContainerInside}}>
+                                    <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                        <Text style={styles.dollarSign}>$</Text>
+                                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone} value = {education} editable={editPressed} onChangeText={oneducationChange}></TextInput>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
 
-                        <View style={{
-                            ...styles.viewContainerStyle
-                        }}>
-                            <Text style={{...styles.descriptiveTextStyle}}>Transportation Budget</Text>
-                            <View style={{...styles.viewContainerInside}}>
-                                <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
-                                    <Text style={styles.dollarSign}>$</Text>
-                                    <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={transportation} editable={editPressed} onChangeText={ontransportationChange}></TextInput>
+                            <View style={{
+                                ...styles.viewContainerStyle
+                            }}>
+                                <Text style={{...styles.descriptiveTextStyle}}>Transportation Budget</Text>
+                                <View style={{...styles.viewContainerInside}}>
+                                    <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                        <Text style={styles.dollarSign}>$</Text>
+                                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={transportation} editable={editPressed} onChangeText={ontransportationChange}></TextInput>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
 
-                        <View style={{
-                            ...styles.viewContainerStyle
-                        }}>
-                            <Text style={{...styles.descriptiveTextStyle}}>Selfbudget Budget</Text>
-                            <View style={{...styles.viewContainerInside}}>
-                                <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
-                                    <Text style={styles.dollarSign}>$</Text>
-                                    <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={selfBudget} editable={editPressed} onChangeText={onSelfBudgetChange}></TextInput>
+                            <View style={{
+                                ...styles.viewContainerStyle
+                            }}>
+                                <Text style={{...styles.descriptiveTextStyle}}>Selfbudget Budget</Text>
+                                <View style={{...styles.viewContainerInside}}>
+                                    <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                        <Text style={styles.dollarSign}>$</Text>
+                                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={selfBudget} editable={editPressed} onChangeText={onSelfBudgetChange}></TextInput>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
 
-                        <View style={{
-                            ...styles.viewContainerStyle
-                        }}>
-                            <Text style={{...styles.descriptiveTextStyle}}>Entertainment Budget</Text>
-                            <View style={{...styles.viewContainerInside}}>
-                                <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
-                                    <Text style={styles.dollarSign}>$</Text>
-                                    <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={entertainmentBudget} editable={editPressed} onChangeText={onEntertainmentBudgetChange}></TextInput>
+                            <View style={{
+                                ...styles.viewContainerStyle
+                            }}>
+                                <Text style={{...styles.descriptiveTextStyle}}>Entertainment Budget</Text>
+                                <View style={{...styles.viewContainerInside}}>
+                                    <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                        <Text style={styles.dollarSign}>$</Text>
+                                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={entertainmentBudget} editable={editPressed} onChangeText={onEntertainmentBudgetChange}></TextInput>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
 
-                        <View style={{
-                            ...styles.viewContainerStyle
-                        }}>
-                            <Text style={{...styles.descriptiveTextStyle}}>Utilities Budget</Text>
-                            <View style={{...styles.viewContainerInside}}>
-                                <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
-                                    <Text style={styles.dollarSign}>$</Text>
-                                    <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={utilitiesBudget} editable={editPressed} onChangeText={onUtlitiesBudgetChange}></TextInput>
+                            <View style={{
+                                ...styles.viewContainerStyle
+                            }}>
+                                <Text style={{...styles.descriptiveTextStyle}}>Utilities Budget</Text>
+                                <View style={{...styles.viewContainerInside}}>
+                                    <View style = {editPressed? {...styles.editMode } : {...styles.doneMode}}>
+                                        <Text style={styles.dollarSign}>$</Text>
+                                        <TextInput keyboardType="numeric" style = {editPressed? styles.textEdit : styles.textDone}  value={utilitiesBudget} editable={editPressed} onChangeText={onUtlitiesBudgetChange}></TextInput>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
-                    </ScrollView>
-                </View>
-                <View style={{
-                    flex:2,
-                    backgroundColor:'#9901ff'
-                }}>
-
-                </View>
-        </View>
+                        </ScrollView>
+                    </View>
+                <View style={{paddingBottom:'5%'}}></View>
+            </View>
+        </ScrollView>
     </KeyboardAvoidingView>
 }
 
 const styles = StyleSheet.create({
     // These are the bases of each component 
     userDetailsStyle : {
-        flex:1,
-        width:'100%',
+        // flex:1,
+        // width:'100%',
         backgroundColor:'white',
-        paddingTop:'2%',
-        justifyContent:'flex-end'
+        // paddingTop:'2%',
+        justifyContent:'flex-end',
+        paddingTop:'5%'
     },
     financialDetailsStyle :{
         flex:1,

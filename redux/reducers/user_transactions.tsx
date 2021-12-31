@@ -104,6 +104,7 @@ export const allTransactions = (state = overallTransactions, action:any) => {
         case 'PURGE_TRANSACTIONS':
             console.log("Deleting Transactions")
             return {
+                ...state,
                 household:[],
                 self:[],
                 transportation:[],

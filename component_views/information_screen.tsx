@@ -4,6 +4,7 @@ import { ScrollView, StyleSheet, Text, View, TextInput, SafeAreaView, Alert, Key
 import { useStore , useDispatch } from 'react-redux'; 
 import {compareStates} from '../Helper/functions'
 
+
 function InformationScreen({ navigation } : {navigation : any}) {
     const [firstName, onFirstNameChange] = React.useState("")
     const [lastName, onLastNameChange] = React.useState("")
@@ -16,7 +17,9 @@ function InformationScreen({ navigation } : {navigation : any}) {
     const [utilitiesBudget, onUtlitiesBudgetChange] = React.useState("")
     const [hideKeyboard, onKeyBoardHideChange] = React.useState(false)
     const store = useStore()
+
     
+
     // This is the state at the begining of the program 
     const firstState = {
         firstName : '',
@@ -41,7 +44,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
     const dispatch = useDispatch()
     return (
             <KeyboardAvoidingView enabled={hideKeyboard}
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            behavior={Platform.OS == "ios"?"padding":"height"}
             style={{flex:1}}
             >
                 <View style={{flex:1,backgroundColor:'#9901ff'}}></View>

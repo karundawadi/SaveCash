@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Alert, Image, TouchableHighlight} from 'react-native';
+import {StyleSheet, View, Text, Alert, Image, TouchableHighlight, BackHandler} from 'react-native';
 import CircularButton from '../custom_build/circular_button';
 import {Ionicons} from '@expo/vector-icons'
 import { useStore, useSelector } from 'react-redux'; 
@@ -22,6 +22,11 @@ function HomePage(){
     const transporatationLeft = Number(useStore().getState().monthlyBalance.transportationLeft)
     const utiltiesLeft = Number(useStore().getState().monthlyBalance.utilitiesLeft)
     const personalLeft = Number(useStore().getState().monthlyBalance.selfLeft)
+
+    React.useEffect(() => {
+        const backHandler = BackHandler.addEventListener('hardwareBackPress', () => true)
+        return () => backHandler.remove()
+    }, [])
 
     const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     return (

@@ -19,7 +19,10 @@ function LandingPage({ navigation } : {navigation : any}) {
         selfBudget : 0.00,
     }
     const store = useStore()
-
+    console.log("Derived store")
+    console.log(store.getState().userDetails)
+    console.log("Current store")
+    console.log(firstState)
     // To check if the state is already presnet or not 
     if ((compareStates(store.getState().userDetails,firstState) == false)){
         // Use Effect was used here cause the program runs the compareStates condition 

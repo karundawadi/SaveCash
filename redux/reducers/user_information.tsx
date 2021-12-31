@@ -60,6 +60,7 @@ export const changeUserInfo = (state = initialState, action:any) => {
         case 'PURGE_USER_DETAILS':
             console.log("Deleting user details")
             return {
+                ...state,
                 firstName : '',
                 lastName : '',
                 monthltyIncome : 0.00,
