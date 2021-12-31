@@ -78,7 +78,6 @@ function FinancialDetails(){
         ringSize:7,
         radius: 14
     }
-    console.log(((houseHoldBudget-householdLeft)/houseHoldBudget)/100)
     // If more than 99% doesn't display the circle 
     // This is the data that will be taken from the application itself ; replaced all the sections with needed data 
     const data = [ 

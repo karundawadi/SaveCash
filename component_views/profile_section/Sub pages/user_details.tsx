@@ -99,27 +99,8 @@ function UserDetails(){
                                                                 text: 'Procceed',
                                                                 style: 'destructive',
                                                                 onPress: () => {
-                                                                    // Resetting all the data 
-                                                                    // Since our reducer needs an payload or something similar in action 
                                                                     dispatch({type:'PURGE_USER_DETAILS',payload:{}})
                                                                     dispatch({type:'PURGE_MONTHLY',payload:{}})
-                                                                    dispatch({type:'PURGE_OVERALL_BALANCE',payload:{}})
-                                                                    dispatch({type:'PURGE_TRANSACTIONS',payload:{}})
-                                                                    if (Platform.OS == "android"){
-                                                                        console.log("This is being set")
-                                                                        dispatch({type:'SET_FIRST_NAME',payload:''})
-                                                                        dispatch({type:'SET_LAST_NAME',payload:''})
-                                                                        dispatch({type:'SET_MONTHLY_INCOME',payload:0.00})
-                                                                        dispatch({type:'SET_HOUSEHOLD_BUDGET',payload:0.00})
-                                                                        dispatch({type:'SET_ENTERTAINMENT_BUDGET',payload:0.00})
-                                                                        dispatch({type:'SET_TRANSPORTATION_BUDGET',payload:0.00})
-                                                                        dispatch({type:'SET_UTILITIES_BUDGET',payload:0.00})
-                                                                        dispatch({type:'SET_SELF_BUDGET',payload:0.00})
-                                                                        dispatch({type:'SET_EDUCATION_BUDGET',payload:0.00})
-                                                                    }
-                                                                    console.log("This is what happens")
-                                                                    console.log(store.getState().userDetails)
-                                                                    console.log(store.getState().monthlyBalance)
                                                                     Updates.reloadAsync()
                                                                 },
                                                             },

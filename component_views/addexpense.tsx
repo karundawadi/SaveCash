@@ -254,8 +254,8 @@ function AddExpense(){
                                                             break;
                                                         case "education":
                                                             dispatch({type:'ADD_TO_EDUCATION_TRANSACTION',description:expenseName,amount:amount,date:date})
-                                                            //dispatch({type:'SUBTRACT_FROM_EDUCATION_FOR_MONTH',payload:parseFloat(amount)})
-                                                            //dispatch({type:'SUBTRACT_FROM_EDUCATION',payload:parseFloat(amount)})
+                                                            dispatch({type:'SUBTRACT_FROM_EDUCATION_FOR_MONTH',payload:parseFloat(amount)})
+                                                            dispatch({type:'SUBTRACT_FROM_EDUCATION',payload:parseFloat(amount)})
                                                             break;
                                                         default:
                                                             Alert.alert("Please select an category")

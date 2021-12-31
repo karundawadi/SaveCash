@@ -41,6 +41,7 @@ function InformationScreen({ navigation } : {navigation : any}) {
             navigation.navigate("HomePage")
         },[navigation])
     }
+
     const dispatch = useDispatch()
     return (
             <KeyboardAvoidingView enabled={hideKeyboard}
@@ -302,6 +303,9 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                     else{
                                         var navigateReady:boolean = false
                                         try {
+                                            dispatch({type:'PURGE_TRANSACTIONS',payload:{}})
+                                            dispatch({type:'PURGE_OVERALL_BALANCE',payload:{}})
+
                                             // Setting for the first time 
                                             dispatch({type:'SET_FIRST_NAME',payload:firstName})
                                             dispatch({type:'SET_LAST_NAME',payload:lastName})
@@ -319,7 +323,6 @@ function InformationScreen({ navigation } : {navigation : any}) {
                                             dispatch({type:'SET_HOUSEHOLD_FOR_MONTH',payload:parseFloat(household)})
                                             dispatch({type:'SET_ENTERTAINMENT_FOR_MONTH',payload:parseFloat(entertainmentBudget)})
                                             dispatch({type:'SET_TRANSPORTATION_FOR_MONTH',payload:parseFloat(transportation)})
-                                            dispatch({type:'SET_UTILITIES_FOR_MONTH',payload:parseFloat(education)})
                                             dispatch({type:'SET_UTILITIES_FOR_MONTH',payload:parseFloat(utilitiesBudget)})
                                             dispatch({type:'SET_SELF_FOR_MONTH',payload:parseFloat(selfBudget)})
 
