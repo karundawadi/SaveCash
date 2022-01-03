@@ -12,6 +12,7 @@ To install this application follow the following steps:
 
 If you encounter any error it may be because you may not have access to the application. To request access please fill out this [google form](https://forms.gle/DU1xbrtGhcWDuNQ5A). If you are still getting errors, please see contributing section to sumbit a bug report. 
 
+<img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/add_expenses.png"/>
 
 ## Contributing
 Pull requests are welcome. These requests will be reviewed before merging. For major changes, please open an issue first to discuss what you would like to change.
