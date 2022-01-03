@@ -11,13 +11,14 @@ To install this application follow the following steps:
 - Wait for few seconds the application will now run on the device
 
 If you encounter any error it may be because you may not have access to the application. To request access please fill out this [google form](https://forms.gle/DU1xbrtGhcWDuNQ5A). If you are still getting errors, please see contributing section to sumbit a bug report. 
-
-<img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/landing_page.png" width="250" height="auto"/>
-<img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/create_profile.png" width="250" height="auto"/>
-<img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/home_page.png" width="250" height="auto"/>
-<img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/add_expenses.png" width="250" height="auto"/>
-<img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/edit_profile.png" width="250" height="auto"/>
-<img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/finances.png" width="250" height="auto"/>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/landing_page.png" width="250" height="auto"/>
+  <img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/create_profile.png" width="250" height="auto"/>
+  <img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/home_page.png" width="250" height="auto"/>
+  <img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/add_expenses.png" width="250" height="auto"/>
+  <img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/edit_profile.png" width="250" height="auto"/>
+  <img src="https://raw.githubusercontent.com/karundawadi/SaveCash/main/Screenshots/Phone/finances.png" width="250" height="auto"/>
+</p>
 
 
 ## Contributing
