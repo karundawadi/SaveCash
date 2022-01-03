@@ -44,7 +44,7 @@ function LandingPage({ navigation } : {navigation : any}) {
             <View style={styles.actualBody}>
                 <ScrollView bounces={false}>
                     <Animatable.Text animation="fadeInUp" style={styles.bodyText}>
-                        Save Cash is an application that assists you to track your expenses. It does so without compramising 
+                        Save Cash is an application that assists you to track your expenses. It does so without compromising 
                         your privacy as all your information is stored in your phone. 
                     </Animatable.Text>
                     
@@ -63,7 +63,7 @@ function LandingPage({ navigation } : {navigation : any}) {
                     }}></View>
 
                     <Animatable.Text animation="fadeInUp" style={styles.bodyText}>
-                        That is all you have to know. Click Let's go to get started. 
+                        Click Let's go to get started. 
                     </Animatable.Text>
                 </ScrollView>
             </View>
