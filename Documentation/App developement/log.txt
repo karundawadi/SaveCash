@@ -1,7 +1,0 @@
-- React navigation added 
-- All data stored is backed up to icloud for ios users and the user has option to save data to google drive 
--- In case of Android : add in built version (  android:allowBackup=”true”)
--- Account has been created on expo official website 
-
-
-- Github release created on Aug 30 at 1:30 am

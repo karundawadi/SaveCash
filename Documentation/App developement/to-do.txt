@@ -1,7 +1,0 @@
-# Future improvement 
-- Need to show over budget components on homescreen
-- Need to add more finance details graphs 
-- Add the feature of debt and surplus
-- Show overall transactions details 
-- Fix many GUI units 
-- Fix spellings 
