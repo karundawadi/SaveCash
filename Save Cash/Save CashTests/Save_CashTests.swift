@@ -1,14 +1,14 @@
 //
-//  SaveCashTests.swift
-//  SaveCashTests
+//  Save_CashTests.swift
+//  Save CashTests
 //
 //  Created by Karun Dawadi on 8/6/22.
 //
 
 import XCTest
-@testable import SaveCash
+@testable import Save_Cash
 
-class SaveCashTests: XCTestCase {
+class Save_CashTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

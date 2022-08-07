@@ -7,61 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62BC81EF289EF812002DC03B /* SaveCashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC81EE289EF812002DC03B /* SaveCashApp.swift */; };
-		62BC81F1289EF812002DC03B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC81F0289EF812002DC03B /* ContentView.swift */; };
-		62BC81F3289EF813002DC03B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62BC81F2289EF813002DC03B /* Assets.xcassets */; };
-		62BC81F6289EF813002DC03B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62BC81F5289EF813002DC03B /* Preview Assets.xcassets */; };
-		62BC8200289EF813002DC03B /* SaveCashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC81FF289EF813002DC03B /* SaveCashTests.swift */; };
-		62BC820A289EF813002DC03B /* SaveCashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC8209289EF813002DC03B /* SaveCashUITests.swift */; };
-		62BC820C289EF813002DC03B /* SaveCashUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC820B289EF813002DC03B /* SaveCashUITestsLaunchTests.swift */; };
+		62BC8225289F6CDC002DC03B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC8224289F6CDC002DC03B /* AppDelegate.swift */; };
+		62BC8227289F6CDD002DC03B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC8226289F6CDD002DC03B /* SceneDelegate.swift */; };
+		62BC8229289F6CDD002DC03B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC8228289F6CDD002DC03B /* ViewController.swift */; };
+		62BC822E289F6CDD002DC03B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62BC822D289F6CDD002DC03B /* Assets.xcassets */; };
+		62BC8231289F6CDD002DC03B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62BC822F289F6CDD002DC03B /* LaunchScreen.storyboard */; };
+		62BC823C289F6CDE002DC03B /* Save_CashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC823B289F6CDE002DC03B /* Save_CashTests.swift */; };
+		62BC8246289F6CDE002DC03B /* Save_CashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC8245289F6CDE002DC03B /* Save_CashUITests.swift */; };
+		62BC8248289F6CDE002DC03B /* Save_CashUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC8247289F6CDE002DC03B /* Save_CashUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		62BC81FC289EF813002DC03B /* PBXContainerItemProxy */ = {
+		62BC8238289F6CDE002DC03B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62BC81E3289EF812002DC03B /* Project object */;
+			containerPortal = 62BC8219289F6CDC002DC03B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 62BC81EA289EF812002DC03B;
-			remoteInfo = SaveCash;
+			remoteGlobalIDString = 62BC8220289F6CDC002DC03B;
+			remoteInfo = "Save Cash";
 		};
-		62BC8206289EF813002DC03B /* PBXContainerItemProxy */ = {
+		62BC8242289F6CDE002DC03B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62BC81E3289EF812002DC03B /* Project object */;
+			containerPortal = 62BC8219289F6CDC002DC03B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 62BC81EA289EF812002DC03B;
-			remoteInfo = SaveCash;
+			remoteGlobalIDString = 62BC8220289F6CDC002DC03B;
+			remoteInfo = "Save Cash";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		62BC81EB289EF812002DC03B /* SaveCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		62BC81EE289EF812002DC03B /* SaveCashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCashApp.swift; sourceTree = "<group>"; };
-		62BC81F0289EF812002DC03B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		62BC81F2289EF813002DC03B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		62BC81F5289EF813002DC03B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		62BC81FB289EF813002DC03B /* SaveCashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaveCashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		62BC81FF289EF813002DC03B /* SaveCashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCashTests.swift; sourceTree = "<group>"; };
-		62BC8205289EF813002DC03B /* SaveCashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaveCashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		62BC8209289EF813002DC03B /* SaveCashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCashUITests.swift; sourceTree = "<group>"; };
-		62BC820B289EF813002DC03B /* SaveCashUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCashUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		62BC8221289F6CDC002DC03B /* Save Cash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Save Cash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62BC8224289F6CDC002DC03B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		62BC8226289F6CDD002DC03B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		62BC8228289F6CDD002DC03B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		62BC822D289F6CDD002DC03B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		62BC8230289F6CDD002DC03B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		62BC8232289F6CDD002DC03B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62BC8237289F6CDE002DC03B /* Save CashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Save CashTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62BC823B289F6CDE002DC03B /* Save_CashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save_CashTests.swift; sourceTree = "<group>"; };
+		62BC8241289F6CDE002DC03B /* Save CashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Save CashUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62BC8245289F6CDE002DC03B /* Save_CashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save_CashUITests.swift; sourceTree = "<group>"; };
+		62BC8247289F6CDE002DC03B /* Save_CashUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save_CashUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		62BC81E8289EF812002DC03B /* Frameworks */ = {
+		62BC821E289F6CDC002DC03B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		62BC81F8289EF813002DC03B /* Frameworks */ = {
+		62BC8234289F6CDE002DC03B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		62BC8202289EF813002DC03B /* Frameworks */ = {
+		62BC823E289F6CDE002DC03B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,142 +74,136 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		62BC81E2289EF812002DC03B = {
+		62BC8218289F6CDC002DC03B = {
 			isa = PBXGroup;
 			children = (
-				62BC81ED289EF812002DC03B /* SaveCash */,
-				62BC81FE289EF813002DC03B /* SaveCashTests */,
-				62BC8208289EF813002DC03B /* SaveCashUITests */,
-				62BC81EC289EF812002DC03B /* Products */,
+				62BC8223289F6CDC002DC03B /* Save Cash */,
+				62BC823A289F6CDE002DC03B /* Save CashTests */,
+				62BC8244289F6CDE002DC03B /* Save CashUITests */,
+				62BC8222289F6CDC002DC03B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		62BC81EC289EF812002DC03B /* Products */ = {
+		62BC8222289F6CDC002DC03B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62BC81EB289EF812002DC03B /* SaveCash.app */,
-				62BC81FB289EF813002DC03B /* SaveCashTests.xctest */,
-				62BC8205289EF813002DC03B /* SaveCashUITests.xctest */,
+				62BC8221289F6CDC002DC03B /* Save Cash.app */,
+				62BC8237289F6CDE002DC03B /* Save CashTests.xctest */,
+				62BC8241289F6CDE002DC03B /* Save CashUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		62BC81ED289EF812002DC03B /* SaveCash */ = {
+		62BC8223289F6CDC002DC03B /* Save Cash */ = {
 			isa = PBXGroup;
 			children = (
-				62BC81EE289EF812002DC03B /* SaveCashApp.swift */,
-				62BC81F0289EF812002DC03B /* ContentView.swift */,
-				62BC81F2289EF813002DC03B /* Assets.xcassets */,
-				62BC81F4289EF813002DC03B /* Preview Content */,
+				62BC8224289F6CDC002DC03B /* AppDelegate.swift */,
+				62BC8226289F6CDD002DC03B /* SceneDelegate.swift */,
+				62BC8228289F6CDD002DC03B /* ViewController.swift */,
+				62BC822D289F6CDD002DC03B /* Assets.xcassets */,
+				62BC822F289F6CDD002DC03B /* LaunchScreen.storyboard */,
+				62BC8232289F6CDD002DC03B /* Info.plist */,
 			);
-			path = SaveCash;
+			path = "Save Cash";
 			sourceTree = "<group>";
 		};
-		62BC81F4289EF813002DC03B /* Preview Content */ = {
+		62BC823A289F6CDE002DC03B /* Save CashTests */ = {
 			isa = PBXGroup;
 			children = (
-				62BC81F5289EF813002DC03B /* Preview Assets.xcassets */,
+				62BC823B289F6CDE002DC03B /* Save_CashTests.swift */,
 			);
-			path = "Preview Content";
+			path = "Save CashTests";
 			sourceTree = "<group>";
 		};
-		62BC81FE289EF813002DC03B /* SaveCashTests */ = {
+		62BC8244289F6CDE002DC03B /* Save CashUITests */ = {
 			isa = PBXGroup;
 			children = (
-				62BC81FF289EF813002DC03B /* SaveCashTests.swift */,
+				62BC8245289F6CDE002DC03B /* Save_CashUITests.swift */,
+				62BC8247289F6CDE002DC03B /* Save_CashUITestsLaunchTests.swift */,
 			);
-			path = SaveCashTests;
-			sourceTree = "<group>";
-		};
-		62BC8208289EF813002DC03B /* SaveCashUITests */ = {
-			isa = PBXGroup;
-			children = (
-				62BC8209289EF813002DC03B /* SaveCashUITests.swift */,
-				62BC820B289EF813002DC03B /* SaveCashUITestsLaunchTests.swift */,
-			);
-			path = SaveCashUITests;
+			path = "Save CashUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		62BC81EA289EF812002DC03B /* SaveCash */ = {
+		62BC8220289F6CDC002DC03B /* Save Cash */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 62BC820F289EF813002DC03B /* Build configuration list for PBXNativeTarget "SaveCash" */;
+			buildConfigurationList = 62BC824B289F6CDE002DC03B /* Build configuration list for PBXNativeTarget "Save Cash" */;
 			buildPhases = (
-				62BC81E7289EF812002DC03B /* Sources */,
-				62BC81E8289EF812002DC03B /* Frameworks */,
-				62BC81E9289EF812002DC03B /* Resources */,
+				62BC821D289F6CDC002DC03B /* Sources */,
+				62BC821E289F6CDC002DC03B /* Frameworks */,
+				62BC821F289F6CDC002DC03B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SaveCash;
-			productName = SaveCash;
-			productReference = 62BC81EB289EF812002DC03B /* SaveCash.app */;
+			name = "Save Cash";
+			productName = "Save Cash";
+			productReference = 62BC8221289F6CDC002DC03B /* Save Cash.app */;
 			productType = "com.apple.product-type.application";
 		};
-		62BC81FA289EF813002DC03B /* SaveCashTests */ = {
+		62BC8236289F6CDE002DC03B /* Save CashTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 62BC8212289EF813002DC03B /* Build configuration list for PBXNativeTarget "SaveCashTests" */;
+			buildConfigurationList = 62BC824E289F6CDE002DC03B /* Build configuration list for PBXNativeTarget "Save CashTests" */;
 			buildPhases = (
-				62BC81F7289EF813002DC03B /* Sources */,
-				62BC81F8289EF813002DC03B /* Frameworks */,
-				62BC81F9289EF813002DC03B /* Resources */,
+				62BC8233289F6CDE002DC03B /* Sources */,
+				62BC8234289F6CDE002DC03B /* Frameworks */,
+				62BC8235289F6CDE002DC03B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				62BC81FD289EF813002DC03B /* PBXTargetDependency */,
+				62BC8239289F6CDE002DC03B /* PBXTargetDependency */,
 			);
-			name = SaveCashTests;
-			productName = SaveCashTests;
-			productReference = 62BC81FB289EF813002DC03B /* SaveCashTests.xctest */;
+			name = "Save CashTests";
+			productName = "Save CashTests";
+			productReference = 62BC8237289F6CDE002DC03B /* Save CashTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		62BC8204289EF813002DC03B /* SaveCashUITests */ = {
+		62BC8240289F6CDE002DC03B /* Save CashUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 62BC8215289EF813002DC03B /* Build configuration list for PBXNativeTarget "SaveCashUITests" */;
+			buildConfigurationList = 62BC8251289F6CDE002DC03B /* Build configuration list for PBXNativeTarget "Save CashUITests" */;
 			buildPhases = (
-				62BC8201289EF813002DC03B /* Sources */,
-				62BC8202289EF813002DC03B /* Frameworks */,
-				62BC8203289EF813002DC03B /* Resources */,
+				62BC823D289F6CDE002DC03B /* Sources */,
+				62BC823E289F6CDE002DC03B /* Frameworks */,
+				62BC823F289F6CDE002DC03B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				62BC8207289EF813002DC03B /* PBXTargetDependency */,
+				62BC8243289F6CDE002DC03B /* PBXTargetDependency */,
 			);
-			name = SaveCashUITests;
-			productName = SaveCashUITests;
-			productReference = 62BC8205289EF813002DC03B /* SaveCashUITests.xctest */;
+			name = "Save CashUITests";
+			productName = "Save CashUITests";
+			productReference = 62BC8241289F6CDE002DC03B /* Save CashUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		62BC81E3289EF812002DC03B /* Project object */ = {
+		62BC8219289F6CDC002DC03B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					62BC81EA289EF812002DC03B = {
+					62BC8220289F6CDC002DC03B = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
-					62BC81FA289EF813002DC03B = {
+					62BC8236289F6CDE002DC03B = {
 						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 62BC81EA289EF812002DC03B;
+						TestTargetID = 62BC8220289F6CDC002DC03B;
 					};
-					62BC8204289EF813002DC03B = {
+					62BC8240289F6CDE002DC03B = {
 						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 62BC81EA289EF812002DC03B;
+						TestTargetID = 62BC8220289F6CDC002DC03B;
 					};
 				};
 			};
-			buildConfigurationList = 62BC81E6289EF812002DC03B /* Build configuration list for PBXProject "SaveCash" */;
+			buildConfigurationList = 62BC821C289F6CDC002DC03B /* Build configuration list for PBXProject "Save Cash" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -214,36 +211,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 62BC81E2289EF812002DC03B;
-			productRefGroup = 62BC81EC289EF812002DC03B /* Products */;
+			mainGroup = 62BC8218289F6CDC002DC03B;
+			productRefGroup = 62BC8222289F6CDC002DC03B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				62BC81EA289EF812002DC03B /* SaveCash */,
-				62BC81FA289EF813002DC03B /* SaveCashTests */,
-				62BC8204289EF813002DC03B /* SaveCashUITests */,
+				62BC8220289F6CDC002DC03B /* Save Cash */,
+				62BC8236289F6CDE002DC03B /* Save CashTests */,
+				62BC8240289F6CDE002DC03B /* Save CashUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		62BC81E9289EF812002DC03B /* Resources */ = {
+		62BC821F289F6CDC002DC03B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62BC81F6289EF813002DC03B /* Preview Assets.xcassets in Resources */,
-				62BC81F3289EF813002DC03B /* Assets.xcassets in Resources */,
+				62BC8231289F6CDD002DC03B /* LaunchScreen.storyboard in Resources */,
+				62BC822E289F6CDD002DC03B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		62BC81F9289EF813002DC03B /* Resources */ = {
+		62BC8235289F6CDE002DC03B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		62BC8203289EF813002DC03B /* Resources */ = {
+		62BC823F289F6CDE002DC03B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,49 +250,61 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		62BC81E7289EF812002DC03B /* Sources */ = {
+		62BC821D289F6CDC002DC03B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62BC81F1289EF812002DC03B /* ContentView.swift in Sources */,
-				62BC81EF289EF812002DC03B /* SaveCashApp.swift in Sources */,
+				62BC8229289F6CDD002DC03B /* ViewController.swift in Sources */,
+				62BC8225289F6CDC002DC03B /* AppDelegate.swift in Sources */,
+				62BC8227289F6CDD002DC03B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		62BC81F7289EF813002DC03B /* Sources */ = {
+		62BC8233289F6CDE002DC03B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62BC8200289EF813002DC03B /* SaveCashTests.swift in Sources */,
+				62BC823C289F6CDE002DC03B /* Save_CashTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		62BC8201289EF813002DC03B /* Sources */ = {
+		62BC823D289F6CDE002DC03B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62BC820C289EF813002DC03B /* SaveCashUITestsLaunchTests.swift in Sources */,
-				62BC820A289EF813002DC03B /* SaveCashUITests.swift in Sources */,
+				62BC8248289F6CDE002DC03B /* Save_CashUITestsLaunchTests.swift in Sources */,
+				62BC8246289F6CDE002DC03B /* Save_CashUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		62BC81FD289EF813002DC03B /* PBXTargetDependency */ = {
+		62BC8239289F6CDE002DC03B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 62BC81EA289EF812002DC03B /* SaveCash */;
-			targetProxy = 62BC81FC289EF813002DC03B /* PBXContainerItemProxy */;
+			target = 62BC8220289F6CDC002DC03B /* Save Cash */;
+			targetProxy = 62BC8238289F6CDE002DC03B /* PBXContainerItemProxy */;
 		};
-		62BC8207289EF813002DC03B /* PBXTargetDependency */ = {
+		62BC8243289F6CDE002DC03B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 62BC81EA289EF812002DC03B /* SaveCash */;
-			targetProxy = 62BC8206289EF813002DC03B /* PBXContainerItemProxy */;
+			target = 62BC8220289F6CDC002DC03B /* Save Cash */;
+			targetProxy = 62BC8242289F6CDE002DC03B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		62BC822F289F6CDD002DC03B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				62BC8230289F6CDD002DC03B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		62BC820D289EF813002DC03B /* Debug */ = {
+		62BC8249289F6CDE002DC03B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -355,7 +364,7 @@
 			};
 			name = Debug;
 		};
-		62BC820E289EF813002DC03B /* Release */ = {
+		62BC824A289F6CDE002DC03B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -409,19 +418,17 @@
 			};
 			name = Release;
 		};
-		62BC8210289EF813002DC03B /* Debug */ = {
+		62BC824C289F6CDE002DC03B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SaveCash/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "Save Cash/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -429,7 +436,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.karundawadi.SaveCash;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.karundawadi.Save-Cash";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -437,19 +444,17 @@
 			};
 			name = Debug;
 		};
-		62BC8211289EF813002DC03B /* Release */ = {
+		62BC824D289F6CDE002DC03B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SaveCash/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "Save Cash/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -457,7 +462,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.karundawadi.SaveCash;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.karundawadi.Save-Cash";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -465,7 +470,7 @@
 			};
 			name = Release;
 		};
-		62BC8213289EF813002DC03B /* Debug */ = {
+		62BC824F289F6CDE002DC03B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -475,16 +480,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.karundawadi.SaveCashTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.karundawadi.Save-CashTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SaveCash.app/SaveCash";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Save Cash.app/Save Cash";
 			};
 			name = Debug;
 		};
-		62BC8214289EF813002DC03B /* Release */ = {
+		62BC8250289F6CDE002DC03B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -494,16 +499,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.karundawadi.SaveCashTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.karundawadi.Save-CashTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SaveCash.app/SaveCash";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Save Cash.app/Save Cash";
 			};
 			name = Release;
 		};
-		62BC8216289EF813002DC03B /* Debug */ = {
+		62BC8252289F6CDE002DC03B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -511,16 +516,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.karundawadi.SaveCashUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.karundawadi.Save-CashUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SaveCash;
+				TEST_TARGET_NAME = "Save Cash";
 			};
 			name = Debug;
 		};
-		62BC8217289EF813002DC03B /* Release */ = {
+		62BC8253289F6CDE002DC03B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -528,55 +533,55 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.karundawadi.SaveCashUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.karundawadi.Save-CashUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SaveCash;
+				TEST_TARGET_NAME = "Save Cash";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		62BC81E6289EF812002DC03B /* Build configuration list for PBXProject "SaveCash" */ = {
+		62BC821C289F6CDC002DC03B /* Build configuration list for PBXProject "Save Cash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				62BC820D289EF813002DC03B /* Debug */,
-				62BC820E289EF813002DC03B /* Release */,
+				62BC8249289F6CDE002DC03B /* Debug */,
+				62BC824A289F6CDE002DC03B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		62BC820F289EF813002DC03B /* Build configuration list for PBXNativeTarget "SaveCash" */ = {
+		62BC824B289F6CDE002DC03B /* Build configuration list for PBXNativeTarget "Save Cash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				62BC8210289EF813002DC03B /* Debug */,
-				62BC8211289EF813002DC03B /* Release */,
+				62BC824C289F6CDE002DC03B /* Debug */,
+				62BC824D289F6CDE002DC03B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		62BC8212289EF813002DC03B /* Build configuration list for PBXNativeTarget "SaveCashTests" */ = {
+		62BC824E289F6CDE002DC03B /* Build configuration list for PBXNativeTarget "Save CashTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				62BC8213289EF813002DC03B /* Debug */,
-				62BC8214289EF813002DC03B /* Release */,
+				62BC824F289F6CDE002DC03B /* Debug */,
+				62BC8250289F6CDE002DC03B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		62BC8215289EF813002DC03B /* Build configuration list for PBXNativeTarget "SaveCashUITests" */ = {
+		62BC8251289F6CDE002DC03B /* Build configuration list for PBXNativeTarget "Save CashUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				62BC8216289EF813002DC03B /* Debug */,
-				62BC8217289EF813002DC03B /* Release */,
+				62BC8252289F6CDE002DC03B /* Debug */,
+				62BC8253289F6CDE002DC03B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 62BC81E3289EF812002DC03B /* Project object */;
+	rootObject = 62BC8219289F6CDC002DC03B /* Project object */;
 }

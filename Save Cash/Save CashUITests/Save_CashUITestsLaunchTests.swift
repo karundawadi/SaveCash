@@ -1,13 +1,13 @@
 //
-//  SaveCashUITestsLaunchTests.swift
-//  SaveCashUITests
+//  Save_CashUITestsLaunchTests.swift
+//  Save CashUITests
 //
 //  Created by Karun Dawadi on 8/6/22.
 //
 
 import XCTest
 
-class SaveCashUITestsLaunchTests: XCTestCase {
+class Save_CashUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
